@@ -15,6 +15,9 @@ class ImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    SizeConfig.init(context);
+
     return Image.asset(
       imagePath,
       height: SizeConfig.responsiveHeight(height),

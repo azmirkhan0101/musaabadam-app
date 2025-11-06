@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/constants/app_images.dart';
+import 'package:musaab_adam/gen/assets.gen.dart';
+import 'package:musaab_adam/utils/app_images/app_images.dart';
 import 'package:musaab_adam/screens/auth_screens/controllers/signin_controller.dart';
 import 'package:musaab_adam/utils/size_config/size_config.dart';
 import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
 import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
 
-import '../../constants/app_colors.dart';
+import '../../utils/app_colors/app_colors.dart';
 
 class SignInScreen extends StatelessWidget {
   final SignInController controller = Get.find<SignInController>();
 
   @override
   Widget build(BuildContext context) {
+
+    SizeConfig.init(context);
+
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
@@ -24,10 +28,8 @@ class SignInScreen extends StatelessWidget {
                 SizedBox( height: SizeConfig.responsiveHeight(38),),
                 Align(
                   alignment: Alignment.topCenter,
-                  child: ImageWidget(
-                      width: 240,
-                      height: 235,
-                      imagePath: AppImages.SIGNIN_ONBOARDING),
+                  child: ImageWidget(width: 200, height: 200, imagePath: Assets.images.signinOnboarding.keyName
+                )
                 ),
                 SizedBox(height: SizeConfig.responsiveHeight(15),),
                 TextWidget(
