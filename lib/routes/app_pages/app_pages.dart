@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:musaab_adam/screens/auth_screens/signin_screen.dart';
+import 'package:musaab_adam/screens/auth_screens/signin_screen/signin_screen.dart';
 
 part '../app_routes/app_routes.dart';
 

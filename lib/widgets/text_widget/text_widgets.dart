@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:musaab_adam/utils/size_config/size_config.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextWidget extends StatelessWidget {
   final String text;
   final FontWeight fontWeight;
-  final double responsiveFontSize;
+  final double fontSize;
   final FontStyle fontStyle;
   final Color fontColor;
   final TextOverflow? overflow;
@@ -19,7 +19,7 @@ class TextWidget extends StatelessWidget {
     super.key,
     required this.text,
     this.fontWeight = FontWeight.w400,
-    this.responsiveFontSize = 14,
+    this.fontSize = 18,
     this.fontStyle = FontStyle.normal,
     this.fontColor = Colors.transparent,
     this.overflow,
@@ -40,7 +40,7 @@ class TextWidget extends StatelessWidget {
       textAlign: textAlignment,
       style: TextStyle(
         fontWeight: fontWeight,
-        fontSize: SizeConfig.responsiveFontSize(responsiveFontSize),
+        fontSize: fontSize.sp,
         fontStyle: fontStyle,
         color: fontColor,
         fontFamily: fontFamily,

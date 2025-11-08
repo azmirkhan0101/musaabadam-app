@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:musaab_adam/screens/auth_screens/controllers/signin_controller.dart';
+
+import '../../screens/auth_screens/signin_screen/controllers/signin_controller.dart';
 
 class InitialBinding extends Bindings{
   @override
