@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../utils/global_helper/global_helper.dart';
+
 class TextWidget extends StatelessWidget {
   final String text;
   final FontWeight fontWeight;
@@ -14,6 +16,7 @@ class TextWidget extends StatelessWidget {
   final bool underline;
   final Color? underlineColor;
   final double underlineWidth;
+  final double figmaLetterSpacing;
 
   const TextWidget({
     super.key,
@@ -29,6 +32,8 @@ class TextWidget extends StatelessWidget {
     this.underline = false,
     this.underlineColor,
     this.underlineWidth = 1.0,
+    this.figmaLetterSpacing = 0
+
   });
 
   @override
@@ -44,6 +49,7 @@ class TextWidget extends StatelessWidget {
         fontStyle: fontStyle,
         color: fontColor,
         fontFamily: fontFamily,
+        letterSpacing: letterSpacingFromFigma(figmaLetterSpacing, fontSize),
         decoration: underline ? TextDecoration.underline : TextDecoration.none,
         decorationColor: underline ? underlineColor : null,
         decorationThickness: underline ? underlineWidth : null,

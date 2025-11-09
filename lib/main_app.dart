@@ -3,14 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/bindings/initial_binding/initial_binding.dart';
 import 'package:musaab_adam/routes/app_pages/app_pages.dart';
-import 'package:musaab_adam/utils/size_config/size_config.dart';
+import 'package:musaab_adam/utils/assets_gen/fonts.gen.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig.init(context);
 
     return ScreenUtilInit(
       designSize: const Size(375, 812),
@@ -19,11 +18,11 @@ class MainApp extends StatelessWidget {
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
         return GetMaterialApp(
-          theme: ThemeData(fontFamily: "OpenSans"),
+          theme: ThemeData(fontFamily: FontFamily.openSans),
           debugShowCheckedModeBanner: false,
           initialBinding: InitialBinding(),
           getPages: AppPages.pages,
-          initialRoute: AppRoutes.SIGNIN_PAGE,
+          initialRoute: AppRoutes.PROFILE_SETUP_SCREEN,
         );
       },
     );

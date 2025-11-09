@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:musaab_adam/utils/size_config/size_config.dart';
 
 class IconWidget extends StatelessWidget {
   final double height;
@@ -20,8 +20,8 @@ class IconWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       icon,
-      height: SizeConfig.responsiveHeight(height),
-      width: SizeConfig.responsiveWidth(width),
+      height: height.h,
+      width: width.w,
       fit: BoxFit.cover,
       color: color,
     );
