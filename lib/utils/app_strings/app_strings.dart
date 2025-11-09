@@ -11,7 +11,7 @@ class AppStrings {
   static final String alreadyHaveAnAccount = "Already have an account? ";
   static final String signIn = "Sign In";
   static final String forgotPassword = "Forgot password?";
-  static final String dontHaveAnAccount = "Don’t have an account?";
+  static final String dontHaveAnAccount = "Don’t have an account? ";
   static final String signInWith = "Sign in with";
   static final String loginWithGoogle = "Login with google";
   static final String loginWithFacebook = "Login with facebook";

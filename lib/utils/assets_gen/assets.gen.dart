@@ -14,11 +14,29 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/camera.svg
+  String get camera => 'assets/icons/camera.svg';
+
   /// File path: assets/icons/eye.svg
   String get eye => 'assets/icons/eye.svg';
 
+  /// File path: assets/icons/eye_filled.svg
+  String get eyeFilled => 'assets/icons/eye_filled.svg';
+
+  /// File path: assets/icons/facebook_login.svg
+  String get facebookLogin => 'assets/icons/facebook_login.svg';
+
+  /// File path: assets/icons/google_login.svg
+  String get googleLogin => 'assets/icons/google_login.svg';
+
   /// List of all assets
-  List<String> get values => [eye];
+  List<String> get values => [
+    camera,
+    eye,
+    eyeFilled,
+    facebookLogin,
+    googleLogin,
+  ];
 }
 
 class $AssetsImagesGen {
@@ -40,12 +58,17 @@ class $AssetsImagesGen {
   AssetGenImage get splashLogo1024 =>
       const AssetGenImage('assets/images/splash_logo1024.png');
 
+  /// File path: assets/images/user_photo.png
+  AssetGenImage get userPhoto =>
+      const AssetGenImage('assets/images/user_photo.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
     signinOnboarding,
     signupOnboarding,
     splashLogo,
     splashLogo1024,
+    userPhoto,
   ];
 }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:musaab_adam/utils/size_config/size_config.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ImageWidget extends StatelessWidget {
   final double height;
@@ -16,12 +16,10 @@ class ImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    SizeConfig.init(context);
-
     return Image.asset(
       imagePath,
-      height: SizeConfig.responsiveHeight(height),
-      width: SizeConfig.responsiveWidth(width),
+      height: height.h,
+      width: width.w,
       fit: BoxFit.cover,
     );
   }

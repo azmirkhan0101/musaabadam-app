@@ -47,7 +47,7 @@ flutter:
         - asset: assets/fonts/Mulish-Regular.ttf
 
 flutter_gen:
-  output: lib/utils/
+  output: lib/utils/assets_gen
 
 
 flutter_native_splash:

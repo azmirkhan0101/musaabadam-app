@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class SignInController extends GetxController{
+class SignUpController extends GetxController{
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
   RxBool testBool = false.obs;
 }

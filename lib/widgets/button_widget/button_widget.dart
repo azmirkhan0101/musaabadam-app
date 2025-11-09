@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/app_colors/app_colors.dart';
-import '../../utils/size_config/size_config.dart';
 import '../icon_widget/icon_widget.dart';
 import '../text_widget/text_widgets.dart';
 
@@ -59,6 +59,7 @@ class ButtonWidget extends StatelessWidget {
         ),
       ),
       child: MaterialButton(
+        padding: padding,
         onPressed: onPressed,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
@@ -73,11 +74,11 @@ class ButtonWidget extends StatelessWidget {
                 height: 22,
                 width: 22,
               ),
-            if (prefixIcon != null) SizedBox(width: SizeConfig.responsiveWidth(12),),
+            if (prefixIcon != null) SizedBox(width: 12.w),
             TextWidget(
               text: label,
               fontColor: textColor,
-              responsiveFontSize: fontSize,
+              fontSize: fontSize.sp,
               fontWeight: fontWeight,
             ),
             if (icon != null) const SizedBox(width: 12),

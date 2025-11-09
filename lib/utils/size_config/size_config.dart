@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-class SizeConfig {
+class SizeConfig2 {
 
-  SizeConfig._();
+  SizeConfig2._();
 
   static late double screenWidth;
   static late double screenHeight;

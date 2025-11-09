@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:musaab_adam/utils/size_config/size_config.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SizedBoxWidget extends StatelessWidget {
 
@@ -17,12 +17,10 @@ class SizedBoxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    SizeConfig.init(context);
-
     return SizedBox(
-      height: SizeConfig.responsiveHeight(height),
-      width: SizeConfig.responsiveWidth(width),
-      child: child,
+      height: height.h,
+      width:width.w,
+      child: child ?? SizedBox.shrink(),
     );
   }
 }
