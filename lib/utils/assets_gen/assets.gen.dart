@@ -26,8 +26,20 @@ class $AssetsIconsGen {
   /// File path: assets/icons/facebook_login.svg
   String get facebookLogin => 'assets/icons/facebook_login.svg';
 
+  /// File path: assets/icons/gift.svg
+  String get gift => 'assets/icons/gift.svg';
+
   /// File path: assets/icons/google_login.svg
   String get googleLogin => 'assets/icons/google_login.svg';
+
+  /// File path: assets/icons/message.svg
+  String get message => 'assets/icons/message.svg';
+
+  /// File path: assets/icons/notification.svg
+  String get notification => 'assets/icons/notification.svg';
+
+  /// File path: assets/icons/search.svg
+  String get search => 'assets/icons/search.svg';
 
   /// List of all assets
   List<String> get values => [
@@ -35,12 +47,19 @@ class $AssetsIconsGen {
     eye,
     eyeFilled,
     facebookLogin,
+    gift,
     googleLogin,
+    message,
+    notification,
+    search,
   ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/bag2.png
+  AssetGenImage get bag2 => const AssetGenImage('assets/images/bag2.png');
 
   /// File path: assets/images/bags.png
   AssetGenImage get bags => const AssetGenImage('assets/images/bags.png');
@@ -59,12 +78,21 @@ class $AssetsImagesGen {
   AssetGenImage get forgotPasswordOnboarding =>
       const AssetGenImage('assets/images/forgot_password_onboarding.png');
 
+  /// File path: assets/images/hoodie.png
+  AssetGenImage get hoodie => const AssetGenImage('assets/images/hoodie.png');
+
   /// File path: assets/images/jwelery.png
   AssetGenImage get jwelery => const AssetGenImage('assets/images/jwelery.png');
+
+  /// File path: assets/images/mobile.png
+  AssetGenImage get mobile => const AssetGenImage('assets/images/mobile.png');
 
   /// File path: assets/images/new_password_onboarding.png
   AssetGenImage get newPasswordOnboarding =>
       const AssetGenImage('assets/images/new_password_onboarding.png');
+
+  /// File path: assets/images/shoe2.png
+  AssetGenImage get shoe2 => const AssetGenImage('assets/images/shoe2.png');
 
   /// File path: assets/images/shoes.png
   AssetGenImage get shoes => const AssetGenImage('assets/images/shoes.png');
@@ -95,15 +123,22 @@ class $AssetsImagesGen {
   /// File path: assets/images/watch.png
   AssetGenImage get watch => const AssetGenImage('assets/images/watch.png');
 
+  /// File path: assets/images/watch2.png
+  AssetGenImage get watch2 => const AssetGenImage('assets/images/watch2.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+    bag2,
     bags,
     beauty,
     books,
     checkEmailOnboarding,
     forgotPasswordOnboarding,
+    hoodie,
     jwelery,
+    mobile,
     newPasswordOnboarding,
+    shoe2,
     shoes,
     signinOnboarding,
     signupOnboarding,
@@ -112,6 +147,7 @@ class $AssetsImagesGen {
     tools,
     userPhoto,
     watch,
+    watch2,
   ];
 }
 
