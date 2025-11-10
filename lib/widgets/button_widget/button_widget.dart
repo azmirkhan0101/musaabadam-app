@@ -48,8 +48,8 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: buttonHeight,
-      width: buttonWidth,
+      height: buttonHeight.h,
+      width: buttonWidth.w,
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.black,
         borderRadius: buttonRadius,

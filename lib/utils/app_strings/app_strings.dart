@@ -19,6 +19,11 @@ class AppStrings {
   static final String bio = "Bio";
   static final String preference = "Preference";
   static final String pickAFewToGetStarted = "Pick a few to get Started";
+  static final String bags = "Bags";
+  static final String shoes = "Shoes";
+  static final String books = "Books";
+  static final String beauty = "Beauty";
+  static final String tools = "Tools";
   static const String continuee = "Continue";
   static const String forgotYourPassword = "Forgot Your Password?";
   static const String noWorries =
@@ -47,6 +52,7 @@ class AppStrings {
   static const String congratulationsYourEmailAccount =
       "Congratulations! your email account";
   static const String hasBeenVerified = "has been verified";
+  static const String continueToYourAccount = "Continue To Your Account";
 
   //====================BUYER SCREENS======================//
   static const String categories = "Categories";
@@ -346,7 +352,6 @@ class AppStrings {
   static const String coinsMoney = "Coins & Money";
   static const String estateSalesStorageUnits = "Estate Sales & Storage Units";
   static const String artsHandmade = "Arts & Handmade";
-  static const String beauty = "Beauty";
   static const String mensFashion = "Men’s Fashion";
   static const String babyKids = "Baby & Kids";
   static const String pokemonCards = "Pokemon Cards";
@@ -504,4 +509,5 @@ class AppStrings {
   static const String amount = "Amount";
   static const String date = "Date";
   static const String paid = "Paid";
+
 }
