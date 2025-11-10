@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -12,6 +13,9 @@ class TextFieldWidget extends StatelessWidget {
   final bool obscureText;
   final String? iconPath;
   final double borderRadius;
+  final bool showCounter;
+  final int maxLines;
+  final int maxLength;
 
   const TextFieldWidget({
     super.key,
@@ -19,14 +23,23 @@ class TextFieldWidget extends StatelessWidget {
     required this.controller,
     this.obscureText = false,
     this.iconPath,
-    this.borderRadius = 0
+    this.borderRadius = 0,
+    this.showCounter = false,
+    this.maxLines = 1,
+    this.maxLength = 30
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      cursorHeight: 20.h,
+      cursorWidth: 1.w,
+      maxLines: maxLines,
+      maxLength: maxLength,
+      maxLengthEnforcement: MaxLengthEnforcement.enforced,
       controller: controller,
       obscureText: obscureText,
+      cursorColor: AppColors.orange80Percent,
       decoration: InputDecoration(
         suffixIconConstraints: BoxConstraints(
           maxHeight: 12.75.h,
@@ -57,6 +70,23 @@ class TextFieldWidget extends StatelessWidget {
             )
         ),
       ),
+      buildCounter: (
+          BuildContext context, {
+            required int currentLength,
+            required bool isFocused,
+            required int? maxLength,
+          }) {
+        return !showCounter ? SizedBox.shrink() : Padding(
+          padding: const EdgeInsets.only(top: 4.0, right: 8.0),
+          child: Text(
+            '$currentLength / ${maxLength}',
+            style: TextStyle(
+              fontSize: 12,
+              color: currentLength >= 500 ? Colors.red : Colors.grey,
+            ),
+          ),
+        );
+      },
     );
   }
 }

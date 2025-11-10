@@ -12,4 +12,7 @@ class AppColors{
   static const Color orange80Percent = Color(0xCCFF9800);
   static const Color lightOrange = Color(0xFFFFC795);
   static const Color grey86 = Color(0xFF868889);
+  static const Color grey8C = Color(0xFF8C8C8C);
+  static const Color greyA8 = Color(0xFFA8A8A8);
+  static const Color blue = Color(0xFF008BB2);
 }

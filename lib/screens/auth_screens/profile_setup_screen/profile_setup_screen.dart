@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:musaab_adam/screens/auth_screens/profile_setup_screen/controllers/profile_setup_controller.dart';
 import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 import 'package:musaab_adam/utils/app_strings/app_strings.dart';
+import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
+import 'package:musaab_adam/widgets/category_item/category_item.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/widgets/text_field_widget/text_field_widget.dart';
 import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
@@ -41,6 +43,7 @@ class ProfileSetupScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBoxWidget( height: 20,),
+              //===================USER PHOTO=========================//
               Align(
                 alignment: Alignment.topCenter,
                 child: Stack(
@@ -66,6 +69,7 @@ class ProfileSetupScreen extends StatelessWidget {
                   ]
                 ),
               ),
+              //===================USER PROFILE NAME=========================//
               Align(
                 alignment: Alignment.center,
                 child: TextWidget(text: controller.userProfileName,
@@ -75,6 +79,7 @@ class ProfileSetupScreen extends StatelessWidget {
                 ),
               ),
               SizedBoxWidget(height: 15,),
+              //===================BIO=========================//
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: TextWidget(text: AppStrings.bio.tr,
@@ -82,11 +87,65 @@ class ProfileSetupScreen extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              Padding(padding: EdgeInsets.symmetric(horizontal: 30.h),
+              SizedBoxWidget(height: 8),
+              Padding(padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: TextFieldWidget(hint: "",
                   controller: controller.bioController,
+                maxLines: 3,
+                maxLength: 500,
+                showCounter: true,
                 borderRadius: 10,
               ),
+              ),
+              SizedBoxWidget(height: 12),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                child: TextWidget(text: AppStrings.preference,),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                child: TextWidget(text: AppStrings.pickAFewToGetStarted,
+                fontSize: 14,
+                  fontColor: AppColors.grey8C,
+                ),
+              ),
+              SizedBoxWidget(
+                height: 15,
+              ),
+              //===================HORIZONTAL SCROLL ITEMS=========================//
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    SizedBoxWidget(
+                      width: 30.w,
+                    ),
+                    CategoryItem(imagePath: Assets.images.watch.keyName, itemName: AppStrings.watch),
+                    CategoryItem(imagePath: Assets.images.jwelery.keyName, itemName: AppStrings.jewelry),
+                    CategoryItem(imagePath: Assets.images.bags.keyName, itemName: AppStrings.bags),
+                    CategoryItem(imagePath: Assets.images.shoes.keyName, itemName: AppStrings.shoes),
+                    CategoryItem(imagePath: Assets.images.books.keyName, itemName: AppStrings.books),
+                    CategoryItem(imagePath: Assets.images.beauty.keyName, itemName: AppStrings.beauty),
+                    CategoryItem(imagePath: Assets.images.tools.keyName, itemName: AppStrings.tools),
+                    SizedBoxWidget(
+                      width: 20.w,
+                    )
+                  ],
+                ),
+              ),
+              SizedBoxWidget(height: 12,),
+              //===================CONTINUE BUTTON=========================//
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
+                child: ButtonWidget(label: AppStrings.continuee,
+                buttonHeight: 40.h,
+                  buttonWidth: double.infinity,
+                  backgroundColor: AppColors.orange,
+                  buttonRadius: BorderRadiusGeometry.circular(8),
+                  onPressed: (){
+
+                  },
+                ),
               )
             ]
           )

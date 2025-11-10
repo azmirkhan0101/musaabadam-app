@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 
 import '../../utils/global_helper/global_helper.dart';
 
@@ -24,7 +25,7 @@ class TextWidget extends StatelessWidget {
     this.fontWeight = FontWeight.w400,
     this.fontSize = 18,
     this.fontStyle = FontStyle.normal,
-    this.fontColor = Colors.transparent,
+    this.fontColor = AppColors.black,
     this.overflow,
     this.maxLines,
     this.textAlignment = TextAlign.center,
