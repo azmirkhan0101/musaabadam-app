@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:musaab_adam/routes/app_pages/app_pages.dart';
 import 'package:musaab_adam/screens/auth_screens/profile_setup_screen/controllers/profile_setup_controller.dart';
 import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 import 'package:musaab_adam/utils/app_strings/app_strings.dart';
@@ -143,7 +144,8 @@ class ProfileSetupScreen extends StatelessWidget {
                   backgroundColor: AppColors.orange,
                   buttonRadius: BorderRadiusGeometry.circular(8),
                   onPressed: (){
-
+                  //TODO: GO TO LIVE STREAMING PLAYER SCREEN
+                    Get.toNamed(AppRoutes.MAIN_SCREEN);
                   },
                 ),
               )

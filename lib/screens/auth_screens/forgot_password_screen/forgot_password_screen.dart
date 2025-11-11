@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:musaab_adam/routes/app_pages/app_pages.dart';
 import 'package:musaab_adam/utils/app_strings/app_strings.dart';
 import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
 import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
@@ -71,6 +72,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                   backgroundColor: AppColors.orange,
                   buttonWidth: double.infinity,
                     buttonHeight: 40,
+                    onPressed: (){
+                    Get.toNamed(AppRoutes.CHECK_EMAIL_SCREEN);
+                    },
                   ),
                   //===================BACK TO THE PLATFORM=========================//
                   Align(

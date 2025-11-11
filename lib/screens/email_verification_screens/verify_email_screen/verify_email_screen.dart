@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:musaab_adam/routes/app_pages/app_pages.dart';
 import 'package:musaab_adam/screens/email_verification_screens/verify_email_screen/controller/verify_email_controller.dart';
 import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 import 'package:musaab_adam/utils/app_strings/app_strings.dart';
@@ -59,6 +60,10 @@ class VerifyEmailScreen extends StatelessWidget {
                     buttonHeight: 40,
                     borderColor: AppColors.brandColor,
                     textColor: AppColors.brandColor,
+                    onPressed: (){
+                    //TODO: GET EMAIL ON NEW EMAIL ADDRESS->THEN VERIFY
+                      Get.toNamed(AppRoutes.LINK_EXPIRED_SCREEN);
+                    },
                   ),
                 )
               ],
