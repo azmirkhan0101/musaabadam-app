@@ -45,7 +45,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: ButtonWidget(label: AppStrings.resendEmail.tr,
-                  backgroundColor: AppColors.blue,
+                  backgroundColor: AppColors.brandColor,
                     buttonWidth: double.infinity,
                     buttonHeight: 40,
                   ),
@@ -57,8 +57,8 @@ class VerifyEmailScreen extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     buttonWidth: double.infinity,
                     buttonHeight: 40,
-                    borderColor: AppColors.blue,
-                    textColor: AppColors.blue,
+                    borderColor: AppColors.brandColor,
+                    textColor: AppColors.brandColor,
                   ),
                 )
               ],

@@ -4,6 +4,7 @@ import 'package:musaab_adam/screens/auth_screens/forgot_password_screen/controll
 import 'package:musaab_adam/screens/auth_screens/new_password_screen/controllers/new_password_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/profile_setup_screen/controllers/profile_setup_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/signup_screen/controllers/signup_controller.dart';
+import 'package:musaab_adam/screens/bottom_nav_screens/categories_screen/controller/categories_screen_controller.dart';
 import 'package:musaab_adam/screens/bottom_nav_screens/home_screen/controller/home_screen_controller.dart';
 import 'package:musaab_adam/screens/email_verification_screens/account_verified_screen/controller/account_verified_controller.dart';
 import 'package:musaab_adam/screens/email_verification_screens/link_expired_screen/controller/link_expired_controller.dart';
@@ -22,6 +23,10 @@ class InitialBinding extends Bindings{
 
     Get.lazyPut((){
       return HomeScreenController();
+    }, fenix: true);
+
+    Get.lazyPut((){
+      return CategoriesScreenController();
     }, fenix: true);
 
     Get.lazyPut((){

@@ -11,8 +11,29 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsDummyGen {
+  const $AssetsDummyGen();
+
+  /// File path: assets/dummy/livestream_preview.png
+  AssetGenImage get livestreamPreview =>
+      const AssetGenImage('assets/dummy/livestream_preview.png');
+
+  /// File path: assets/dummy/livestream_preview2.png
+  AssetGenImage get livestreamPreview2 =>
+      const AssetGenImage('assets/dummy/livestream_preview2.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [livestreamPreview, livestreamPreview2];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
+
+  /// File path: assets/icons/account.svg
+  String get account => 'assets/icons/account.svg';
+
+  /// File path: assets/icons/activity.svg
+  String get activity => 'assets/icons/activity.svg';
 
   /// File path: assets/icons/camera.svg
   String get camera => 'assets/icons/camera.svg';
@@ -32,6 +53,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/google_login.svg
   String get googleLogin => 'assets/icons/google_login.svg';
 
+  /// File path: assets/icons/home.svg
+  String get home => 'assets/icons/home.svg';
+
+  /// File path: assets/icons/live_icon.svg
+  String get liveIcon => 'assets/icons/live_icon.svg';
+
   /// File path: assets/icons/message.svg
   String get message => 'assets/icons/message.svg';
 
@@ -41,22 +68,34 @@ class $AssetsIconsGen {
   /// File path: assets/icons/search.svg
   String get search => 'assets/icons/search.svg';
 
+  /// File path: assets/icons/sell.svg
+  String get sell => 'assets/icons/sell.svg';
+
   /// List of all assets
   List<String> get values => [
+    account,
+    activity,
     camera,
     eye,
     eyeFilled,
     facebookLogin,
     gift,
     googleLogin,
+    home,
+    liveIcon,
     message,
     notification,
     search,
+    sell,
   ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/arrow_orange.png
+  AssetGenImage get arrowOrange =>
+      const AssetGenImage('assets/images/arrow_orange.png');
 
   /// File path: assets/images/bag2.png
   AssetGenImage get bag2 => const AssetGenImage('assets/images/bag2.png');
@@ -73,6 +112,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/check_email_onboarding.png
   AssetGenImage get checkEmailOnboarding =>
       const AssetGenImage('assets/images/check_email_onboarding.png');
+
+  /// File path: assets/images/circle_orange.png
+  AssetGenImage get circleOrange =>
+      const AssetGenImage('assets/images/circle_orange.png');
 
   /// File path: assets/images/forgot_password_onboarding.png
   AssetGenImage get forgotPasswordOnboarding =>
@@ -128,11 +171,13 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+    arrowOrange,
     bag2,
     bags,
     beauty,
     books,
     checkEmailOnboarding,
+    circleOrange,
     forgotPasswordOnboarding,
     hoodie,
     jwelery,
@@ -154,6 +199,7 @@ class $AssetsImagesGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsDummyGen dummy = $AssetsDummyGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

@@ -10,24 +10,30 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HomeScreen(),
+      body: Obx((){
+        return controller.navigationScreens[controller.selectedBottomNavIndex.value];
+      }),
       bottomNavigationBar: Obx(() {
         return BottomNavigationBar(
+          elevation: 0,
+          showUnselectedLabels: true,
+          backgroundColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
           currentIndex: controller.selectedBottomNavIndex.value,
           unselectedItemColor: AppColors.grey8C,
-          selectedItemColor: AppColors.orange,
+          selectedItemColor: AppColors.brandColor,
           onTap: (index) {
             controller.selectedBottomNavIndex.value = index;
           },
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: "Home"),
             BottomNavigationBarItem(
-              icon: Icon(Icons.category),
+              icon: Icon(Icons.search),
               label: "Categories",
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.sell), label: "Sell"),
+            BottomNavigationBarItem(icon: Icon(Icons.add_circle_outline_rounded), label: "Sell"),
             BottomNavigationBarItem(
-              icon: Icon(Icons.local_activity),
+              icon: Icon(Icons.bar_chart_rounded),
               label: "Activity",
             ),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Account"),
