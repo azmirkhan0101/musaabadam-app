@@ -40,7 +40,7 @@ class LinkExpiredScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: ButtonWidget(label: AppStrings.resendVerificationLink.tr,
-                  backgroundColor: AppColors.blue,
+                  backgroundColor: AppColors.brandColor,
                     buttonWidth: double.infinity,
                     buttonHeight: 40,
                   ),

@@ -52,7 +52,7 @@ class AccountVerifiedScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: ButtonWidget(label: AppStrings.continueToYourAccount.tr,
-                  backgroundColor: AppColors.blue,
+                  backgroundColor: AppColors.brandColor,
                     buttonWidth: double.infinity,
                     buttonHeight: 40,
                   ),
