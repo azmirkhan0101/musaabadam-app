@@ -93,6 +93,9 @@ class SignUpScreen extends StatelessWidget {
                   backgroundColor: AppColors.orange,
                   buttonWidth: double.infinity,
                     buttonHeight: 40.h,
+                    onPressed: (){
+                    Get.toNamed(AppRoutes.VERIFY_EMAIL_SCREEN);
+                    },
                   ),
                   SizedBoxWidget(
                     height: 15.h,
@@ -103,13 +106,20 @@ class SignUpScreen extends StatelessWidget {
                       children: [
                         TextSpan(text: AppStrings.alreadyHaveAnAccount.tr,
                             style: TextStyle(color: AppColors.black80Percent,
-                                fontSize: 14.sp, letterSpacing: letterSpacingFromFigma(-2, 14))),
+                                fontSize: 14.sp, letterSpacing: letterSpacingFromFigma(-2, 14)
+                            )
+                        ),
                         TextSpan(text: AppStrings.signIn.tr,
                             recognizer: TapGestureRecognizer()
                             ..onTap = (){
                           Get.toNamed(AppRoutes.SIGNIN_SCREEN);
                             },
-                            style: TextStyle(color: AppColors.orange80Percent, fontSize: 14.sp, letterSpacing: letterSpacingFromFigma(-2, 14))),
+                            style: TextStyle(
+                                color: AppColors.orange80Percent,
+                                fontSize: 14.sp,
+                                letterSpacing: letterSpacingFromFigma(-2, 14)
+                            )
+                        ),
                       ]
                     ),
                     ),

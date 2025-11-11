@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:musaab_adam/routes/app_pages/app_pages.dart';
 import 'package:musaab_adam/screens/email_verification_screens/link_expired_screen/controller/link_expired_controller.dart';
 import 'package:musaab_adam/screens/email_verification_screens/verify_email_screen/controller/verify_email_controller.dart';
 import 'package:musaab_adam/utils/app_colors/app_colors.dart';
@@ -43,6 +44,10 @@ class LinkExpiredScreen extends StatelessWidget {
                   backgroundColor: AppColors.brandColor,
                     buttonWidth: double.infinity,
                     buttonHeight: 40,
+                    onPressed: (){
+                    //TODO: RESEND LINK VIA EMAIL
+                      Get.toNamed(AppRoutes.ACCOUNT_VERIFIED_SCREEN);
+                    },
                   ),
                 ),
               ],

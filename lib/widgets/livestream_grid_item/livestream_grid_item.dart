@@ -7,48 +7,56 @@ import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
 import '../../utils/assets_gen/assets.gen.dart';
 
 class LivestreamGridItem extends StatelessWidget {
-  const LivestreamGridItem({super.key});
+
+  final VoidCallback? onTap;
+  const LivestreamGridItem({
+    super.key,
+    this.onTap
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBoxWidget(
-      height: 113.h,
-      width: 163.w,
-      child: Stack(
-        children: [
-         ClipRRect(
-           borderRadius: BorderRadius.circular(10.w),
-           child: Image.asset(
-               height: 113.h,
-               width: 163.w,
-               fit: BoxFit.cover,
-               Assets.dummy.livestreamPreview2.keyName
+    return GestureDetector(
+      onTap: onTap,
+      child: SizedBoxWidget(
+        height: 113.h,
+        width: 163.w,
+        child: Stack(
+          children: [
+           ClipRRect(
+             borderRadius: BorderRadius.circular(10.w),
+             child: Image.asset(
+                 height: 113.h,
+                 width: 163.w,
+                 fit: BoxFit.cover,
+                 Assets.dummy.livestreamPreview2.keyName
+             ),
            ),
-         ),
 
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 3.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: TextWidget(text: "Azmir Khan",
-                    textAlignment: TextAlign.left,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    fontWeight: FontWeight.w600,
-                      fontColor: Colors.white,
-                      fontSize: 12,
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 3.w),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: TextWidget(text: "Azmir Khan",
+                      textAlignment: TextAlign.left,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.w600,
+                        fontColor: Colors.white,
+                        fontSize: 12,
+                      ),
                     ),
-                  ),
-                  SvgPicture.asset(Assets.icons.liveIcon)
-                ],
+                    Expanded(child: SvgPicture.asset(Assets.icons.liveIcon))
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

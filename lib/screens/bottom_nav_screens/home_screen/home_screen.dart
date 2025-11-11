@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: AppColors.white,
       appBar: appBar(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //===================CATEGORIES - VIEW ALL=========================//
           Padding(
@@ -50,50 +51,40 @@ class HomeScreen extends StatelessWidget {
           //===================LIVE STREAMS - VIEW ALL=========================//
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextWidget(text: AppStrings.liveStreams.tr),
-                TextButton(onPressed: (){
-                },
-                    child: TextWidget(
-                      text: AppStrings.viewAll.tr,
-                      fontSize: 14,
-                      fontColor: AppColors.brandColor,
-                    )
-                )
-              ],
+            child: TextWidget(
+                text: AppStrings.liveStreams.tr,
+              textAlignment: TextAlign.left,
             ),
           ),
           SizedBoxWidget(height: 15.h,),
           //===================LIVE STREAM ITEMS=========================//
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
-                    onTap: (){
-                      Get.toNamed(AppRoutes.SIGNIN_SCREEN);
-                    },
-                    child: LivestreamGridItem(),
-                ),
-                LivestreamGridItem()
-              ],
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.symmetric(horizontal: 15.w),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //     children: [
+          //       GestureDetector(
+          //           onTap: (){
+          //             Get.toNamed(AppRoutes.SIGNIN_SCREEN);
+          //           },
+          //           child: LivestreamGridItem(),
+          //       ),
+          //       LivestreamGridItem()
+          //     ],
+          //   ),
+          // ),
           SizedBoxWidget(height: 10,),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                LivestreamGridItem(),
-                LivestreamGridItem()
-              ],
-            ),
-          ),
+          Expanded(child: liveStreamGridView(),),
+          // Padding(
+          //   padding: EdgeInsets.symmetric(horizontal: 15.w),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //     children: [
+          //       LivestreamGridItem(),
+          //       LivestreamGridItem()
+          //     ],
+          //   ),
+          // ),
           SizedBoxWidget(height: 15.h,),
           //===================TRENDING PRODUCTS - VIEW ALL=========================//
           Padding(
@@ -133,6 +124,32 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+
+  //SCROLLABLE LIVE STREAMS
+  liveStreamGridView(){
+    return Align(
+      alignment: Alignment.topCenter,
+      child: GridView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 15.w),
+        itemCount: 20,
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            crossAxisSpacing: 0.w,
+            mainAxisSpacing: 10.h,
+            mainAxisExtent: 113.h,
+          ),
+          itemBuilder: (context, index){
+            return Center(child: LivestreamGridItem(
+              onTap: (){
+                Get.toNamed(AppRoutes.SIGNIN_SCREEN);
+              },
+            ));
+          }
       ),
     );
   }

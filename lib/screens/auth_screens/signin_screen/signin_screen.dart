@@ -77,12 +77,17 @@ class SignInScreen extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-                      child: TextWidget(text: AppStrings.forgotPassword.tr,
-                        fontFamily: FontFamily.mulish,
-                        fontColor: AppColors.orange80Percent,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        figmaLetterSpacing: -5,
+                      child: GestureDetector(
+                        onTap: (){
+                          Get.toNamed(AppRoutes.FORGOT_PASSWORD_SCREEN);
+                        },
+                        child: TextWidget(text: AppStrings.forgotPassword.tr,
+                          fontFamily: FontFamily.mulish,
+                          fontColor: AppColors.orange80Percent,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          figmaLetterSpacing: -5,
+                        ),
                       ),
                     ),
                   ),
