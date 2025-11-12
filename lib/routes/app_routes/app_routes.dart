@@ -15,4 +15,9 @@ class AppRoutes{
   static final VERIFY_EMAIL_SCREEN = "/verify_email_screen";
   static final LINK_EXPIRED_SCREEN = "/link_expired_screen";
   static final ACCOUNT_VERIFIED_SCREEN = "/account_verified_screen";
+  static final INBOX_SCREEN = "/inbox_screen";
+  static final MESSAGE_REQUEST_SCREEN = "/message_request_screen";
+  static final ARCHIVE_SCREEN = "/archive_screen";
+  static final NOTIFICATION_SCREEN = "/notification_screen";
+  static final INVITE_SCREEN = "/invite_screen";
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/screens/bottom_nav_screens/home_screen/home_screen.dart';
 import 'package:musaab_adam/screens/main_screen/controller/main_screen_controller.dart';
 import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 

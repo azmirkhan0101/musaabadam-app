@@ -5,13 +5,17 @@ import 'package:musaab_adam/screens/auth_screens/new_password_screen/controllers
 import 'package:musaab_adam/screens/auth_screens/profile_setup_screen/controllers/profile_setup_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/signup_screen/controllers/signup_controller.dart';
 import 'package:musaab_adam/screens/bottom_nav_screens/categories_screen/controller/categories_screen_controller.dart';
-import 'package:musaab_adam/screens/bottom_nav_screens/home_screen/controller/home_screen_controller.dart';
 import 'package:musaab_adam/screens/email_verification_screens/account_verified_screen/controller/account_verified_controller.dart';
 import 'package:musaab_adam/screens/email_verification_screens/link_expired_screen/controller/link_expired_controller.dart';
 import 'package:musaab_adam/screens/email_verification_screens/verify_email_screen/controller/verify_email_controller.dart';
+import 'package:musaab_adam/screens/home_screens/archive_screen/controller/archive_screen_controller.dart';
+import 'package:musaab_adam/screens/home_screens/inbox_screen/controller/inbox_screen_controller.dart';
+import 'package:musaab_adam/screens/home_screens/message_request_screen/controller/message_request_controller.dart';
+import 'package:musaab_adam/screens/home_screens/notification_screen/controller/notification_screen_controller.dart';
 import 'package:musaab_adam/screens/main_screen/controller/main_screen_controller.dart';
 
 import '../../screens/auth_screens/signin_screen/controllers/signin_controller.dart';
+import '../../screens/home_screens/home_screen/controller/home_screen_controller.dart';
 
 class InitialBinding extends Bindings{
   @override
@@ -67,6 +71,22 @@ class InitialBinding extends Bindings{
 
     Get.lazyPut((){
       return MainScreenController();
+    }, fenix: true);
+
+    Get.lazyPut((){
+      return InboxScreenController();
+    }, fenix: true);
+
+    Get.lazyPut((){
+      return MessageRequestController();
+    }, fenix: true);
+
+    Get.lazyPut((){
+      return ArchiveScreenController();
+    }, fenix: true);
+
+    Get.lazyPut((){
+      return NotificationScreenController();
     }, fenix: true);
 
   }
