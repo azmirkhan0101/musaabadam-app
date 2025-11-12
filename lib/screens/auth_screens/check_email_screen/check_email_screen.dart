@@ -7,12 +7,10 @@ import 'package:musaab_adam/utils/app_strings/app_strings.dart';
 import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
 import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_field_widget/text_field_widget.dart';
 import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
 
 import '../../../utils/app_colors/app_colors.dart';
 import '../../../utils/assets_gen/assets.gen.dart';
-import '../../../utils/global_helper/global_helper.dart';
 import 'controllers/check_email_controller.dart';
 
 class CheckEmailScreen extends StatelessWidget {

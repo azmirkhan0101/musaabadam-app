@@ -121,6 +121,9 @@ class $AssetsImagesGen {
   AssetGenImage get forgotPasswordOnboarding =>
       const AssetGenImage('assets/images/forgot_password_onboarding.png');
 
+  /// File path: assets/images/gift2.png
+  AssetGenImage get gift2 => const AssetGenImage('assets/images/gift2.png');
+
   /// File path: assets/images/hoodie.png
   AssetGenImage get hoodie => const AssetGenImage('assets/images/hoodie.png');
 
@@ -179,6 +182,7 @@ class $AssetsImagesGen {
     checkEmailOnboarding,
     circleOrange,
     forgotPasswordOnboarding,
+    gift2,
     hoodie,
     jwelery,
     mobile,

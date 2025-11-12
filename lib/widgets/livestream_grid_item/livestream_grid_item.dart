@@ -50,7 +50,10 @@ class LivestreamGridItem extends StatelessWidget {
                         fontSize: 12,
                       ),
                     ),
-                    Expanded(child: SvgPicture.asset(Assets.icons.liveIcon))
+                    Padding(
+                      padding: EdgeInsets.only(right: 10),
+                      child: SvgPicture.asset(Assets.icons.liveIcon),
+                    )
                   ],
                 ),
               ),

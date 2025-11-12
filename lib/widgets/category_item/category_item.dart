@@ -19,10 +19,10 @@ class CategoryItem extends StatelessWidget {
     super.key,
     required this.imagePath,
     required this.itemName,
-    this.height = 93,
-    this.width = 77,
-    this.imageHeight = 65,
-    this.imageWidth = 69,
+    this.height = 100,
+    this.width = 80,
+    this.imageHeight = 62,
+    this.imageWidth = 65,
     this.marginRight = 10,
   });
 
@@ -40,12 +40,15 @@ class CategoryItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ImageWidget(width:imageWidth.w, height: imageHeight.h, imagePath: imagePath),
-          TextWidget(text: itemName,
-            fontSize: 12.sp,
-            fontColor: AppColors.white,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+          ImageWidget(width:imageWidth.w, height: imageHeight.h, imagePath: imagePath
+          ),
+          Expanded(
+            child: TextWidget(text: itemName,
+              fontSize: 12.sp,
+              fontColor: AppColors.white,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),

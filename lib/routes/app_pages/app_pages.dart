@@ -8,6 +8,11 @@ import 'package:musaab_adam/screens/auth_screens/signup_screen/signup_screen.dar
 import 'package:musaab_adam/screens/email_verification_screens/account_verified_screen/account_verified_screen.dart';
 import 'package:musaab_adam/screens/email_verification_screens/link_expired_screen/link_expired_screen.dart';
 import 'package:musaab_adam/screens/email_verification_screens/verify_email_screen/verify_email_screen.dart';
+import 'package:musaab_adam/screens/home_screens/archive_screen/archive_screen.dart';
+import 'package:musaab_adam/screens/home_screens/inbox_screen/inbox_screen.dart';
+import 'package:musaab_adam/screens/home_screens/invite_screen/invite_screen.dart';
+import 'package:musaab_adam/screens/home_screens/message_request_screen/message_request_screen.dart';
+import 'package:musaab_adam/screens/home_screens/notification_screen/notification_screen.dart';
 import 'package:musaab_adam/screens/main_screen/main_screen.dart';
 
 part '../app_routes/app_routes.dart';
@@ -72,6 +77,36 @@ class AppPages {
       name: AppRoutes.MAIN_SCREEN,
       page: () {
         return MainScreen();
+      },
+    ),
+    GetPage(
+      name: AppRoutes.INBOX_SCREEN,
+      page: () {
+        return InboxScreen();
+      },
+    ),
+    GetPage(
+      name: AppRoutes.MESSAGE_REQUEST_SCREEN,
+      page: () {
+        return MessageRequestScreen();
+      },
+    ),
+    GetPage(
+      name: AppRoutes.ARCHIVE_SCREEN,
+      page: () {
+        return ArchiveScreen();
+      },
+    ),
+    GetPage(
+      name: AppRoutes.NOTIFICATION_SCREEN,
+      page: () {
+        return NotificationScreen();
+      },
+    ),
+    GetPage(
+      name: AppRoutes.INVITE_SCREEN,
+      page: () {
+        return InviteScreen();
       },
     ),
   ];

@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/routes/app_pages/app_pages.dart';
 import 'package:musaab_adam/screens/email_verification_screens/account_verified_screen/controller/account_verified_controller.dart';
-import 'package:musaab_adam/screens/email_verification_screens/link_expired_screen/controller/link_expired_controller.dart';
-import 'package:musaab_adam/screens/email_verification_screens/verify_email_screen/controller/verify_email_controller.dart';
 import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 import 'package:musaab_adam/utils/app_strings/app_strings.dart';
 import 'package:musaab_adam/widgets/button_widget/button_widget.dart';

@@ -6,8 +6,8 @@ import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 import 'package:musaab_adam/utils/app_strings/app_strings.dart';
 import 'package:musaab_adam/utils/assets_gen/fonts.gen.dart';
 import 'package:musaab_adam/widgets/category_item/category_item.dart';
+import 'package:musaab_adam/widgets/choice_chip_widget/choice_chip_widget.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
 
 import '../../../utils/assets_gen/assets.gen.dart';
 
@@ -30,79 +30,42 @@ class CategoriesScreen extends StatelessWidget {
                 children: [
                   //===================RECOMMENDED=======================//
                   Obx((){
-                    return ChoiceChip(
-                      selected: controller.recommendedChipSelected.value,
-                      showCheckmark: false,
-                      selectedColor: AppColors.brandColor,
-                      padding: EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                      elevation: 4,
-                      shadowColor: AppColors.brandColorShade,
-                      backgroundColor: controller.recommendedChipSelected.value ? AppColors.brandColor : AppColors.brandColorShade,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: BorderSide( color: Colors.transparent)
-                      ),
-                      label: TextWidget(
-                        text: AppStrings.recommended.tr,
-                        fontColor: controller.recommendedChipSelected.value ? AppColors.white : AppColors.brandColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                      ),
-                      onSelected: (bool isSelected){
-                        controller.recommendedChipSelected.value = isSelected;
-                      },
+                    return ChoiceChipWidget(
+                        label: AppStrings.recommended.tr,
+                        selected: controller.recommendedChipSelected.value,
+                        colorChangeable: true,
+                        borderRadius: 20,
+                        borderColor: Colors.transparent,
+                        onSelected: (isSelected){
+                          controller.recommendedChipSelected.value = isSelected;
+                        }
                     );
                   }),
                   SizedBoxWidget(width: 10,),
                   //===================POPULAR=======================//
                   Obx((){
-                    return ChoiceChip(
-                      selected: controller.popularChipSelected.value,
-                      showCheckmark: false,
-                      selectedColor: AppColors.brandColor,
-                      padding: EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                      elevation: 4,
-                      shadowColor: AppColors.brandColorShade,
-                      backgroundColor: controller.popularChipSelected.value ? AppColors.brandColor : AppColors.brandColorShade,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: BorderSide( color: Colors.transparent)
-                      ),
-                      label: TextWidget(
-                        text: AppStrings.popular.tr,
-                        fontColor: controller.popularChipSelected.value ? AppColors.white : AppColors.brandColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                      ),
-                      onSelected: (bool isSelected){
-                        controller.popularChipSelected.value = isSelected;
-                      },
+                    return ChoiceChipWidget(
+                        label: AppStrings.popular.tr,
+                        selected: controller.popularChipSelected.value,
+                        colorChangeable: true,
+                        borderColor: Colors.transparent,
+                        borderRadius: 20,
+                        onSelected: (isSelected){
+                          controller.popularChipSelected.value = isSelected;
+                        }
                     );
                   }),
                   SizedBoxWidget(width: 10,),
                   //===================A-Z=======================//
                   Obx((){
-                    return ChoiceChip(
-                      selected: controller.azChipSelected.value,
-                      showCheckmark: false,
-                      selectedColor: AppColors.brandColor,
-                      padding: EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                      elevation: 4,
-                      shadowColor: AppColors.brandColorShade,
-                      backgroundColor: controller.azChipSelected.value ? AppColors.brandColor : AppColors.brandColorShade,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          side: BorderSide( color: Colors.transparent)
-                      ),
-                      label: TextWidget(
-                        text: AppStrings.az,
-                        fontColor: controller.azChipSelected.value ? AppColors.white : AppColors.brandColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                      ),
-                      onSelected: (bool isSelected){
-                        controller.azChipSelected.value = isSelected;
-                      },
+                    return ChoiceChipWidget(
+                        label: AppStrings.az,
+                        selected: controller.azChipSelected.value,
+                        colorChangeable: true,
+                        borderRadius: 20,
+                        onSelected: (isSelected){
+                          controller.azChipSelected.value = isSelected;
+                        }
                     );
                   }),
                 ],
