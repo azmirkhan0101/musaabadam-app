@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 import 'package:musaab_adam/utils/app_strings/app_strings.dart';
@@ -36,27 +37,47 @@ class InviteScreen extends StatelessWidget {
             inviteStatsContainer( context ),
             SizedBoxWidget(height: 20,),
             Container(
-              width: MediaQuery.of(context).size.width*0.9,
+              width: MediaQuery.of(context).size.width*0.9.w,
+              padding: EdgeInsets.only(left: 20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
                 color: AppColors.greyD9
               ),
-              child: Row(
-                children: [
-                  TextWidget(text: "https://blabla.com"),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: ButtonWidget(
-                          label: "Copy",
-                        buttonHeight: 40,
-                        buttonWidth: 80,
-                      ),
+                child: Row(
+                  children: [
+                    TextWidget(
+                      text: "https://blabla.com",
+                      fontSize: 14,
+                      fontStyle: FontStyle.italic,
                     ),
-                  )
-                ],
-              ),
-            )
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: ButtonWidget(
+                          label: AppStrings.copy.tr,
+                          buttonHeight: 40,
+                          buttonWidth: 85,
+                          backgroundColor: AppColors.brandColor,
+                        ),
+                      ),
+                    )
+                  ],
+                )
+            ),
+            SizedBoxWidget(height: 10,),
+            ButtonWidget(
+              label: AppStrings.share.tr,
+              buttonHeight: 40,
+              buttonWidth: MediaQuery.of(context).size.width*0.9,
+              backgroundColor: AppColors.orange,
+            ),
+            SizedBoxWidget(height: 10,),
+            ButtonWidget(
+              label: AppStrings.inviteContacts.tr,
+              buttonHeight: 40,
+              buttonWidth: MediaQuery.of(context).size.width*0.9,
+              backgroundColor: AppColors.brandColor,
+            ),
           ],
         ),
       ),

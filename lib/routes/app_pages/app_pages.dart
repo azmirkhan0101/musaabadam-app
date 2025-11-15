@@ -13,6 +13,7 @@ import 'package:musaab_adam/screens/home_screens/inbox_screen/inbox_screen.dart'
 import 'package:musaab_adam/screens/home_screens/invite_screen/invite_screen.dart';
 import 'package:musaab_adam/screens/home_screens/message_request_screen/message_request_screen.dart';
 import 'package:musaab_adam/screens/home_screens/notification_screen/notification_screen.dart';
+import 'package:musaab_adam/screens/livestream_screens/livestream_screen/livestream_screen.dart';
 import 'package:musaab_adam/screens/main_screen/main_screen.dart';
 
 part '../app_routes/app_routes.dart';
@@ -109,5 +110,10 @@ class AppPages {
         return InviteScreen();
       },
     ),
+    GetPage(
+        name: AppRoutes.LIVESTREAM_SCREEN,
+        page: (){
+      return LivestreamScreen();
+    })
   ];
 }

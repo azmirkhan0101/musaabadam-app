@@ -14,8 +14,7 @@ class MainApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      splitScreenMode: true,
-      // Use builder only if you need to use library outside ScreenUtilInit context
+      //splitScreenMode: true, //THIS PROPERTY MAKES HEIGHT UNRESPONSIVE
       builder: (_, child) {
         return GetMaterialApp(
           theme: ThemeData(
@@ -24,7 +23,7 @@ class MainApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialBinding: InitialBinding(),
           getPages: AppPages.pages,
-          initialRoute: AppRoutes.MAIN_SCREEN,
+          initialRoute: AppRoutes.LIVESTREAM_SCREEN,
         );
       },
     );
