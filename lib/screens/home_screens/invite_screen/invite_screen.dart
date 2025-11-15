@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 import 'package:musaab_adam/utils/app_strings/app_strings.dart';
 import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
-import 'package:musaab_adam/widgets/choice_chip_widget/choice_chip_widget.dart';
 import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';

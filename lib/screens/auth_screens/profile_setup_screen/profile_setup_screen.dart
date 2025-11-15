@@ -142,7 +142,7 @@ class ProfileSetupScreen extends StatelessWidget {
                 buttonHeight: 40.h,
                   buttonWidth: double.infinity,
                   backgroundColor: AppColors.orange,
-                  buttonRadius: BorderRadiusGeometry.circular(8),
+                  buttonRadius: 8,
                   onPressed: (){
                   //TODO: GO TO LIVE STREAMING PLAYER SCREEN
                     Get.toNamed(AppRoutes.MAIN_SCREEN);

@@ -21,4 +21,9 @@ class AppRoutes{
   static final NOTIFICATION_SCREEN = "/notification_screen";
   static final INVITE_SCREEN = "/invite_screen";
   static final LIVESTREAM_SCREEN = "/livestream_screen";
+  static final ADDRESS_SCREEN = "/address_screen";
+  static final BOOST_SCREEN = "/boost_screen";
+  static final SEND_TIP_SCREEN = "/send_tip_screen";
+  static final ADD_PAYMENT_METHOD_SCREEN = "/add_payment_method_screen";
+  static final ERROR_SCREEN = "/error_screen";
 }

@@ -98,12 +98,12 @@ class LabeledIconButton extends StatelessWidget {
                 ),
               ),
               SizedBoxWidget(height: gap),
-              TextWidget(
+              !text.isEmpty ? TextWidget(
                 text: text,
                 fontWeight: fontWeight,
                 fontSize: fontSize.sp,
                 fontColor: fontColor,
-              ),
+              ) : SizedBox.shrink(),
             ],
           );
   }
