@@ -14,6 +14,10 @@ import 'package:flutter/widgets.dart';
 class $AssetsDummyGen {
   const $AssetsDummyGen();
 
+  /// File path: assets/dummy/livestream.png
+  AssetGenImage get livestream =>
+      const AssetGenImage('assets/dummy/livestream.png');
+
   /// File path: assets/dummy/livestream_preview.png
   AssetGenImage get livestreamPreview =>
       const AssetGenImage('assets/dummy/livestream_preview.png');
@@ -23,7 +27,11 @@ class $AssetsDummyGen {
       const AssetGenImage('assets/dummy/livestream_preview2.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [livestreamPreview, livestreamPreview2];
+  List<AssetGenImage> get values => [
+    livestream,
+    livestreamPreview,
+    livestreamPreview2,
+  ];
 }
 
 class $AssetsIconsGen {
@@ -35,8 +43,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/activity.svg
   String get activity => 'assets/icons/activity.svg';
 
+  /// File path: assets/icons/boost.svg
+  String get boost => 'assets/icons/boost.svg';
+
   /// File path: assets/icons/camera.svg
   String get camera => 'assets/icons/camera.svg';
+
+  /// File path: assets/icons/clip.svg
+  String get clip => 'assets/icons/clip.svg';
 
   /// File path: assets/icons/eye.svg
   String get eye => 'assets/icons/eye.svg';
@@ -62,6 +76,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/message.svg
   String get message => 'assets/icons/message.svg';
 
+  /// File path: assets/icons/more.svg
+  String get more => 'assets/icons/more.svg';
+
   /// File path: assets/icons/notification.svg
   String get notification => 'assets/icons/notification.svg';
 
@@ -71,11 +88,25 @@ class $AssetsIconsGen {
   /// File path: assets/icons/sell.svg
   String get sell => 'assets/icons/sell.svg';
 
+  /// File path: assets/icons/send.svg
+  String get send => 'assets/icons/send.svg';
+
+  /// File path: assets/icons/share.svg
+  String get share => 'assets/icons/share.svg';
+
+  /// File path: assets/icons/shop.svg
+  String get shop => 'assets/icons/shop.svg';
+
+  /// File path: assets/icons/wallet.svg
+  String get wallet => 'assets/icons/wallet.svg';
+
   /// List of all assets
   List<String> get values => [
     account,
     activity,
+    boost,
     camera,
+    clip,
     eye,
     eyeFilled,
     facebookLogin,
@@ -84,9 +115,14 @@ class $AssetsIconsGen {
     home,
     liveIcon,
     message,
+    more,
     notification,
     search,
     sell,
+    send,
+    share,
+    shop,
+    wallet,
   ];
 }
 

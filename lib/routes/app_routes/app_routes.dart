@@ -20,4 +20,5 @@ class AppRoutes{
   static final ARCHIVE_SCREEN = "/archive_screen";
   static final NOTIFICATION_SCREEN = "/notification_screen";
   static final INVITE_SCREEN = "/invite_screen";
+  static final LIVESTREAM_SCREEN = "/livestream_screen";
 }
