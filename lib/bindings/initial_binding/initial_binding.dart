@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:musaab_adam/screens/address_screen/controller/address_screen_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/check_email_screen/controllers/check_email_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/forgot_password_screen/controllers/forgot_password_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/new_password_screen/controllers/new_password_controller.dart';
@@ -12,6 +13,7 @@ import 'package:musaab_adam/screens/home_screens/archive_screen/controller/archi
 import 'package:musaab_adam/screens/home_screens/inbox_screen/controller/inbox_screen_controller.dart';
 import 'package:musaab_adam/screens/home_screens/message_request_screen/controller/message_request_controller.dart';
 import 'package:musaab_adam/screens/home_screens/notification_screen/controller/notification_screen_controller.dart';
+import 'package:musaab_adam/screens/livestream_screens/livestream_screen/controller/livestream_screen_controller.dart';
 import 'package:musaab_adam/screens/main_screen/controller/main_screen_controller.dart';
 
 import '../../screens/auth_screens/signin_screen/controllers/signin_controller.dart';
@@ -87,6 +89,14 @@ class InitialBinding extends Bindings{
 
     Get.lazyPut((){
       return NotificationScreenController();
+    }, fenix: true);
+
+    Get.lazyPut((){
+      return LiveStreamScreenController();
+    }, fenix: true);
+
+    Get.lazyPut((){
+      return AddressScreenController();
     }, fenix: true);
 
   }

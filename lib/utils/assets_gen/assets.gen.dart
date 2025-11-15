@@ -14,9 +14,17 @@ import 'package:flutter/widgets.dart';
 class $AssetsDummyGen {
   const $AssetsDummyGen();
 
+  /// File path: assets/dummy/live_item.png
+  AssetGenImage get liveItem =>
+      const AssetGenImage('assets/dummy/live_item.png');
+
   /// File path: assets/dummy/livestream.png
   AssetGenImage get livestream =>
       const AssetGenImage('assets/dummy/livestream.png');
+
+  /// File path: assets/dummy/livestream_avatar.png
+  AssetGenImage get livestreamAvatar =>
+      const AssetGenImage('assets/dummy/livestream_avatar.png');
 
   /// File path: assets/dummy/livestream_preview.png
   AssetGenImage get livestreamPreview =>
@@ -28,7 +36,9 @@ class $AssetsDummyGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+    liveItem,
     livestream,
+    livestreamAvatar,
     livestreamPreview,
     livestreamPreview2,
   ];
@@ -51,6 +61,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/clip.svg
   String get clip => 'assets/icons/clip.svg';
+
+  /// File path: assets/icons/community_boost.svg
+  String get communityBoost => 'assets/icons/community_boost.svg';
 
   /// File path: assets/icons/eye.svg
   String get eye => 'assets/icons/eye.svg';
@@ -91,11 +104,35 @@ class $AssetsIconsGen {
   /// File path: assets/icons/send.svg
   String get send => 'assets/icons/send.svg';
 
+  /// File path: assets/icons/send_a_tip.svg
+  String get sendATip => 'assets/icons/send_a_tip.svg';
+
+  /// File path: assets/icons/send_a_tip_big.svg
+  String get sendATipBig => 'assets/icons/send_a_tip_big.svg';
+
   /// File path: assets/icons/share.svg
   String get share => 'assets/icons/share.svg';
 
   /// File path: assets/icons/shop.svg
   String get shop => 'assets/icons/shop.svg';
+
+  /// File path: assets/icons/tip1.svg
+  String get tip1 => 'assets/icons/tip1.svg';
+
+  /// File path: assets/icons/tip10.svg
+  String get tip10 => 'assets/icons/tip10.svg';
+
+  /// File path: assets/icons/tip100.svg
+  String get tip100 => 'assets/icons/tip100.svg';
+
+  /// File path: assets/icons/tip20.svg
+  String get tip20 => 'assets/icons/tip20.svg';
+
+  /// File path: assets/icons/tip5.svg
+  String get tip5 => 'assets/icons/tip5.svg';
+
+  /// File path: assets/icons/tip50.svg
+  String get tip50 => 'assets/icons/tip50.svg';
 
   /// File path: assets/icons/wallet.svg
   String get wallet => 'assets/icons/wallet.svg';
@@ -107,6 +144,7 @@ class $AssetsIconsGen {
     boost,
     camera,
     clip,
+    communityBoost,
     eye,
     eyeFilled,
     facebookLogin,
@@ -120,8 +158,16 @@ class $AssetsIconsGen {
     search,
     sell,
     send,
+    sendATip,
+    sendATipBig,
     share,
     shop,
+    tip1,
+    tip10,
+    tip100,
+    tip20,
+    tip5,
+    tip50,
     wallet,
   ];
 }
@@ -152,6 +198,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/circle_orange.png
   AssetGenImage get circleOrange =>
       const AssetGenImage('assets/images/circle_orange.png');
+
+  /// File path: assets/images/error.png
+  AssetGenImage get error => const AssetGenImage('assets/images/error.png');
 
   /// File path: assets/images/forgot_password_onboarding.png
   AssetGenImage get forgotPasswordOnboarding =>
@@ -217,6 +266,7 @@ class $AssetsImagesGen {
     books,
     checkEmailOnboarding,
     circleOrange,
+    error,
     forgotPasswordOnboarding,
     gift2,
     hoodie,

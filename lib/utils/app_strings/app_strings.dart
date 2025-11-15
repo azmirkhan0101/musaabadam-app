@@ -160,7 +160,9 @@ class AppStrings {
   static const String addPaymentMethod = "Add Payment Method";
   static const String creditDebitCard = "Credit/Debit Card";
   static const String stripe = "Stripe";
+  static const String thePageYouWereLookingFor = "The page you were looking for can’t be found.";
   static const String addYourPayment = "Add your payment information";
+  static const String goBack = "Go Back";
   static const String cardHolderName = "Card holder name";
   static const String cardNumber = "Card Number";
   static const String expiryDate = "Expiry date";

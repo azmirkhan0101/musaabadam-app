@@ -18,11 +18,12 @@ class ButtonWidget extends StatelessWidget {
   final double buttonHeight;
   final double buttonWidth;
   final EdgeInsetsGeometry? padding;
-  final BorderRadiusGeometry buttonRadius;
+  final double buttonRadius;
   final Color? backgroundColor;
   final Color? borderColor;
   final Color? iconColor;
   final double? iconSize;
+  final double borderWidth;
 
   const ButtonWidget({
     super.key,
@@ -38,11 +39,12 @@ class ButtonWidget extends StatelessWidget {
     this.buttonHeight = 56,
     this.buttonWidth = 200,
     this.padding,
-    this.buttonRadius = const BorderRadius.all(Radius.circular(100)),
+    this.buttonRadius = 100,
     this.backgroundColor,
     this.borderColor,
     this.iconColor,
     this.iconSize,
+    this.borderWidth = 0,
   });
 
   @override
@@ -52,10 +54,10 @@ class ButtonWidget extends StatelessWidget {
       width: buttonWidth.w,
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.black,
-        borderRadius: buttonRadius,
+        borderRadius: BorderRadius.all(Radius.circular(buttonRadius.r)),
         border: Border.all(
           color: borderColor ?? Colors.transparent,
-          width: 1,
+          width: borderWidth.r,
         ),
       ),
       child: MaterialButton(

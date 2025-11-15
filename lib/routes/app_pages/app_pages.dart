@@ -1,13 +1,17 @@
 import 'package:get/get.dart';
+import 'package:musaab_adam/screens/add_payment_method_screen/add_payment_method_screen.dart';
+import 'package:musaab_adam/screens/address_screen/address_screen.dart';
 import 'package:musaab_adam/screens/auth_screens/check_email_screen/check_email_screen.dart';
 import 'package:musaab_adam/screens/auth_screens/forgot_password_screen/forgot_password_screen.dart';
 import 'package:musaab_adam/screens/auth_screens/new_password_screen/new_password_screen.dart';
 import 'package:musaab_adam/screens/auth_screens/profile_setup_screen/profile_setup_screen.dart';
 import 'package:musaab_adam/screens/auth_screens/signin_screen/signin_screen.dart';
 import 'package:musaab_adam/screens/auth_screens/signup_screen/signup_screen.dart';
+import 'package:musaab_adam/screens/boost_screen/boost_screen.dart';
 import 'package:musaab_adam/screens/email_verification_screens/account_verified_screen/account_verified_screen.dart';
 import 'package:musaab_adam/screens/email_verification_screens/link_expired_screen/link_expired_screen.dart';
 import 'package:musaab_adam/screens/email_verification_screens/verify_email_screen/verify_email_screen.dart';
+import 'package:musaab_adam/screens/error_screen/error_screen.dart';
 import 'package:musaab_adam/screens/home_screens/archive_screen/archive_screen.dart';
 import 'package:musaab_adam/screens/home_screens/inbox_screen/inbox_screen.dart';
 import 'package:musaab_adam/screens/home_screens/invite_screen/invite_screen.dart';
@@ -15,6 +19,7 @@ import 'package:musaab_adam/screens/home_screens/message_request_screen/message_
 import 'package:musaab_adam/screens/home_screens/notification_screen/notification_screen.dart';
 import 'package:musaab_adam/screens/livestream_screens/livestream_screen/livestream_screen.dart';
 import 'package:musaab_adam/screens/main_screen/main_screen.dart';
+import 'package:musaab_adam/screens/send_tip_screen/send_tip_screen.dart';
 
 part '../app_routes/app_routes.dart';
 
@@ -114,6 +119,31 @@ class AppPages {
         name: AppRoutes.LIVESTREAM_SCREEN,
         page: (){
       return LivestreamScreen();
-    })
+    }),
+    GetPage(
+        name: AppRoutes.ADDRESS_SCREEN,
+        page: (){
+          return AddressScreen();
+        }),
+    GetPage(
+        name: AppRoutes.BOOST_SCREEN,
+        page: (){
+          return BoostScreen();
+        }),
+    GetPage(
+        name: AppRoutes.SEND_TIP_SCREEN,
+        page: (){
+          return SendTipScreen();
+        }),
+    GetPage(
+        name: AppRoutes.ADD_PAYMENT_METHOD_SCREEN,
+        page: (){
+          return AddPaymentMethodScreen();
+        }),
+    GetPage(
+        name: AppRoutes.ERROR_SCREEN,
+        page: (){
+          return ErrorScreen();
+        })
   ];
 }
