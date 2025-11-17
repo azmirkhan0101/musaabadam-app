@@ -16,6 +16,7 @@ class TextFieldWidget extends StatelessWidget {
   final bool showCounter;
   final int maxLines;
   final int maxLength;
+  final Color borderColor;
 
   const TextFieldWidget({
     super.key,
@@ -26,7 +27,8 @@ class TextFieldWidget extends StatelessWidget {
     this.borderRadius = 0,
     this.showCounter = false,
     this.maxLines = 1,
-    this.maxLength = 30
+    this.maxLength = 30,
+    this.borderColor = AppColors.orange
   });
 
   @override
@@ -58,7 +60,7 @@ class TextFieldWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(borderRadius),
             borderSide: BorderSide(
               width: 1.w,
-              color: AppColors.orange,
+              color: borderColor,
             )
         ),
         focusedBorder: OutlineInputBorder(

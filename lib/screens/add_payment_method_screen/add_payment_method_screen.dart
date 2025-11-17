@@ -6,7 +6,6 @@ import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
 import 'package:musaab_adam/widgets/choice_chip_widget/choice_chip_widget.dart';
 
 import '../../utils/app_strings/app_strings.dart';
-import '../../utils/assets_gen/assets.gen.dart';
 import '../../widgets/sized_box_widget/sized_box_widget.dart';
 import '../../widgets/text_widget/text_widgets.dart';
 

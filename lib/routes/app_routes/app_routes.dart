@@ -26,4 +26,6 @@ class AppRoutes{
   static final SEND_TIP_SCREEN = "/send_tip_screen";
   static final ADD_PAYMENT_METHOD_SCREEN = "/add_payment_method_screen";
   static final ERROR_SCREEN = "/error_screen";
+  static final MY_REWARDS_SCREEN = "/my_rewards_screen";
+  static final UPDATE_PROFILE_SCREEN = "/update_profile_screen";
 }

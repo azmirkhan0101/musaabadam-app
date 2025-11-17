@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:musaab_adam/screens/account_screens/my_rewards_screen/my_rewards_screen.dart';
+import 'package:musaab_adam/screens/account_screens/update_profile_screen/update_profile_screen.dart';
 import 'package:musaab_adam/screens/add_payment_method_screen/add_payment_method_screen.dart';
 import 'package:musaab_adam/screens/address_screen/address_screen.dart';
 import 'package:musaab_adam/screens/auth_screens/check_email_screen/check_email_screen.dart';
@@ -144,6 +146,16 @@ class AppPages {
         name: AppRoutes.ERROR_SCREEN,
         page: (){
           return ErrorScreen();
-        })
+        }),
+    GetPage(
+        name: AppRoutes.MY_REWARDS_SCREEN,
+        page: (){
+          return MyRewardsScreen();
+        }),
+    GetPage(
+        name: AppRoutes.UPDATE_PROFILE_SCREEN,
+        page: (){
+          return UpdateProfileScreen();
+        }),
   ];
 }

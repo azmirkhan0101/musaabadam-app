@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialBinding: InitialBinding(),
           getPages: AppPages.pages,
-          initialRoute: AppRoutes.ERROR_SCREEN,
+          initialRoute: AppRoutes.UPDATE_PROFILE_SCREEN,
         );
       },
     );
