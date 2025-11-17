@@ -19,65 +19,74 @@ class InviteScreen extends StatelessWidget {
       backgroundColor: AppColors.white,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        leading: Icon(Icons.arrow_back_ios_new_rounded),
+        leading: IconButton(onPressed: (){
+          Get.back();
+        },
+            icon: Icon(Icons.arrow_back_ios_new_rounded)
+        ),
       ),
       body: Align(
         alignment: Alignment.center,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ImageWidget(width: 183, height: 153, imagePath: Assets.images.gift2.keyName),
-            SizedBoxWidget( height: 20,),
-            TextWidget(text: AppStrings.shareBidsRush.tr,
-            fontSize: 20,
-              fontWeight: FontWeight.w700,
-              fontColor: AppColors.black,
-            ),
-            inviteStatsContainer( context ),
-            SizedBoxWidget(height: 20,),
-            Container(
-              width: MediaQuery.of(context).size.width*0.9.w,
-              padding: EdgeInsets.only(left: 20),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: AppColors.greyD9
+        child: Padding(
+          padding: EdgeInsets.symmetric( horizontal: 20.w ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBoxWidget( height: 30,),
+              ImageWidget(width: 183, height: 153, imagePath: Assets.images.gift2.keyName),
+              SizedBoxWidget( height: 30,),
+              TextWidget(text: AppStrings.shareBidsRush.tr,
+              fontSize: 20,
+                fontWeight: FontWeight.w700,
+                fontColor: AppColors.black,
               ),
-                child: Row(
-                  children: [
-                    TextWidget(
-                      text: "https://blabla.com",
-                      fontSize: 14,
-                      fontStyle: FontStyle.italic,
-                    ),
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: ButtonWidget(
-                          label: AppStrings.copy.tr,
-                          buttonHeight: 40,
-                          buttonWidth: 85,
-                          backgroundColor: AppColors.brandColor,
-                        ),
+              SizedBoxWidget( height: 60,),
+              inviteStatsContainer( context ),
+              SizedBoxWidget(height: 30,),
+              Container(
+                width: MediaQuery.of(context).size.width*0.9.w,
+                padding: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: AppColors.greyD9
+                ),
+                  child: Row(
+                    children: [
+                      TextWidget(
+                        text: "https://blabla.com",
+                        fontSize: 14,
+                        fontStyle: FontStyle.italic,
                       ),
-                    )
-                  ],
-                )
-            ),
-            SizedBoxWidget(height: 10,),
-            ButtonWidget(
-              label: AppStrings.share.tr,
-              buttonHeight: 40,
-              buttonWidth: MediaQuery.of(context).size.width*0.9,
-              backgroundColor: AppColors.orange,
-            ),
-            SizedBoxWidget(height: 10,),
-            ButtonWidget(
-              label: AppStrings.inviteContacts.tr,
-              buttonHeight: 40,
-              buttonWidth: MediaQuery.of(context).size.width*0.9,
-              backgroundColor: AppColors.brandColor,
-            ),
-          ],
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.topRight,
+                          child: ButtonWidget(
+                            label: AppStrings.copy.tr,
+                            buttonHeight: 40,
+                            buttonWidth: 85,
+                            backgroundColor: AppColors.brandColor,
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+              ),
+              SizedBoxWidget(height: 10,),
+              ButtonWidget(
+                label: AppStrings.share.tr,
+                buttonHeight: 40,
+                buttonWidth: MediaQuery.of(context).size.width*0.9,
+                backgroundColor: AppColors.orange,
+              ),
+              SizedBoxWidget(height: 10,),
+              ButtonWidget(
+                label: AppStrings.inviteContacts.tr,
+                buttonHeight: 40,
+                buttonWidth: MediaQuery.of(context).size.width*0.9,
+                backgroundColor: AppColors.brandColor,
+              ),
+            ],
+          ),
         ),
       ),
     );

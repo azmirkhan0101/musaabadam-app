@@ -21,6 +21,7 @@ class LabeledIconButton extends StatelessWidget {
   final double fontSize;
   final double horizontalPadding;
   final double verticalPadding;
+  final VoidCallback? onClick;
 
   const LabeledIconButton({
     super.key,
@@ -39,40 +40,44 @@ class LabeledIconButton extends StatelessWidget {
     this.fontSize = 14,
     this.horizontalPadding = 0,
     this.verticalPadding = 0,
+    this.onClick
   });
 
   @override
   Widget build(BuildContext context) {
     //RETURN COLUMN IF LABEL IS NOT INSIDE
     return isLabelInside
-        ? Container(
-      padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
-            decoration: BoxDecoration(
-              border: Border.all(color: borderColor, width: borderWidth),
-              borderRadius: BorderRadius.circular(borderRadius),
-              color: color,
-            ),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: iconHeight.r,
-                  width: iconWidth.r,
-                  child: SvgPicture.asset(
-                    iconPath,
+        ? GestureDetector(
+      onTap: onClick,
+          child: Container(
+                padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
+              decoration: BoxDecoration(
+                border: Border.all(color: borderColor, width: borderWidth),
+                borderRadius: BorderRadius.circular(borderRadius),
+                color: color,
+              ),
+              child: Column(
+                children: [
+                  SizedBox(
                     height: iconHeight.r,
                     width: iconWidth.r,
-                    fit: BoxFit.scaleDown,
+                    child: SvgPicture.asset(
+                      iconPath,
+                      height: iconHeight.r,
+                      width: iconWidth.r,
+                      fit: BoxFit.scaleDown,
+                    ),
                   ),
-                ),
-                TextWidget(
-                  text: text,
-                  fontWeight: fontWeight,
-                  fontSize: fontSize.sp,
-                  fontColor: fontColor,
-                ),
-              ],
+                  TextWidget(
+                    text: text,
+                    fontWeight: fontWeight,
+                    fontSize: fontSize.sp,
+                    fontColor: fontColor,
+                  ),
+                ],
+              ),
             ),
-          )
+        )
         : Column(
             children: [
               IntrinsicWidth(

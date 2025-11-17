@@ -74,6 +74,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/facebook_login.svg
   String get facebookLogin => 'assets/icons/facebook_login.svg';
 
+  /// File path: assets/icons/friends.svg
+  String get friends => 'assets/icons/friends.svg';
+
   /// File path: assets/icons/gift.svg
   String get gift => 'assets/icons/gift.svg';
 
@@ -92,8 +95,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/more.svg
   String get more => 'assets/icons/more.svg';
 
+  /// File path: assets/icons/my_rewards.svg
+  String get myRewards => 'assets/icons/my_rewards.svg';
+
   /// File path: assets/icons/notification.svg
   String get notification => 'assets/icons/notification.svg';
+
+  /// File path: assets/icons/preferences.svg
+  String get preferences => 'assets/icons/preferences.svg';
+
+  /// File path: assets/icons/referal_cash.svg
+  String get referalCash => 'assets/icons/referal_cash.svg';
 
   /// File path: assets/icons/search.svg
   String get search => 'assets/icons/search.svg';
@@ -148,13 +160,17 @@ class $AssetsIconsGen {
     eye,
     eyeFilled,
     facebookLogin,
+    friends,
     gift,
     googleLogin,
     home,
     liveIcon,
     message,
     more,
+    myRewards,
     notification,
+    preferences,
+    referalCash,
     search,
     sell,
     send,
@@ -247,6 +263,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/tools.png
   AssetGenImage get tools => const AssetGenImage('assets/images/tools.png');
 
+  /// File path: assets/images/userPhoto2.png
+  AssetGenImage get userPhoto2 =>
+      const AssetGenImage('assets/images/userPhoto2.png');
+
   /// File path: assets/images/user_photo.png
   AssetGenImage get userPhoto =>
       const AssetGenImage('assets/images/user_photo.png');
@@ -280,6 +300,7 @@ class $AssetsImagesGen {
     splashLogo,
     splashLogo1024,
     tools,
+    userPhoto2,
     userPhoto,
     watch,
     watch2,

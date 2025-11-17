@@ -218,6 +218,11 @@ class AppStrings {
   static const String notificationSettings = "Notification Settings";
   static const String changePassword = "Change Password";
   static const String preferences = "Preferences";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String faqs = "FAQ's";
+  static const String signOut = "Sign Out";
+  static const String profile = "Profile";
+  static const String termsConditions = "Terms & Conditions";
   static const String giveaway = "Giveaway";
   static const String min = "Min";
   static const String max = "Max";

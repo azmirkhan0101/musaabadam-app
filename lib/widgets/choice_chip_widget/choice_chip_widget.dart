@@ -8,6 +8,7 @@ class ChoiceChipWidget extends StatelessWidget {
   final String label;
   final bool selected;
   final bool showShadow;
+  final List<double> padding;
   final bool colorChangeable;
   final double borderRadius;
   final double borderWidth;
@@ -19,6 +20,7 @@ class ChoiceChipWidget extends StatelessWidget {
     required this.label,
     this.trailing,
     required this.selected,
+    this.padding = const [2,0],
     this.showShadow = false,
     this.colorChangeable = false,
     this.borderRadius = 0,
@@ -33,7 +35,7 @@ class ChoiceChipWidget extends StatelessWidget {
       selected: selected,
       showCheckmark: false,
       selectedColor: selected && colorChangeable ? AppColors.brandColor : AppColors.brandColorShade,
-      padding: EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+      padding: EdgeInsets.symmetric(horizontal: padding[0], vertical: padding[1]),
       elevation: 4,
       shadowColor: showShadow ? AppColors.brandColorShade : Colors.transparent,
       backgroundColor: selected && colorChangeable ? AppColors.brandColor : AppColors.brandColorShade,

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:musaab_adam/screens/account_screens/update_profile_screen/controllers/update_profile_screen_controller.dart.dart';
 import 'package:musaab_adam/screens/address_screen/controller/address_screen_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/check_email_screen/controllers/check_email_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/forgot_password_screen/controllers/forgot_password_controller.dart';
@@ -97,6 +98,10 @@ class InitialBinding extends Bindings{
 
     Get.lazyPut((){
       return AddressScreenController();
+    }, fenix: true);
+
+    Get.lazyPut((){
+      return UpdateProfileScreenController();
     }, fenix: true);
 
   }
