@@ -14,6 +14,10 @@ import 'package:flutter/widgets.dart';
 class $AssetsDummyGen {
   const $AssetsDummyGen();
 
+  /// File path: assets/dummy/clips_placeholder.png
+  AssetGenImage get clipsPlaceholder =>
+      const AssetGenImage('assets/dummy/clips_placeholder.png');
+
   /// File path: assets/dummy/live_item.png
   AssetGenImage get liveItem =>
       const AssetGenImage('assets/dummy/live_item.png');
@@ -36,6 +40,7 @@ class $AssetsDummyGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+    clipsPlaceholder,
     liveItem,
     livestream,
     livestreamAvatar,
@@ -65,6 +70,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/community_boost.svg
   String get communityBoost => 'assets/icons/community_boost.svg';
 
+  /// File path: assets/icons/create_product.svg
+  String get createProduct => 'assets/icons/create_product.svg';
+
+  /// File path: assets/icons/early_payout.svg
+  String get earlyPayout => 'assets/icons/early_payout.svg';
+
   /// File path: assets/icons/eye.svg
   String get eye => 'assets/icons/eye.svg';
 
@@ -74,8 +85,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/facebook_login.svg
   String get facebookLogin => 'assets/icons/facebook_login.svg';
 
+  /// File path: assets/icons/fee_inquiry.svg
+  String get feeInquiry => 'assets/icons/fee_inquiry.svg';
+
   /// File path: assets/icons/friends.svg
   String get friends => 'assets/icons/friends.svg';
+
+  /// File path: assets/icons/general.svg
+  String get general => 'assets/icons/general.svg';
 
   /// File path: assets/icons/gift.svg
   String get gift => 'assets/icons/gift.svg';
@@ -85,6 +102,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/home.svg
   String get home => 'assets/icons/home.svg';
+
+  /// File path: assets/icons/insufficient_balance.svg
+  String get insufficientBalance => 'assets/icons/insufficient_balance.svg';
 
   /// File path: assets/icons/live_icon.svg
   String get liveIcon => 'assets/icons/live_icon.svg';
@@ -98,14 +118,32 @@ class $AssetsIconsGen {
   /// File path: assets/icons/my_rewards.svg
   String get myRewards => 'assets/icons/my_rewards.svg';
 
+  /// File path: assets/icons/new_payment.svg
+  String get newPayment => 'assets/icons/new_payment.svg';
+
   /// File path: assets/icons/notification.svg
   String get notification => 'assets/icons/notification.svg';
+
+  /// File path: assets/icons/order_isses.svg
+  String get orderIsses => 'assets/icons/order_isses.svg';
+
+  /// File path: assets/icons/payouts.svg
+  String get payouts => 'assets/icons/payouts.svg';
+
+  /// File path: assets/icons/paypal.svg
+  String get paypal => 'assets/icons/paypal.svg';
+
+  /// File path: assets/icons/photo_icon.svg
+  String get photoIcon => 'assets/icons/photo_icon.svg';
 
   /// File path: assets/icons/preferences.svg
   String get preferences => 'assets/icons/preferences.svg';
 
   /// File path: assets/icons/referal_cash.svg
   String get referalCash => 'assets/icons/referal_cash.svg';
+
+  /// File path: assets/icons/schedule_show.svg
+  String get scheduleShow => 'assets/icons/schedule_show.svg';
 
   /// File path: assets/icons/search.svg
   String get search => 'assets/icons/search.svg';
@@ -127,6 +165,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/shop.svg
   String get shop => 'assets/icons/shop.svg';
+
+  /// File path: assets/icons/stripe.svg
+  String get stripe => 'assets/icons/stripe.svg';
 
   /// File path: assets/icons/tip1.svg
   String get tip1 => 'assets/icons/tip1.svg';
@@ -157,20 +198,31 @@ class $AssetsIconsGen {
     camera,
     clip,
     communityBoost,
+    createProduct,
+    earlyPayout,
     eye,
     eyeFilled,
     facebookLogin,
+    feeInquiry,
     friends,
+    general,
     gift,
     googleLogin,
     home,
+    insufficientBalance,
     liveIcon,
     message,
     more,
     myRewards,
+    newPayment,
     notification,
+    orderIsses,
+    payouts,
+    paypal,
+    photoIcon,
     preferences,
     referalCash,
+    scheduleShow,
     search,
     sell,
     send,
@@ -178,6 +230,7 @@ class $AssetsIconsGen {
     sendATipBig,
     share,
     shop,
+    stripe,
     tip1,
     tip10,
     tip100,
@@ -263,6 +316,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/tools.png
   AssetGenImage get tools => const AssetGenImage('assets/images/tools.png');
 
+  /// File path: assets/images/upcoming_shows_placeholder.png
+  AssetGenImage get upcomingShowsPlaceholder =>
+      const AssetGenImage('assets/images/upcoming_shows_placeholder.png');
+
   /// File path: assets/images/userPhoto2.png
   AssetGenImage get userPhoto2 =>
       const AssetGenImage('assets/images/userPhoto2.png');
@@ -300,6 +357,7 @@ class $AssetsImagesGen {
     splashLogo,
     splashLogo1024,
     tools,
+    upcomingShowsPlaceholder,
     userPhoto2,
     userPhoto,
     watch,

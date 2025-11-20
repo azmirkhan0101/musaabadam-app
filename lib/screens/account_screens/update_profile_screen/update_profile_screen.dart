@@ -28,115 +28,92 @@ class UpdateProfileScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBoxWidget( height: 20,),
-                //===================USER PHOTO=========================//
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Stack(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(8.w),
-                          child: CircleAvatar(
-                              radius: 53.h,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30.w),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBoxWidget( height: 20,),
+                  //===================USER PHOTO=========================//
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Stack(
+                        children: [
+                          CircleAvatar(
+                              radius: 53.r,
                               backgroundImage: NetworkImage(
                                   controller.userProfilePhoto
                               )
                           ),
-                        ),
-                        Positioned(
-                            bottom: 0,
-                            right: 0,
-                            child: IconButton(onPressed: (){},
-                                icon: SvgPicture.asset(Assets.icons.camera
-                                )
-                            )
-                        ),
+                          Positioned(
+                              bottom: -5.r,
+                              right: -5.r,
+                              child: IconButton(onPressed: (){},
+                                  icon: SvgPicture.asset(Assets.icons.camera
+                                  )
+                              )
+                          ),
 
-                      ]
+                        ]
+                    ),
                   ),
-                ),
-                //===================USER PROFILE NAME=========================//
-                Align(
-                  alignment: Alignment.center,
-                  child: TextWidget(text: controller.userProfileName,
-                    fontWeight: FontWeight.w700,
-                    fontColor: AppColors.black,
-                    fontSize: 20,
+                  //===================USER PROFILE NAME=========================//
+                  Align(
+                    alignment: Alignment.center,
+                    child: TextWidget(text: controller.userProfileName,
+                      fontWeight: FontWeight.w700,
+                      fontColor: AppColors.black,
+                      fontSize: 20,
+                    ),
                   ),
-                ),
-                SizedBoxWidget(height: 15,),
-                //===================BIO=========================//
-                SizedBoxWidget(height: 8),
-                Padding(padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: TextFieldWidget(hint: "Henry Jackob",
-                    controller: controller.bioController,
-                    maxLines: 1,
-                    maxLength: 500,
-                    borderRadius: 10,
+                  SizedBoxWidget(height: 15,),
+                  //===================BIO=========================//
+                  TextFieldWidget(
+                      hint: "Jeremy Drake",
+                      controller: controller.bioController,
+                    borderRadius: 8,
                     borderColor: AppColors.brandColor,
+                    prefixIcon: Icons.person_2_outlined,
                   ),
-                ),
-                Padding(padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: TextFieldWidget(hint: "Henry Jackob",
+                  SizedBoxWidget(height: 15,),
+                  TextFieldWidget(
+                    hint: "henry@mail.com",
                     controller: controller.bioController,
-                    maxLines: 1,
-                    maxLength: 500,
-                    borderRadius: 10,
+                    borderRadius: 8,
                     borderColor: AppColors.brandColor,
+                    prefixIcon: Icons.email_outlined,
                   ),
-                ),
-                Padding(padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: TextFieldWidget(hint: "Henry Jackob",
+                  SizedBoxWidget(height: 15,),
+                  TextFieldWidget(
+                    hint: "(480) 555-3434",
                     controller: controller.bioController,
-                    maxLines: 1,
-                    maxLength: 500,
-                    borderRadius: 10,
+                    borderRadius: 8,
                     borderColor: AppColors.brandColor,
+                    prefixIcon: Icons.call_outlined,
                   ),
-                ),
-                Padding(padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: TextFieldWidget(hint: "Henry Jackob",
+                  SizedBoxWidget(height: 15,),
+                  TextFieldWidget(
+                    hint: "2955 washterimer RD. santa area, sans Fransicco",
                     controller: controller.bioController,
-                    maxLines: 1,
-                    maxLength: 500,
-                    borderRadius: 10,
+                    borderRadius: 8,
                     borderColor: AppColors.brandColor,
+                    prefixIcon: Icons.location_on_outlined,
                   ),
-                ),
-                SizedBoxWidget(height: 12),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: TextWidget(text: AppStrings.preference,),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: TextWidget(text: AppStrings.pickAFewToGetStarted,
-                    fontSize: 14,
-                    fontColor: AppColors.grey8C,
-                  ),
-                ),
-                SizedBoxWidget(
-                  height: 15,
-                ),
-                SizedBoxWidget(height: 12,),
-                //===================CONTINUE BUTTON=========================//
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.w),
-                  child: ButtonWidget(label: AppStrings.updateProfile.tr,
+                  SizedBoxWidget(height: 12,),
+                  //===================CONTINUE BUTTON=========================//
+                  ButtonWidget(label: AppStrings.updateProfile.tr,
                     buttonHeight: 40.h,
                     buttonWidth: double.infinity,
                     backgroundColor: AppColors.brandColor,
                     buttonRadius: 8,
                     onPressed: (){
-                      //TODO: GO TO LIVE STREAMING PLAYER SCREEN
+                      //TODO:
                       Get.toNamed(AppRoutes.MAIN_SCREEN);
                     },
                   ),
-                )
-              ]
+                ]
+            ),
           )
       ),
     );

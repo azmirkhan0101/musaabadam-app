@@ -59,8 +59,7 @@ tipAmountSelection(){
                 isLabelInside: true,
                 borderRadius: 8,
                 color: AppColors.brandColorShade,
-                horizontalPadding: 20,
-                verticalPadding: 10,
+                padding: [20, 10],
               ),
               LabeledIconButton(
                 iconPath: Assets.icons.tip5,
@@ -70,8 +69,7 @@ tipAmountSelection(){
                 isLabelInside: true,
                 borderRadius: 8,
                 color: AppColors.brandColorShade,
-                horizontalPadding: 20,
-                verticalPadding: 10,
+                padding: [20, 10],
               ),
               LabeledIconButton(
                 iconPath: Assets.icons.tip10,
@@ -81,8 +79,7 @@ tipAmountSelection(){
                 isLabelInside: true,
                 borderRadius: 8,
                 color: AppColors.brandColorShade,
-                horizontalPadding: 20,
-                verticalPadding: 10,
+                padding: [20, 10],
               )
             ],
           ),
@@ -98,8 +95,7 @@ tipAmountSelection(){
                 isLabelInside: true,
                 borderRadius: 8,
                 color: AppColors.brandColorShade,
-                horizontalPadding: 20,
-                verticalPadding: 10,
+                padding: [20, 10],
               ),
               LabeledIconButton(
                 iconPath: Assets.icons.tip50,
@@ -109,8 +105,7 @@ tipAmountSelection(){
                 isLabelInside: true,
                 borderRadius: 8,
                 color: AppColors.brandColorShade,
-                horizontalPadding: 20,
-                verticalPadding: 10,
+                padding: [20, 10],
               ),
               LabeledIconButton(
                 iconPath: Assets.icons.tip100,
@@ -120,8 +115,7 @@ tipAmountSelection(){
                 isLabelInside: true,
                 borderRadius: 8,
                 color: AppColors.brandColorShade,
-                horizontalPadding: 20,
-                verticalPadding: 10,
+                padding: [20, 10],
               )
             ],
           ),

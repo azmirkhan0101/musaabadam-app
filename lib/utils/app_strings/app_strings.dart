@@ -220,6 +220,11 @@ class AppStrings {
   static const String preferences = "Preferences";
   static const String privacyPolicy = "Privacy Policy";
   static const String faqs = "FAQ's";
+  static const String liveRecordingRequest = "Live Recording Request";
+  static const String salesDataRequest = "Sales Data Request";
+  static const String appealAReview = "Appeal A Review";
+  static const String marketingAndPromotions = "Marketing and Promotions";
+  static const String showSchedulingHelp = "Show Scheduling Help";
   static const String signOut = "Sign Out";
   static const String profile = "Profile";
   static const String termsConditions = "Terms & Conditions";
