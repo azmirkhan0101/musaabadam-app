@@ -11,7 +11,8 @@ class TextFieldWidget extends StatelessWidget {
   final String hint;
   final TextEditingController controller;
   final bool obscureText;
-  final String? iconPath;
+  final String? obscureIcon;
+  final IconData? prefixIcon;
   final double borderRadius;
   final bool showCounter;
   final int maxLines;
@@ -23,7 +24,8 @@ class TextFieldWidget extends StatelessWidget {
     required this.hint,
     required this.controller,
     this.obscureText = false,
-    this.iconPath,
+    this.obscureIcon,
+    this.prefixIcon,
     this.borderRadius = 0,
     this.showCounter = false,
     this.maxLines = 1,
@@ -47,10 +49,13 @@ class TextFieldWidget extends StatelessWidget {
           maxHeight: 12.75.h,
           maxWidth: 38.w,
         ),
+        prefixIcon: prefixIcon == null ? null : Icon( prefixIcon ),
         suffixIcon: Padding(
           padding: EdgeInsets.only(right: 18.w),
           child: !obscureText ? SizedBox.shrink() : SvgPicture.asset(
-            iconPath!
+            obscureIcon!,
+            height: 20.h,
+            width: 20.w,
           ),
         ),
         hintText: hint,

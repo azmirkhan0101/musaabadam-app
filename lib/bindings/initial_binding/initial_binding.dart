@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
+import 'package:musaab_adam/controllers/auth_controller/auth_controller.dart';
 import 'package:musaab_adam/screens/account_screens/update_profile_screen/controllers/update_profile_screen_controller.dart.dart';
-import 'package:musaab_adam/screens/address_screen/controller/address_screen_controller.dart';
+import 'package:musaab_adam/screens/add_address_screen/controller/add_address_screen_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/check_email_screen/controllers/check_email_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/forgot_password_screen/controllers/forgot_password_controller.dart';
 import 'package:musaab_adam/screens/auth_screens/new_password_screen/controllers/new_password_controller.dart';
@@ -23,6 +24,10 @@ import '../../screens/home_screens/home_screen/controller/home_screen_controller
 class InitialBinding extends Bindings{
   @override
   void dependencies() {
+
+    Get.lazyPut((){
+      return AuthController();
+    }, fenix: true);
 
     Get.lazyPut((){
       return MainScreenController();
@@ -97,7 +102,7 @@ class InitialBinding extends Bindings{
     }, fenix: true);
 
     Get.lazyPut((){
-      return AddressScreenController();
+      return AddAddressScreenController();
     }, fenix: true);
 
     Get.lazyPut((){

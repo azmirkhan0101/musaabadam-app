@@ -70,7 +70,7 @@ class SignInScreen extends StatelessWidget {
                       controller: controller.passwordController,
                     borderRadius: 10,
                     obscureText: true,
-                    iconPath: Assets.icons.eyeFilled,
+                    obscureIcon: Assets.icons.eyeFilled,
                   ),
                   //===================FORGOT PASSWORD=========================//
                   Align(

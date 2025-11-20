@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/screens/address_screen/controller/address_screen_controller.dart';
+import 'package:musaab_adam/screens/add_address_screen/controller/add_address_screen_controller.dart';
 import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 import 'package:musaab_adam/utils/app_strings/app_strings.dart';
 import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
@@ -9,9 +9,9 @@ import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/widgets/text_field_widget/text_field_widget.dart';
 import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
 
-class AddressScreen extends StatelessWidget {
+class AddAdressScreen extends StatelessWidget {
 
-  final AddressScreenController controller = Get.find<AddressScreenController>();
+  final AddAddressScreenController controller = Get.find<AddAddressScreenController>();
 
   @override
   Widget build(BuildContext context) {

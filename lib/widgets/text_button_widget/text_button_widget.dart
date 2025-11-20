@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:musaab_adam/utils/app_colors/app_colors.dart';
 
 class TextButtonWidget extends StatelessWidget {
   final VoidCallback? onPressed;
@@ -9,7 +10,8 @@ class TextButtonWidget extends StatelessWidget {
   final FontWeight fontWeight;
   final FontStyle fontStyle;
   final TextDecoration? decoration;
-  final Color? decorationColor;
+  final Color decorationColor;
+  final double decorationThickness;
 
   const TextButtonWidget({
     super.key,
@@ -20,7 +22,8 @@ class TextButtonWidget extends StatelessWidget {
     this.fontStyle = FontStyle.normal,
     required this.fontWeight,
     this.decoration,
-    this.decorationColor,
+    this.decorationColor = AppColors.black50Percent,
+    this.decorationThickness = 3,
   });
 
   @override
@@ -43,6 +46,7 @@ class TextButtonWidget extends StatelessWidget {
           fontWeight: fontWeight,
           decoration: decoration,
           decorationColor: decorationColor,
+          decorationThickness: decorationThickness.h,
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class AddressScreenController extends GetxController{
+class AddAddressScreenController extends GetxController{
 
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController addressController = TextEditingController();

@@ -77,7 +77,7 @@ class AccountScreen extends StatelessWidget {
                         borderRadius: 8,
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
-                        verticalPadding: 18,
+                        padding: [ 0, 18 ],
                         onClick: (){
                           Get.toNamed(AppRoutes.INVITE_SCREEN);
                         },
@@ -95,7 +95,7 @@ class AccountScreen extends StatelessWidget {
                         borderRadius: 8,
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
-                        verticalPadding: 18,
+                        padding: [ 0, 18 ],
                         onClick: (){
                           Get.toNamed(AppRoutes.MY_REWARDS_SCREEN);
                         },
@@ -141,6 +141,9 @@ class AccountScreen extends StatelessWidget {
                 SizedBoxWidget(height: 15,),
                 TileButton(title: AppStrings.contactUs.tr,
                   defaultIcon: Icons.perm_contact_calendar_sharp,
+                  onClick: (){
+                  Get.toNamed(AppRoutes.CONTACT_US_SCREEN);
+                  },
                 ),
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.userReports.tr,

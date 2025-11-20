@@ -19,8 +19,7 @@ class LabeledIconButton extends StatelessWidget {
   final Color fontColor;
   final FontWeight fontWeight;
   final double fontSize;
-  final double horizontalPadding;
-  final double verticalPadding;
+  final List<double> padding;
   final VoidCallback? onClick;
 
   const LabeledIconButton({
@@ -38,8 +37,7 @@ class LabeledIconButton extends StatelessWidget {
     this.fontColor = AppColors.black,
     this.fontWeight = FontWeight.w700,
     this.fontSize = 14,
-    this.horizontalPadding = 0,
-    this.verticalPadding = 0,
+    this.padding = const [0,0],
     this.onClick
   });
 
@@ -50,7 +48,7 @@ class LabeledIconButton extends StatelessWidget {
         ? GestureDetector(
       onTap: onClick,
           child: Container(
-                padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
+                padding: EdgeInsets.symmetric(horizontal: padding[0], vertical: padding[1]),
               decoration: BoxDecoration(
                 border: Border.all(color: borderColor, width: borderWidth),
                 borderRadius: BorderRadius.circular(borderRadius),
@@ -65,7 +63,7 @@ class LabeledIconButton extends StatelessWidget {
                       iconPath,
                       height: iconHeight.r,
                       width: iconWidth.r,
-                      fit: BoxFit.scaleDown,
+                      fit: BoxFit.cover,
                     ),
                   ),
                   TextWidget(
@@ -102,7 +100,7 @@ class LabeledIconButton extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBoxWidget(height: gap),
+              SizedBoxWidget(height: gap.h),
               !text.isEmpty ? TextWidget(
                 text: text,
                 fontWeight: fontWeight,
