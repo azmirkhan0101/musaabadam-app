@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/widgets/labeled_iconbutton/labeled_iconbutton.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 
-import '../../utils/app_strings/app_strings.dart';
-import '../../utils/assets_gen/assets.gen.dart';
-import '../../widgets/button_widget/button_widget.dart';
-import '../../widgets/text_widget/text_widgets.dart';
+import '../../core/assets_gen/assets.gen.dart';
+import '../../core/utils/app_strings.dart';
+import '../../core/widgets/custom_button.dart';
+import '../../core/widgets/custom_text.dart';
 
 class SendTipScreen extends StatelessWidget {
   const SendTipScreen({super.key});
@@ -20,7 +20,7 @@ class SendTipScreen extends StatelessWidget {
       appBar: AppBar(
         forceMaterialTransparency: true,
         leading: Icon(Icons.close),
-        title: TextWidget(text: AppStrings.sendATip.tr),
+        title: CustomText(text: AppStrings.sendATip.tr),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -46,7 +46,7 @@ tipAmountSelection(){
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextWidget(text: AppStrings.chooseATipAmount.tr),
+          CustomText(text: AppStrings.chooseATipAmount.tr),
           SizedBoxWidget(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -123,7 +123,7 @@ tipAmountSelection(){
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextWidget(text: AppStrings.addAThankYouNote.tr),
+              CustomText(text: AppStrings.addAThankYouNote.tr),
               Switch(
                 value: false,
                 onChanged: (v) {},
@@ -138,7 +138,7 @@ tipAmountSelection(){
               ),
             ],
           ),
-          TextWidget(
+          CustomText(
             text: AppStrings.thisMessageInChat.tr,
             fontSize: 12,
             fontColor: AppColors.grey8C,
@@ -152,7 +152,7 @@ tipAmountSelection(){
                   children: [
                     SizedBoxWidget(width: 15,),
                     Expanded(
-                      child: ButtonWidget(
+                      child: CustomButton(
                         label: AppStrings.cancel.tr,
                         backgroundColor: AppColors.grey86,
                         buttonHeight: 40,
@@ -160,11 +160,11 @@ tipAmountSelection(){
                     ),
                     SizedBoxWidget(width: 15,),
                     Expanded(
-                      child: ButtonWidget(
+                      child: CustomButton(
                         label: AppStrings.next.tr,
                         backgroundColor: AppColors.brandColorShade,
                         buttonHeight: 40,
-                        textColor: AppColors.brandColor,
+                        textColor: AppColors.primaryColor,
                       ),
                     ),
                     SizedBoxWidget(width: 15,),
@@ -187,11 +187,11 @@ tipSendingSection(){
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextWidget(text: AppStrings.tipAmount.tr,
+              CustomText(text: AppStrings.tipAmount.tr,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               ),
-              TextWidget(text: "\$10",
+              CustomText(text: "\$10",
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               )
@@ -201,11 +201,11 @@ tipSendingSection(){
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextWidget(text: AppStrings.payment.tr,
+              CustomText(text: AppStrings.payment.tr,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               ),
-              TextWidget(text: "\$10",
+              CustomText(text: "\$10",
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               )
@@ -215,11 +215,11 @@ tipSendingSection(){
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextWidget(text: AppStrings.subtotal.tr,
+              CustomText(text: AppStrings.subtotal.tr,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               ),
-              TextWidget(text: "\$10",
+              CustomText(text: "\$10",
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               )
@@ -229,11 +229,11 @@ tipSendingSection(){
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextWidget(text: AppStrings.paymentProcessingFee.tr,
+              CustomText(text: AppStrings.paymentProcessingFee.tr,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               ),
-              TextWidget(text: "\$10",
+              CustomText(text: "\$10",
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               )
@@ -243,12 +243,12 @@ tipSendingSection(){
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextWidget(
+              CustomText(
                   text: AppStrings.total.tr,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               ),
-              TextWidget(text: "\$10",
+              CustomText(text: "\$10",
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
               )
@@ -262,7 +262,7 @@ tipSendingSection(){
                   children: [
                     SizedBoxWidget(width: 15,),
                     Expanded(
-                      child: ButtonWidget(
+                      child: CustomButton(
                         label: AppStrings.cancel.tr,
                         backgroundColor: AppColors.grey86,
                         buttonHeight: 40,
@@ -270,11 +270,11 @@ tipSendingSection(){
                     ),
                     SizedBoxWidget(width: 15,),
                     Expanded(
-                      child: ButtonWidget(
+                      child: CustomButton(
                         label: AppStrings.sendTip.tr,
                         backgroundColor: AppColors.brandColorShade,
                         buttonHeight: 40,
-                        textColor: AppColors.brandColor,
+                        textColor: AppColors.primaryColor,
                       ),
                     ),
                     SizedBoxWidget(width: 15,),

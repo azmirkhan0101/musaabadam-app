@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 
 import 'components/app_bar.dart';
 import 'components/chip_buttons.dart';
@@ -21,7 +21,7 @@ class ActivityScreen extends StatelessWidget {
           Row(
             children: [
               TextButton(onPressed: (){},
-                child: TextWidget(
+                child: CustomText(
                   text: AppStrings.purchases.tr,
                   underline: isSelected ? true : false,
                   fontSize: 14,
@@ -30,7 +30,7 @@ class ActivityScreen extends StatelessWidget {
                 ),
               ),
               TextButton(onPressed: (){},
-                child: TextWidget(
+                child: CustomText(
                   text: AppStrings.bids.tr,
                   underline: isSelected ? true : false,
                   fontSize: 14,
@@ -39,7 +39,7 @@ class ActivityScreen extends StatelessWidget {
                 ),
               ),
               TextButton(onPressed: (){},
-                child: TextWidget(
+                child: CustomText(
                   text: AppStrings.offers.tr,
                   underline: isSelected ? true : false,
                   fontSize: 14,
@@ -48,7 +48,7 @@ class ActivityScreen extends StatelessWidget {
                 ),
               ),
               TextButton(onPressed: (){},
-                child: TextWidget(
+                child: CustomText(
                   text: AppStrings.saved.tr,
                   underline: isSelected ? true : false,
                   fontSize: 14,

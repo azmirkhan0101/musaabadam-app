@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../utils/app_strings/app_strings.dart';
-import '../../../../widgets/choice_chip_widget/choice_chip_widget.dart';
+import '../../../../core/utils/app_strings.dart';
+import '../../../../widgets/choice_chip_widget/custom_choice_chip.dart';
 import '../../../../widgets/sized_box_widget/sized_box_widget.dart';
 
 Widget chipButtons = SingleChildScrollView(
@@ -10,7 +10,7 @@ Widget chipButtons = SingleChildScrollView(
   child: Row(
     children: [
       SizedBoxWidget(width: 20),
-      ChoiceChipWidget(
+      CustomChoiceChip(
         label: AppStrings.all.tr,
         borderRadius: 100,
         padding: [8, 4],
@@ -20,7 +20,7 @@ Widget chipButtons = SingleChildScrollView(
         onSelected: (isSelected) {},
       ),
       SizedBoxWidget(width: 10),
-      ChoiceChipWidget(
+      CustomChoiceChip(
         label: AppStrings.inProgress.tr,
         borderRadius: 100,
         padding: [8, 4],
@@ -30,7 +30,7 @@ Widget chipButtons = SingleChildScrollView(
         onSelected: (isSelected) {},
       ),
       SizedBoxWidget(width: 10),
-      ChoiceChipWidget(
+      CustomChoiceChip(
         label: AppStrings.completed.tr,
         borderRadius: 100,
         padding: [8, 4],
@@ -40,7 +40,7 @@ Widget chipButtons = SingleChildScrollView(
         onSelected: (isSelected) {},
       ),
       SizedBoxWidget(width: 10),
-      ChoiceChipWidget(
+      CustomChoiceChip(
         label: AppStrings.refunds.tr,
         borderRadius: 100,
         padding: [8, 4],
@@ -50,7 +50,7 @@ Widget chipButtons = SingleChildScrollView(
         onSelected: (isSelected) {},
       ),
       SizedBoxWidget(width: 10),
-      ChoiceChipWidget(
+      CustomChoiceChip(
         label: AppStrings.cancelled.tr,
         borderRadius: 100,
         padding: [8, 4],
@@ -60,7 +60,7 @@ Widget chipButtons = SingleChildScrollView(
         onSelected: (isSelected) {},
       ),
       SizedBoxWidget(width: 10),
-      ChoiceChipWidget(
+      CustomChoiceChip(
         label: AppStrings.tips.tr,
         borderRadius: 100,
         padding: [8, 4],
@@ -70,7 +70,7 @@ Widget chipButtons = SingleChildScrollView(
         onSelected: (isSelected) {},
       ),
       SizedBoxWidget(width: 10),
-      ChoiceChipWidget(
+      CustomChoiceChip(
         label: AppStrings.pendingReview.tr,
         borderRadius: 100,
         padding: [8, 4],
@@ -80,7 +80,7 @@ Widget chipButtons = SingleChildScrollView(
         onSelected: (isSelected) {},
       ),
       SizedBoxWidget(width: 10),
-      ChoiceChipWidget(
+      CustomChoiceChip(
         label: AppStrings.communityBoost.tr,
         borderRadius: 100,
         padding: [8, 4],

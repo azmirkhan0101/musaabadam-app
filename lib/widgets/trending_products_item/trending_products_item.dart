@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
 
-import '../../utils/assets_gen/assets.gen.dart';
-import '../text_widget/text_widgets.dart';
+import '../../core/assets_gen/assets.gen.dart';
+import '../../core/widgets/custom_text.dart';
 
 class TrendingProductsItem extends StatelessWidget {
   const TrendingProductsItem({super.key});
@@ -35,7 +35,7 @@ class TrendingProductsItem extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 5.w),
-            child: TextWidget(
+            child: CustomText(
               text: "Bags",
               textAlignment: TextAlign.left,
               maxLines: 1,
@@ -47,13 +47,13 @@ class TrendingProductsItem extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 5.w),
-            child: TextWidget(
+            child: CustomText(
               text: "\$400",
               textAlignment: TextAlign.left,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               fontWeight: FontWeight.w600,
-              fontColor: AppColors.brandColor,
+              fontColor: AppColors.primaryColor,
               fontSize: 12,
             ),
           ),

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 
-import '../../utils/assets_gen/assets.gen.dart';
 
 class MessageItemWidget extends StatelessWidget {
   const MessageItemWidget({super.key});
@@ -26,9 +25,9 @@ class MessageItemWidget extends StatelessWidget {
               leading: ImageWidget(
                   width: 30,
                   height: 30,
-                  imagePath: Assets.images.userPhoto.keyName
+                  imagePath: ""
               ),
-              title: TextWidget(
+              title: CustomText(
                   text: "Hazrat Ali",
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
@@ -36,7 +35,7 @@ class MessageItemWidget extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
-              subtitle: TextWidget(
+              subtitle: CustomText(
                   text: "Please send us carefully",
                 fontSize: 14,
                 textAlignment: TextAlign.start,
@@ -54,7 +53,7 @@ class MessageItemWidget extends StatelessWidget {
                 backgroundColor: AppColors.orange,
                 radius: 6,
               ),
-              TextWidget(text: "Today",
+              CustomText(text: "Today",
               fontSize: 12,
               )
             ],

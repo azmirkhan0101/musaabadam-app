@@ -2,9 +2,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 
 class AccountHealthScreen extends StatelessWidget {
   const AccountHealthScreen({super.key});
@@ -15,7 +15,7 @@ class AccountHealthScreen extends StatelessWidget {
       backgroundColor: AppColors.white,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: TextWidget(text: AppStrings.accountHealth.tr),
+        title: CustomText(text: AppStrings.accountHealth.tr),
         centerTitle: true,
         leading: Icon(Icons.arrow_back_ios_new_rounded),
       ),
@@ -24,10 +24,10 @@ class AccountHealthScreen extends StatelessWidget {
         spacing: 20.h,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextWidget(text: AppStrings.policyStanding.tr,
+          CustomText(text: AppStrings.policyStanding.tr,
           fontWeight: FontWeight.w600,
           ),
-          TextWidget(
+          CustomText(
             text: AppStrings.ourPolicy.tr,
             textAlignment: TextAlign.start,
           fontSize: 16,
@@ -37,7 +37,7 @@ class AccountHealthScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only( top: 60.h ),
-                child: TextWidget(
+                child: CustomText(
                     text: AppStrings.veryPoor.tr,
                   fontSize: 16,
                   fontWeight: FontWeight.w700,

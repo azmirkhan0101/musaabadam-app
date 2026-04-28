@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+
+import '../../core/utils/app_colors.dart';
+import '../../core/widgets/custom_text.dart';
+
+class CustomChoiceChip extends StatelessWidget {
+
+  final String label;
+  final bool selected;
+  final bool showShadow;
+  final List<double> padding;
+  final bool colorChangeable;
+  final double borderRadius;
+  final double borderWidth;
+  final Color borderColor;
+  final Widget? trailing;
+  final Function(bool) onSelected;
+  const CustomChoiceChip ({
+    super.key,
+    required this.label,
+    this.trailing,
+    required this.selected,
+    this.padding = const [2,0],
+    this.showShadow = false,
+    this.colorChangeable = false,
+    this.borderRadius = 0,
+    this.borderWidth = 0,
+    this.borderColor = Colors.transparent,
+    required this.onSelected
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ChoiceChip(
+      selected: selected,
+      showCheckmark: false,
+      selectedColor: selected && colorChangeable ? AppColors.primaryColor : AppColors.brandColorShade,
+      padding: EdgeInsets.symmetric(horizontal: padding[0], vertical: padding[1]),
+      elevation: 4,
+      shadowColor: showShadow ? AppColors.brandColorShade : Colors.transparent,
+      backgroundColor: selected && colorChangeable ? AppColors.primaryColor : AppColors.brandColorShade,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius),
+          side: BorderSide( width: borderWidth, color: borderColor)
+      ),
+      label: Row(
+        children: [
+          CustomText(
+            text: label,
+            fontColor: selected && colorChangeable ? AppColors.white : AppColors.primaryColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+          ),
+          trailing ?? SizedBox.shrink()
+        ],
+      ),
+      onSelected: (bool isSelected){
+        onSelected(isSelected);
+      },
+    );
+  }
+}

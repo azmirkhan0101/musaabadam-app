@@ -3,15 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/screens/livestream_screens/livestream_screen/controller/livestream_screen_controller.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
+import 'package:musaab_adam/core/widgets/custom_button.dart';
 import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
 import 'package:musaab_adam/widgets/labeled_iconbutton/labeled_iconbutton.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 
-import '../../../utils/assets_gen/assets.gen.dart';
+import '../../../core/assets_gen/assets.gen.dart';
 
 class LivestreamScreen extends StatelessWidget {
 
@@ -43,7 +43,7 @@ class LivestreamScreen extends StatelessWidget {
                     IconButton(onPressed: (){},
                         icon: Icon(Icons.arrow_back_ios_new_rounded)
                     ),
-                    TextWidget(text: "Emma Watson",
+                    CustomText(text: "Emma Watson",
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
                     )
@@ -88,15 +88,15 @@ class LivestreamScreen extends StatelessWidget {
               Assets.icons.liveIcon
           ),
           SizedBoxWidget(width: 10,),
-          Icon(Icons.remove_red_eye, color: AppColors.brandColor,),
+          Icon(Icons.remove_red_eye, color: AppColors.primaryColor,),
           SizedBoxWidget(width: 5,),
-          TextWidget(text: "5.2k",
+          CustomText(text: "5.2k",
             fontSize: 14,
-            fontColor: AppColors.brandColor,
+            fontColor: AppColors.primaryColor,
           ),
           SizedBoxWidget(width: 10,),
-          ButtonWidget(label: AppStrings.follow.tr,
-            backgroundColor: AppColors.brandColor,
+          CustomButton(label: AppStrings.follow.tr,
+            backgroundColor: AppColors.primaryColor,
             buttonHeight: 40,
             buttonWidth: 85,
             fontSize: 14,
@@ -125,37 +125,37 @@ class LivestreamScreen extends StatelessWidget {
             LabeledIconButton(
               iconPath: Assets.icons.more,
               text: AppStrings.more.tr,
-              fontColor: AppColors.brandColor,
+              fontColor: AppColors.primaryColor,
             ),
             SizedBoxWidget( height: 5,),
             LabeledIconButton(
               iconPath: Assets.icons.boost,
               text: AppStrings.boost.tr,
-              fontColor: AppColors.brandColor,
+              fontColor: AppColors.primaryColor,
             ),
             SizedBoxWidget( height: 5,),
             LabeledIconButton(
               iconPath: Assets.icons.clip,
               text: AppStrings.clip.tr,
-              fontColor: AppColors.brandColor,
+              fontColor: AppColors.primaryColor,
             ),
             SizedBoxWidget( height: 5,),
             LabeledIconButton(
               iconPath: Assets.icons.share,
               text: AppStrings.share.tr,
-              fontColor: AppColors.brandColor,
+              fontColor: AppColors.primaryColor,
             ),
             SizedBoxWidget( height: 5,),
             LabeledIconButton(
               iconPath: Assets.icons.wallet,
               text: AppStrings.wallet.tr,
-              fontColor: AppColors.brandColor,
+              fontColor: AppColors.primaryColor,
             ),
             SizedBoxWidget( height: 5,),
             LabeledIconButton(
               iconPath: Assets.icons.shop,
               text: AppStrings.shop,
-              fontColor: AppColors.brandColor,
+              fontColor: AppColors.primaryColor,
             ),
           ],
         ),
@@ -189,10 +189,10 @@ commentTypingRow(){
           child: LabeledIconButton(
             iconPath: Assets.icons.send,
             color: AppColors.white,
-            borderColor: AppColors.brandColor,
+            borderColor: AppColors.primaryColor,
             borderWidth: 2,
             text: "",
-            fontColor: AppColors.brandColor,
+            fontColor: AppColors.primaryColor,
             gap: 0,
           ),
         ),
@@ -205,7 +205,7 @@ commentTypingRow(){
 liveProductItem(){
     return ListTile(
       leading: ImageWidget(width: 50, height: 50, imagePath: Assets.dummy.liveItem.keyName),
-      title: TextWidget(
+      title: CustomText(
           text: "Nike Air Shoes",
         fontWeight: FontWeight.w700,
         fontSize: 16,
@@ -213,7 +213,7 @@ liveProductItem(){
       ),
       subtitle: Row(
         children: [
-          TextWidget( text: "${AppStrings.size.tr}: 34-44",
+          CustomText( text: "${AppStrings.size.tr}: 34-44",
             fontSize: 12,
           ),
           SizedBoxWidget(width: 10,),
@@ -221,21 +221,21 @@ liveProductItem(){
             backgroundColor: AppColors.orange,
             radius: 4.r,
           ),
-          TextWidget(
+          CustomText(
             text: " ${AppStrings.newe.tr}",
             fontSize: 12,
           ),
           SizedBoxWidget(width: 10,),
           CircleAvatar(
-            backgroundColor: AppColors.brandColor,
+            backgroundColor: AppColors.primaryColor,
             radius: 4.r,
           ),
-          TextWidget(
+          CustomText(
             text: " 1 ${AppStrings.available.tr}",
             fontSize: 12,
           ),
           SizedBoxWidget(width: 10,),
-          TextWidget(
+          CustomText(
             text: "\$4.43",
             fontSize: 12,
             fontWeight: FontWeight.w700,
@@ -251,18 +251,18 @@ customAndBidButtons(){
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBoxWidget(width: 15,),
-        Expanded(child: ButtonWidget(
+        Expanded(child: CustomButton(
           label: AppStrings.custom.tr,
           buttonRadius: 8,
           backgroundColor: AppColors.white,
-          textColor: AppColors.brandColor,
-          borderColor: AppColors.brandColor,
+          textColor: AppColors.primaryColor,
+          borderColor: AppColors.primaryColor,
           borderWidth: 2,
           buttonHeight: 42,
         )
         ),
         SizedBoxWidget(width: 10,),
-        Expanded(child: ButtonWidget(
+        Expanded(child: CustomButton(
           label: AppStrings.bid.tr,
           backgroundColor: AppColors.orange,
           buttonRadius: 8,

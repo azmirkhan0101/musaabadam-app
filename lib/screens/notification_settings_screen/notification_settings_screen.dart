@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/widgets/tile_button/tile_button.dart';
 
 class NotificationSettingsScreen extends StatelessWidget {
@@ -16,7 +16,7 @@ class NotificationSettingsScreen extends StatelessWidget {
       backgroundColor: AppColors.white,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: TextWidget(text: AppStrings.notificationSettings.tr),
+        title: CustomText(text: AppStrings.notificationSettings.tr),
         centerTitle: true,
         leading: Icon(Icons.arrow_back_ios_new_rounded),
       ),
@@ -25,7 +25,7 @@ class NotificationSettingsScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 10.h,
         children: [
-          TextWidget(text: AppStrings.buyerNotifications.tr,
+          CustomText(text: AppStrings.buyerNotifications.tr,
           fontWeight: FontWeight.w600,
           ),
           TileButton(title: AppStrings.auctions.tr,
@@ -56,7 +56,7 @@ class NotificationSettingsScreen extends StatelessWidget {
             defaultIcon: Icons.share_outlined,
           ),
           SizedBoxWidget( height: 0,),
-          TextWidget(text: AppStrings.buyerNotifications.tr,
+          CustomText(text: AppStrings.buyerNotifications.tr,
             fontWeight: FontWeight.w600,
           ),
         ],

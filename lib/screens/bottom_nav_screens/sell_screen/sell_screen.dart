@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
-import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
+import 'package:musaab_adam/core/widgets/custom_button.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/widgets/tile_button/tile_button.dart';
 
-import '../../../utils/assets_gen/assets.gen.dart';
+import '../../../core/assets_gen/assets.gen.dart';
 import '../../../widgets/labeled_iconbutton/labeled_iconbutton.dart';
 import '../../../widgets/sized_box_widget/sized_box_widget.dart';
 
@@ -21,7 +20,7 @@ class SellScreen extends StatelessWidget {
       backgroundColor: AppColors.white,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: TextWidget(text: AppStrings.sellerHub.tr),
+        title: CustomText(text: AppStrings.sellerHub.tr),
         centerTitle: true,
       ),
       body: Padding(
@@ -69,14 +68,14 @@ class SellScreen extends StatelessWidget {
               ],
             ),
             SizedBoxWidget( height: 20,),
-            TextWidget(text: AppStrings.fulfillment.tr,
+            CustomText(text: AppStrings.fulfillment.tr,
             ),
             TileButton(title: AppStrings.readyToShip.tr,
             defaultIcon: Icons.lightbulb_outlined,
             ),
             SizedBoxWidget( height: 20,),
-            TextWidget(text: AppStrings.accountHealth.tr),
-            TextWidget(text: AppStrings.policyStanding.tr,
+            CustomText(text: AppStrings.accountHealth.tr),
+            CustomText(text: AppStrings.policyStanding.tr,
             fontColor: AppColors.black80Percent,
               fontSize: 14,
             ),
@@ -87,18 +86,18 @@ class SellScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
                   width: 1.r,
-                  color: AppColors.brandColor,
+                  color: AppColors.primaryColor,
                 )
               ),
-              child: TextWidget(text: AppStrings.excellent.tr, textAlignment: TextAlign.start,),
+              child: CustomText(text: AppStrings.excellent.tr, textAlignment: TextAlign.start,),
             ),
             SizedBoxWidget(height: 20,),
-            TextWidget(text: AppStrings.upcomingShows.tr),
+            CustomText(text: AppStrings.upcomingShows.tr),
             SizedBoxWidget(height: 20,),
-            Center(child: ImageWidget(width: 174, height: 160, imagePath: Assets.images.upcomingShowsPlaceholder.keyName)),
+            //Center(child: ImageWidget(width: 174, height: 160, imagePath: Assets.images.upcomingShowsPlaceholder.keyName)),
             SizedBoxWidget(height: 25,),
-            ButtonWidget(label: AppStrings.scheduleAShow.tr,
-            backgroundColor: AppColors.brandColor,
+            CustomButton(label: AppStrings.scheduleAShow.tr,
+            backgroundColor: AppColors.primaryColor,
               buttonWidth: double.infinity,
               fontSize: 14,
               buttonHeight: 40,

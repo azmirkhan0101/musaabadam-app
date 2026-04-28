@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 
-import '../../utils/assets_gen/assets.gen.dart';
+import '../../core/assets_gen/assets.gen.dart';
 
 class LivestreamGridItem extends StatelessWidget {
 
@@ -41,7 +41,7 @@ class LivestreamGridItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                      child: TextWidget(text: "Azmir Khan",
+                      child: CustomText(text: "Azmir Khan",
                       textAlignment: TextAlign.left,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,

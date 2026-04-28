@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/screens/add_address_screen/controller/add_address_screen_controller.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
+import 'package:musaab_adam/core/widgets/custom_button.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_field_widget/text_field_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/widgets/text_field_widget/custom_text_field.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 
-class AddAdressScreen extends StatelessWidget {
+class AddAddressScreen extends StatelessWidget {
 
   final AddAddressScreenController controller = Get.find<AddAddressScreenController>();
+
+  AddAddressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class AddAdressScreen extends StatelessWidget {
             onPressed: (){},
             icon: Icon(Icons.arrow_back_ios_new_rounded)
         ),
-        title: TextWidget(text: AppStrings.addAddress.tr,
+        title: CustomText(text: AppStrings.addAddress.tr,
         fontSize: 20,
         fontWeight: FontWeight.w600,
         ),
@@ -33,31 +35,31 @@ class AddAdressScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBoxWidget(height: 30,),
-            TextFieldWidget(
-                hint: AppStrings.fullName.tr,
+            CustomTextField(
+                hintText: AppStrings.fullName.tr,
                 controller: controller.fullNameController,
               borderRadius: 10,
             ),
             SizedBoxWidget(height: 15,),
-            TextFieldWidget(
-              hint: AppStrings.address.tr,
+            CustomTextField(
+              hintText: AppStrings.address.tr,
               controller: controller.fullNameController,
               borderRadius: 10,
             ),
             SizedBoxWidget(height: 15,),
-            TextFieldWidget(
-              hint: AppStrings.city.tr,
+            CustomTextField(
+              hintText: AppStrings.city.tr,
               controller: controller.fullNameController,
               borderRadius: 10,
             ),
             SizedBoxWidget(height: 15,),
-            TextFieldWidget(
-              hint: AppStrings.state.tr,
+            CustomTextField(
+              hintText: AppStrings.state.tr,
               controller: controller.fullNameController,
               borderRadius: 10,
             ),
-            SizedBoxWidget(height: 15,),TextFieldWidget(
-              hint: AppStrings.postalCode.tr,
+            SizedBoxWidget(height: 15,),CustomTextField(
+              hintText: AppStrings.postalCode.tr,
               controller: controller.fullNameController,
               borderRadius: 10,
             ),
@@ -115,7 +117,7 @@ class AddAdressScreen extends StatelessWidget {
                     hoverColor: AppColors.orange,
                   );
                 }),
-                TextWidget(text: AppStrings.defaultShipping.tr)
+                CustomText(text: AppStrings.defaultShipping.tr)
               ],
             ),
             Row(
@@ -133,7 +135,7 @@ class AddAdressScreen extends StatelessWidget {
                     hoverColor: AppColors.orange,
                   );
                 }),
-                TextWidget(text: AppStrings.returnAddress.tr)
+                CustomText(text: AppStrings.returnAddress.tr)
               ],
             ),
             Expanded(
@@ -144,7 +146,7 @@ class AddAdressScreen extends StatelessWidget {
                       children: [
                         SizedBoxWidget(width: 15,),
                         Expanded(
-                          child: ButtonWidget(
+                          child: CustomButton(
                             label: AppStrings.cancel.tr,
                             backgroundColor: AppColors.grey86,
                             buttonHeight: 40,
@@ -152,11 +154,11 @@ class AddAdressScreen extends StatelessWidget {
                         ),
                         SizedBoxWidget(width: 15,),
                         Expanded(
-                          child: ButtonWidget(
+                          child: CustomButton(
                             label: AppStrings.save.tr,
                             backgroundColor: AppColors.brandColorShade,
                             buttonHeight: 40,
-                            textColor: AppColors.brandColor,
+                            textColor: AppColors.primaryColor,
                           ),
                         ),
                         SizedBoxWidget(width: 15,),

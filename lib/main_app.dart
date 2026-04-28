@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/bindings/initial_binding/initial_binding.dart';
-import 'package:musaab_adam/routes/app_pages/app_pages.dart';
-import 'package:musaab_adam/utils/assets_gen/fonts.gen.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
+
+import 'core/assets_gen/fonts.gen.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -21,9 +21,8 @@ class MainApp extends StatelessWidget {
               fontFamily: FontFamily.openSans,
           ),
           debugShowCheckedModeBanner: false,
-          initialBinding: InitialBinding(),
           getPages: AppPages.pages,
-          initialRoute: AppRoutes.MAIN_SCREEN,
+          initialRoute: AppRoutes.signInScreen,
         );
       },
     );

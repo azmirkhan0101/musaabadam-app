@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/routes/app_pages/app_pages.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/screens/home_screens/inbox_screen/controller/inbox_screen_controller.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/widgets/choice_chip_widget/choice_chip_widget.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
+import 'package:musaab_adam/widgets/choice_chip_widget/custom_choice_chip.dart';
 import 'package:musaab_adam/widgets/message_item_widget/message_item_widget.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 
 class InboxScreen extends StatelessWidget {
 
@@ -26,13 +26,13 @@ class InboxScreen extends StatelessWidget {
             child: Row(
               children: [
                 Obx((){
-                  return ChoiceChipWidget(
+                  return CustomChoiceChip(
                       label: AppStrings.newest.tr,
                       selected: controller.isSelected.value,
                       borderRadius: 8,
                       borderWidth: 1,
-                      borderColor: AppColors.brandColor,
-                      trailing: Icon(Icons.keyboard_arrow_down_rounded, color: AppColors.brandColor,),
+                      borderColor: AppColors.primaryColor,
+                      trailing: Icon(Icons.keyboard_arrow_down_rounded, color: AppColors.primaryColor,),
                       onSelected: (isSelected){
 
                       }
@@ -40,12 +40,12 @@ class InboxScreen extends StatelessWidget {
                 }),
                 SizedBoxWidget(width: 10,),
                 Obx((){
-                  return ChoiceChipWidget(
+                  return CustomChoiceChip(
                       label: AppStrings.purchases.tr,
                       selected: controller.isSelected.value,
                       borderRadius: 8,
                       borderWidth: 1,
-                      borderColor: AppColors.brandColor,
+                      borderColor: AppColors.primaryColor,
                       onSelected: (isSelected){
 
                       }
@@ -53,12 +53,12 @@ class InboxScreen extends StatelessWidget {
                 }),
                 SizedBoxWidget(width: 10,),
                 Obx((){
-                  return ChoiceChipWidget(
+                  return CustomChoiceChip(
                       label: AppStrings.unread.tr,
                       selected: controller.isSelected.value,
                       borderRadius: 8,
                       borderWidth: 1,
-                      borderColor: AppColors.brandColor,
+                      borderColor: AppColors.primaryColor,
                       onSelected: (isSelected){
 
                       }
@@ -79,7 +79,7 @@ class InboxScreen extends StatelessWidget {
       floatingActionButton: Container(
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
-          color: AppColors.brandColor,
+          color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(100)
         ),
         child: Row(
@@ -87,7 +87,7 @@ class InboxScreen extends StatelessWidget {
           children: [
             Icon(Icons.edit, color: AppColors.white,),
             SizedBoxWidget(width: 5,),
-            TextWidget(text: AppStrings.compose.tr,
+            CustomText(text: AppStrings.compose.tr,
               fontSize: 16,
               fontWeight: FontWeight.w600,
               fontColor: AppColors.white,
@@ -103,12 +103,12 @@ class InboxScreen extends StatelessWidget {
       forceMaterialTransparency: true,
       leading: IconButton(
           onPressed: (){
-            Get.toNamed(AppRoutes.MAIN_SCREEN);
+            Get.toNamed(AppRoutes.mainScreen);
           },
           icon:Icon(Icons.arrow_back_sharp)
       ),
       title: Center(
-        child: TextWidget(
+        child: CustomText(
           textAlignment: TextAlign.center,
           text: AppStrings.inbox.tr,
           fontColor: AppColors.black,
@@ -143,24 +143,24 @@ showAlertDialog(){
         children: [
           ListTile(
             leading: Icon(Icons.add_comment_rounded),
-            title: TextWidget(text: AppStrings.messageRequest.tr,
+            title: CustomText(text: AppStrings.messageRequest.tr,
               fontWeight: FontWeight.w700,
               fontSize: 15,
             ),
             trailing: Icon(Icons.arrow_forward_ios_rounded),
             onTap: (){
-              Get.toNamed(AppRoutes.MESSAGE_REQUEST_SCREEN);
+              Get.toNamed(AppRoutes.messageRequestScreen);
             },
           ),
           ListTile(
             leading: Icon(Icons.archive),
-            title: TextWidget(text: AppStrings.archive.tr,
+            title: CustomText(text: AppStrings.archive.tr,
               fontWeight: FontWeight.w700,
               fontSize: 15,
             ),
             trailing: Icon(Icons.arrow_forward_ios_rounded),
             onTap: (){
-              Get.toNamed(AppRoutes.ARCHIVE_SCREEN);
+              Get.toNamed(AppRoutes.archiveScreen);
             },
           )
         ],

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
-import 'package:musaab_adam/widgets/choice_chip_widget/choice_chip_widget.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/widgets/custom_button.dart';
+import 'package:musaab_adam/widgets/choice_chip_widget/custom_choice_chip.dart';
 import 'package:musaab_adam/widgets/text_button_widget/text_button_widget.dart';
 
-import '../../utils/app_strings/app_strings.dart';
-import '../../utils/assets_gen/assets.gen.dart';
-import '../../widgets/text_widget/text_widgets.dart';
+import '../../core/assets_gen/assets.gen.dart';
+import '../../core/utils/app_strings.dart';
+import '../../core/widgets/custom_text.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -31,12 +31,12 @@ class ProfileScreen extends StatelessWidget {
               Center(
                 child: Stack(
                   children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage(
-                        Assets.images.userPhoto2.keyName,
-                      ),
-                      radius: 52.r,
-                    ),
+                    // CircleAvatar(
+                    //   backgroundImage: AssetImage(
+                    //     Assets.images.userPhoto2.keyName,
+                    //   ),
+                    //   radius: 52.r,
+                    // ),
                     Positioned(
                       bottom: 8.h,
                       right: 8.w,
@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              TextWidget(
+              CustomText(
                 text: "Henry Jackob",
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
@@ -53,7 +53,7 @@ class ProfileScreen extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
                 decoration: BoxDecoration(
-                  color: AppColors.brandColor,
+                  color: AppColors.primaryColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -64,10 +64,10 @@ class ProfileScreen extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.star, color: Colors.orangeAccent),
-                            TextWidget(text: "4.9", fontColor: AppColors.white),
+                            CustomText(text: "4.9", fontColor: AppColors.white),
                           ],
                         ),
-                        TextWidget(
+                        CustomText(
                           text: "Rating",
                           fontSize: 14,
                           fontColor: AppColors.white,
@@ -83,8 +83,8 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        TextWidget(text: "1.5k", fontColor: AppColors.white),
-                        TextWidget(
+                        CustomText(text: "1.5k", fontColor: AppColors.white),
+                        CustomText(
                           text: "Follower",
                           fontSize: 14,
                           fontColor: AppColors.white,
@@ -100,8 +100,8 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        TextWidget(text: "7.5k", fontColor: AppColors.white),
-                        TextWidget(
+                        CustomText(text: "7.5k", fontColor: AppColors.white),
+                        CustomText(
                           text: "Sold",
                           fontSize: 14,
                           fontColor: AppColors.white,
@@ -115,7 +115,7 @@ class ProfileScreen extends StatelessWidget {
                 spacing: 20.w,
                 children: [
                   Expanded(
-                    child: ButtonWidget(
+                    child: CustomButton(
                       label: AppStrings.message.tr,
                       backgroundColor: AppColors.orange,
                       buttonHeight: 40,
@@ -123,9 +123,9 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: ButtonWidget(
+                    child: CustomButton(
                       label: AppStrings.editProfile.tr,
-                      backgroundColor: AppColors.brandColor,
+                      backgroundColor: AppColors.primaryColor,
                       buttonHeight: 40,
                       fontSize: 14,
                     ),
@@ -171,15 +171,15 @@ class ProfileScreen extends StatelessWidget {
                 shape: WidgetStateProperty.all(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
-                    side: BorderSide(width: 2, color: AppColors.brandColor),
+                    side: BorderSide(width: 2, color: AppColors.primaryColor),
                   ),
                 ),
-                trailing: [Icon(Icons.search, color: AppColors.brandColor)],
+                trailing: [Icon(Icons.search, color: AppColors.primaryColor)],
               ),
               Row(
                 spacing: 10.w,
                 children: [
-                  ChoiceChipWidget(
+                  CustomChoiceChip(
                     label: AppStrings.all.tr,
                     selected: true,
                     colorChangeable: true,
@@ -188,7 +188,7 @@ class ProfileScreen extends StatelessWidget {
                     showShadow: true,
                     onSelected: (isSelected) {},
                   ),
-                  ChoiceChipWidget(
+                  CustomChoiceChip(
                     label: AppStrings.active.tr,
                     selected: false,
                     colorChangeable: true,
@@ -197,7 +197,7 @@ class ProfileScreen extends StatelessWidget {
                     showShadow: true,
                     onSelected: (isSelected) {},
                   ),
-                  ChoiceChipWidget(
+                  CustomChoiceChip(
                     label: AppStrings.inactive.tr,
                     selected: false,
                     colorChangeable: true,
@@ -206,7 +206,7 @@ class ProfileScreen extends StatelessWidget {
                     showShadow: true,
                     onSelected: (isSelected) {},
                   ),
-                  ChoiceChipWidget(
+                  CustomChoiceChip(
                     label: AppStrings.sold.tr,
                     selected: false,
                     colorChangeable: true,
@@ -237,7 +237,7 @@ class ProfileScreen extends StatelessWidget {
   shopItems() {
     return Align(
       alignment: AlignmentGeometry.centerLeft,
-      child: TextWidget(text: "0 items", textAlignment: TextAlign.start),
+      child: CustomText(text: "0 items", textAlignment: TextAlign.start),
     );
   }
 
@@ -245,7 +245,7 @@ class ProfileScreen extends StatelessWidget {
   showsItems() {
     return Align(
       alignment: AlignmentGeometry.centerLeft,
-      child: TextWidget(text: "0 items", textAlignment: TextAlign.start),
+      child: CustomText(text: "0 items", textAlignment: TextAlign.start),
     );
   }
 
@@ -264,17 +264,17 @@ class ProfileScreen extends StatelessWidget {
   //REVIEWS ITEM
   reviewItem() {
     return ListTile(
-      leading: CircleAvatar(
-        radius: 40,
-        backgroundImage: AssetImage(Assets.images.userPhoto2.keyName),
-      ),
-      title: TextWidget(text: "Isabella Silveria",
+      // leading: CircleAvatar(
+      //   radius: 40,
+      //   backgroundImage: AssetImage(Assets.images.userPhoto2.keyName),
+      // ),
+      title: CustomText(text: "Isabella Silveria",
       maxLines: 1,
       fontWeight: FontWeight.w700,
         textAlignment: TextAlign.start,
         overflow: TextOverflow.ellipsis,
       ),
-      subtitle: TextWidget(text: "Desenvolvedora",
+      subtitle: CustomText(text: "Desenvolvedora",
       fontSize: 14,
       fontColor: AppColors.black50Percent,
         textAlignment: TextAlign.start,

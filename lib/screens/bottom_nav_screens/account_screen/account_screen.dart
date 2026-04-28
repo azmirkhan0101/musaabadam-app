@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/routes/app_pages/app_pages.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
+import 'package:musaab_adam/core/widgets/custom_button.dart';
 import 'package:musaab_adam/widgets/labeled_iconbutton/labeled_iconbutton.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/widgets/tile_button/tile_button.dart';
 
-import '../../../utils/assets_gen/assets.gen.dart';
+import '../../../core/assets_gen/assets.gen.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -30,27 +30,27 @@ class AccountScreen extends StatelessWidget {
                 //======================PHOTO SECTION======================//
                 Row(
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: Image.asset(Assets.images.userPhoto2.keyName,
-                      height: 55.h,
-                        width: 55.w,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                    // ClipRRect(
+                    //   borderRadius: BorderRadius.circular(100),
+                    //   child: Image.asset(Assets.images.userPhoto2.keyName,
+                    //   height: 55.h,
+                    //     width: 55.w,
+                    //     fit: BoxFit.cover,
+                    //   ),
+                    // ),
                     SizedBoxWidget(width: 10,),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TextWidget(text: "Michel",
+                        CustomText(text: "Michel",
                         fontWeight: FontWeight.w600,
                           fontSize: 20,
                         ),
-                        ButtonWidget(label: AppStrings.viewProfile.tr,
+                        CustomButton(label: AppStrings.viewProfile.tr,
                           fontSize: 12,
                           buttonHeight: 25.h,
                           buttonWidth: 90.w,
-                          backgroundColor: AppColors.brandColor,
+                          backgroundColor: AppColors.primaryColor,
                         )
                       ],
                     )
@@ -58,7 +58,7 @@ class AccountScreen extends StatelessWidget {
                 ),
                 SizedBoxWidget(height: 10,),
                 //======================ACCOUNT SETTINGS======================//
-                TextWidget(text: AppStrings.account.tr,
+                CustomText(text: AppStrings.account.tr,
                 fontWeight: FontWeight.w600,
                   fontSize: 20,
                 ),
@@ -79,7 +79,7 @@ class AccountScreen extends StatelessWidget {
                         fontSize: 14,
                         padding: [ 0, 18 ],
                         onClick: (){
-                          Get.toNamed(AppRoutes.INVITE_SCREEN);
+                          Get.toNamed(AppRoutes.inviteScreen);
                         },
                       ),
                     ),
@@ -97,7 +97,7 @@ class AccountScreen extends StatelessWidget {
                         fontSize: 14,
                         padding: [ 0, 18 ],
                         onClick: (){
-                          Get.toNamed(AppRoutes.MY_REWARDS_SCREEN);
+                          Get.toNamed(AppRoutes.myRewardsScreen);
                         },
                       ),
                     )
@@ -134,7 +134,7 @@ class AccountScreen extends StatelessWidget {
                 ),
                 SizedBoxWidget(height: 30,),
                 //======================HELP AND LEGAL======================//
-                TextWidget(text: AppStrings.helpLegal.tr,
+                CustomText(text: AppStrings.helpLegal.tr,
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
                 ),
@@ -142,7 +142,7 @@ class AccountScreen extends StatelessWidget {
                 TileButton(title: AppStrings.contactUs.tr,
                   defaultIcon: Icons.perm_contact_calendar_sharp,
                   onClick: (){
-                  Get.toNamed(AppRoutes.CONTACT_US_SCREEN);
+                  Get.toNamed(AppRoutes.contactUsScreen);
                   },
                 ),
                 SizedBoxWidget(height: 10,),
@@ -166,7 +166,7 @@ class AccountScreen extends StatelessWidget {
                   defaultIcon: Icons.question_mark,
                 ),
                 SizedBoxWidget(height: 20,),
-                ButtonWidget(
+                CustomButton(
                     label: AppStrings.signOut.tr,
                   buttonHeight: 40,
                   backgroundColor: Color(0xFFE53935),

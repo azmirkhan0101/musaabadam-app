@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
 
 class MyRewardsScreen extends StatelessWidget {
   const MyRewardsScreen({super.key});
@@ -13,7 +13,7 @@ class MyRewardsScreen extends StatelessWidget {
       backgroundColor: AppColors.white,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: TextWidget(text: AppStrings.myRewards.tr),
+        title: CustomText(text: AppStrings.myRewards.tr),
       ),
       body: Center(
         child: SizedBox.shrink(),

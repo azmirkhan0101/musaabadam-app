@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/widgets/button_widget/button_widget.dart';
-import 'package:musaab_adam/widgets/choice_chip_widget/choice_chip_widget.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/widgets/custom_button.dart';
+import 'package:musaab_adam/widgets/choice_chip_widget/custom_choice_chip.dart';
 
-import '../../utils/app_strings/app_strings.dart';
+import '../../core/utils/app_strings.dart';
 import '../../widgets/sized_box_widget/sized_box_widget.dart';
-import '../../widgets/text_widget/text_widgets.dart';
+import '../../core/widgets/custom_text.dart';
 
 class AddPaymentMethodScreen extends StatelessWidget {
   const AddPaymentMethodScreen({super.key});
@@ -18,7 +18,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
       appBar: AppBar(
         forceMaterialTransparency: true,
         leading: Icon(Icons.arrow_back_ios_new_rounded),
-        title: TextWidget(text: AppStrings.addPaymentMethod.tr),
+        title: CustomText(text: AppStrings.addPaymentMethod.tr),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.w),
@@ -27,7 +27,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
           children: [
             SizedBoxWidget(height: 25,),
             IntrinsicWidth(
-              child: ChoiceChipWidget(
+              child: CustomChoiceChip(
                   label: AppStrings.creditDebitCard.tr,
                   selected: true,
                   onSelected: (isSelected){},
@@ -38,7 +38,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
             ),
             SizedBoxWidget(height: 15,),
             IntrinsicWidth(
-              child: ChoiceChipWidget(
+              child: CustomChoiceChip(
                 label: AppStrings.stripe,
                 selected: true,
                 onSelected: (isSelected){},
@@ -55,7 +55,7 @@ class AddPaymentMethodScreen extends StatelessWidget {
                     children: [
                       SizedBoxWidget(width: 15,),
                       Expanded(
-                        child: ButtonWidget(
+                        child: CustomButton(
                           label: AppStrings.cancel.tr,
                           backgroundColor: AppColors.grey86,
                           buttonHeight: 40,
@@ -63,11 +63,11 @@ class AddPaymentMethodScreen extends StatelessWidget {
                       ),
                       SizedBoxWidget(width: 15,),
                       Expanded(
-                        child: ButtonWidget(
+                        child: CustomButton(
                           label: AppStrings.save.tr,
                           backgroundColor: AppColors.brandColorShade,
                           buttonHeight: 40,
-                          textColor: AppColors.brandColor,
+                          textColor: AppColors.primaryColor,
                         ),
                       ),
                       SizedBoxWidget(width: 15,),

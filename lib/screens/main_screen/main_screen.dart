@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/screens/main_screen/controller/main_screen_controller.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
 
 class MainScreen extends StatelessWidget {
   final MainScreenController controller = Get.find<MainScreenController>();
@@ -20,7 +20,7 @@ class MainScreen extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           currentIndex: controller.selectedBottomNavIndex.value,
           unselectedItemColor: AppColors.grey8C,
-          selectedItemColor: AppColors.brandColor,
+          selectedItemColor: AppColors.primaryColor,
           onTap: (index) {
             controller.selectedBottomNavIndex.value = index;
           },

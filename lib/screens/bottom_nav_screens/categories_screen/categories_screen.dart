@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/screens/bottom_nav_screens/categories_screen/controller/categories_screen_controller.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/utils/assets_gen/fonts.gen.dart';
 import 'package:musaab_adam/widgets/category_item/category_item.dart';
-import 'package:musaab_adam/widgets/choice_chip_widget/choice_chip_widget.dart';
+import 'package:musaab_adam/widgets/choice_chip_widget/custom_choice_chip.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 
-import '../../../utils/assets_gen/assets.gen.dart';
+import '../../../core/assets_gen/fonts.gen.dart';
+
 
 class CategoriesScreen extends StatelessWidget {
 
   final CategoriesScreenController controller = Get.find<CategoriesScreenController>();
+
+  CategoriesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class CategoriesScreen extends StatelessWidget {
                 children: [
                   //===================RECOMMENDED=======================//
                   Obx((){
-                    return ChoiceChipWidget(
+                    return CustomChoiceChip(
                         label: AppStrings.recommended.tr,
                         selected: controller.recommendedChipSelected.value,
                         colorChangeable: true,
@@ -44,7 +46,7 @@ class CategoriesScreen extends StatelessWidget {
                   SizedBoxWidget(width: 10,),
                   //===================POPULAR=======================//
                   Obx((){
-                    return ChoiceChipWidget(
+                    return CustomChoiceChip(
                         label: AppStrings.popular.tr,
                         selected: controller.popularChipSelected.value,
                         colorChangeable: true,
@@ -58,7 +60,7 @@ class CategoriesScreen extends StatelessWidget {
                   SizedBoxWidget(width: 10,),
                   //===================A-Z=======================//
                   Obx((){
-                    return ChoiceChipWidget(
+                    return CustomChoiceChip(
                         label: AppStrings.az,
                         selected: controller.azChipSelected.value,
                         colorChangeable: true,
@@ -78,7 +80,7 @@ class CategoriesScreen extends StatelessWidget {
     );
   }
 
-  gridViewBuilder(){
+  GridView gridViewBuilder(){
     return GridView.builder(
         padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 10.h),
         shrinkWrap: true,
@@ -92,13 +94,13 @@ class CategoriesScreen extends StatelessWidget {
         itemBuilder: (context, index){
           return CategoryItem(
               marginRight: 0,
-              imagePath: Assets.images.watch.keyName,
-              itemName: AppStrings.watch
+              image: "",
+              itemName: "Watch"
           );
         });
   }
 
-  appBar(){
+  AppBar appBar(){
     return AppBar(
       forceMaterialTransparency: true,
       title: SearchBar(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../utils/app_colors/app_colors.dart';
-import '../text_widget/text_widgets.dart';
+import '../../core/utils/app_colors.dart';
+import '../../core/widgets/custom_text.dart';
 
 class TileButton extends StatelessWidget {
 
@@ -26,7 +26,7 @@ class TileButton extends StatelessWidget {
       onTap: onClick,
       child: Container(
         decoration: BoxDecoration(
-            color: AppColors.brandColor,
+            color: AppColors.primaryColor,
             borderRadius: BorderRadius.circular(10)
         ),
         child: ListTile(
@@ -36,7 +36,7 @@ class TileButton extends StatelessWidget {
           )
               :
           SvgPicture.asset( svgIconPath! ),
-          title: TextWidget(text: title,
+          title: CustomText(text: title,
             fontColor: AppColors.white,
             fontWeight: FontWeight.w700,
             textAlignment: TextAlign.start,

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/routes/app_pages/app_pages.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_strings.dart';
+import 'package:musaab_adam/core/widgets/custom_text.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/screens/home_screens/notification_screen/controller/notification_screen_controller.dart';
-import 'package:musaab_adam/utils/app_colors/app_colors.dart';
-import 'package:musaab_adam/utils/app_strings/app_strings.dart';
-import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
-import 'package:musaab_adam/widgets/text_widget/text_widgets.dart';
 
-import '../../../utils/assets_gen/assets.gen.dart';
 
 class NotificationScreen extends StatelessWidget {
 
@@ -34,12 +32,12 @@ class NotificationScreen extends StatelessWidget {
       forceMaterialTransparency: true,
       leading: IconButton(
           onPressed: (){
-            Get.toNamed(AppRoutes.MAIN_SCREEN);
+            Get.toNamed(AppRoutes.mainScreen);
           },
           icon:Icon(Icons.arrow_back_sharp)
       ),
       title: Center(
-        child: TextWidget(
+        child: CustomText(
           textAlignment: TextAlign.center,
           text: AppStrings.notification.tr,
           fontColor: AppColors.black,
@@ -74,23 +72,23 @@ class NotificationScreen extends StatelessWidget {
               radius: 8,
             ),
           ),
-          Expanded(
-            child: Align(
-              alignment: AlignmentGeometry.centerLeft,
-              child: ListTile(
-                leading: ImageWidget(
-                    width: 30,
-                    height: 30,
-                    imagePath: Assets.images.userPhoto.keyName
-                ),
-                title: TextWidget(text: "Ronaldo liked your post",
-                  textAlignment: TextAlign.left,
-                ),
-                subtitle: TextWidget(text: "My favourite place - 2h ago",
-                  textAlignment: TextAlign.left,),
-              ),
-            ),
-          )
+          // Expanded(
+          //   child: Align(
+          //     alignment: AlignmentGeometry.centerLeft,
+          //     child: ListTile(
+          //       leading: ImageWidget(
+          //           width: 30,
+          //           height: 30,
+          //           imagePath: Assets.images.userPhoto.keyName
+          //       ),
+          //       title: CustomText(text: "Ronaldo liked your post",
+          //         textAlignment: TextAlign.left,
+          //       ),
+          //       subtitle: CustomText(text: "My favourite place - 2h ago",
+          //         textAlignment: TextAlign.left,),
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );
