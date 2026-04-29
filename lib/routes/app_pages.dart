@@ -1,4 +1,5 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:musaab_adam/modules/main_nav/bindings/main_nav_binding.dart';
 
 import '../modules/auth/screens/check_email_screen.dart';
 import '../modules/auth/screens/forgot_password_screen.dart';
@@ -28,7 +29,7 @@ import '../screens/home_screens/invite_screen/invite_screen.dart';
 import '../screens/home_screens/message_request_screen/message_request_screen.dart';
 import '../screens/home_screens/notification_screen/notification_screen.dart';
 import '../screens/livestream_screens/livestream_screen/livestream_screen.dart';
-import '../screens/main_screen/main_screen.dart';
+import '../modules/main_nav/screens/main_nav_screen.dart';
 import '../screens/notification_settings_screen/notification_settings_screen.dart';
 import '../screens/order_support_screen/order_support_screen.dart';
 import '../screens/profile_screen/profile_screen.dart';
@@ -51,7 +52,7 @@ class AppPages {
     GetPage(name: AppRoutes.accountVerifiedScreen, page: () => AccountVerifiedScreen()),
 
     //===================MAIN====================
-    GetPage(name: AppRoutes.mainScreen, page: () => MainScreen()),
+    GetPage(name: AppRoutes.mainScreen, page: () => MainNavScreen(), binding: MainNavBinding()),
 
     //===================MESSAGING====================
     GetPage(name: AppRoutes.inboxScreen, page: () => InboxScreen()),

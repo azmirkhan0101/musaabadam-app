@@ -58,6 +58,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/activity.svg
   String get activity => 'assets/icons/activity.svg';
 
+  /// File path: assets/icons/analysis.svg
+  String get analysis => 'assets/icons/analysis.svg';
+
   /// File path: assets/icons/boost.svg
   String get boost => 'assets/icons/boost.svg';
 
@@ -212,6 +215,7 @@ class $AssetsIconsGen {
   List<String> get values => [
     account,
     activity,
+    analysis,
     boost,
     camera,
     clip,
@@ -283,6 +287,13 @@ class $AssetsImagesGen {
   /// File path: assets/images/error.png
   AssetGenImage get error => const AssetGenImage('assets/images/error.png');
 
+  /// File path: assets/images/followed_host.png
+  AssetGenImage get followedHost =>
+      const AssetGenImage('assets/images/followed_host.png');
+
+  /// File path: assets/images/for_you.png
+  AssetGenImage get forYou => const AssetGenImage('assets/images/for_you.png');
+
   /// File path: assets/images/gift2.png
   AssetGenImage get gift2 => const AssetGenImage('assets/images/gift2.png');
 
@@ -292,6 +303,8 @@ class $AssetsImagesGen {
     arrowOrange,
     circleOrange,
     error,
+    followedHost,
+    forYou,
     gift2,
   ];
 }

@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/screens/main_screen/controller/main_screen_controller.dart';
+import 'package:musaab_adam/modules/main_nav/controllers/main_nav_controller.dart';
 import 'package:musaab_adam/core/utils/app_colors.dart';
 
-class MainScreen extends StatelessWidget {
-  final MainScreenController controller = Get.find<MainScreenController>();
+class MainNavScreen extends StatelessWidget {
+
+  final MainNavController controller = Get.find<MainNavController>();
+
+ MainNavScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx((){
-        return controller.navigationScreens[controller.selectedBottomNavIndex.value];
+        return controller.screens[controller.currentIndex.value];
       }),
       bottomNavigationBar: Obx(() {
         return BottomNavigationBar(
@@ -18,11 +21,11 @@ class MainScreen extends StatelessWidget {
           showUnselectedLabels: true,
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
-          currentIndex: controller.selectedBottomNavIndex.value,
+          currentIndex: controller.currentIndex.value,
           unselectedItemColor: AppColors.grey8C,
           selectedItemColor: AppColors.primaryColor,
           onTap: (index) {
-            controller.selectedBottomNavIndex.value = index;
+            controller.currentIndex.value = index;
           },
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: "Home"),

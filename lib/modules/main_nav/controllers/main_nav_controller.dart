@@ -5,18 +5,18 @@ import 'package:musaab_adam/screens/bottom_nav_screens/activity_screen/activity_
 import 'package:musaab_adam/screens/bottom_nav_screens/categories_screen/categories_screen.dart';
 import 'package:musaab_adam/screens/bottom_nav_screens/sell_screen/sell_screen.dart';
 
-import '../../home_screens/home_screen/home_screen.dart';
+import '../../home/screens/home_screen.dart';
 
-class MainScreenController extends GetxController{
+class MainNavController extends GetxController{
 
-  RxInt selectedBottomNavIndex = 0.obs;
+  RxInt currentIndex = 0.obs;
 
-  List<Widget> navigationScreens = [
+  List<Widget> screens = [
     HomeScreen(),
-    CategoriesScreen(),
-    SellScreen(),
-    ActivityScreen(),
-    AccountScreen()
+    //CategoriesScreen(),
+    //SellScreen(),
+    //ActivityScreen(),
+   // AccountScreen()
   ];
 
 }

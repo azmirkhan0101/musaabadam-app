@@ -105,7 +105,7 @@ class SignInScreen extends StatelessWidget {
                       // if (formKey.currentState!.validate()) {
                       //
                       // }
-                      Get.offAndToNamed(AppRoutes.profileSetupScreen);
+                      Get.offAndToNamed(AppRoutes.mainScreen);
                     },
                   ),
                   SizedBoxWidget(height: 10.h),

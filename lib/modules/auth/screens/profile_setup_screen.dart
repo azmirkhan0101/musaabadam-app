@@ -12,7 +12,7 @@ import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/widgets/text_field_widget/custom_text_field.dart';
 
 import '../../../core/utils/app_constants.dart';
-import '../../../widgets/category_item/category_item.dart';
+import '../../../core/components/category_item.dart';
 
 
 class ProfileSetupScreen extends StatelessWidget {
@@ -95,9 +95,6 @@ final String userProfileName = "Jeremy Drake";
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      SizedBoxWidget(
-                        width: 30.w,
-                      ),
                       CategoryItem(image: Dummy.product1, itemName: "Watch"),
                       CategoryItem(image: Dummy.product1, itemName: "Watch"),
                       CategoryItem(image: Dummy.product1, itemName: "Watch"),
@@ -105,9 +102,6 @@ final String userProfileName = "Jeremy Drake";
                       CategoryItem(image: Dummy.product1, itemName: "Watch"),
                       CategoryItem(image: Dummy.product1, itemName: "Watch"),
                       CategoryItem(image: Dummy.product1, itemName: "Watch"),
-                      SizedBoxWidget(
-                        width: 20.w,
-                      )
                     ],
                   ),
                 ),
@@ -118,7 +112,6 @@ final String userProfileName = "Jeremy Drake";
                 buttonHeight: 40.h,
                   buttonRadius: 8,
                   onPressed: (){
-                  //TODO: GO TO LIVE STREAMING PLAYER SCREEN
                     Get.toNamed(AppRoutes.mainScreen);
                   },
                 )
