@@ -31,7 +31,7 @@ class TileButton extends StatelessWidget {
         ),
         child: ListTile(
           leading: isIconDefault ?
-          Icon( defaultIcon!,
+          Icon( defaultIcon ?? Icons.notifications,
           color: AppColors.white,
           )
               :

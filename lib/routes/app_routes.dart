@@ -25,6 +25,7 @@ class AppRoutes {
 
   //===================MESSAGING====================
   static final inboxScreen = "/inbox-screen";
+  static final messageScreen = "/message-screen";
   static final messageRequestScreen = "/message-request-screen";
   static final archiveScreen = "/archive-screen";
 

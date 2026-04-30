@@ -78,7 +78,7 @@ class AppStrings {
   static const String notification = "Notification";
   static const String today = "Today";
   static const String thisWeek = "This Week";
-  static const String shareBidsRush = "Share BidsRush, get up to \$200";
+  static const String shareBidsRush = "Share BidsRush, get up to €100";
   static const String yourInviteStats = "Your invite stats";
   static const String credit = "Credit";
   static const String complete = "Complete";

@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/screens/bottom_nav_screens/account_screen/account_screen.dart';
-import 'package:musaab_adam/screens/bottom_nav_screens/activity_screen/activity_screen.dart';
-import 'package:musaab_adam/screens/bottom_nav_screens/categories_screen/categories_screen.dart';
-import 'package:musaab_adam/screens/bottom_nav_screens/sell_screen/sell_screen.dart';
+import 'package:musaab_adam/modules/profile/screens/account_screen.dart';
+import 'package:musaab_adam/modules/main_nav/screens/activity_screen.dart';
+import 'package:musaab_adam/modules/main_nav/screens/categories_screen.dart';
+import 'package:musaab_adam/modules/main_nav/screens/sell_screen.dart';
 
 import '../../home/screens/home_screen.dart';
 
@@ -13,10 +13,10 @@ class MainNavController extends GetxController{
 
   List<Widget> screens = [
     HomeScreen(),
-    //CategoriesScreen(),
-    //SellScreen(),
-    //ActivityScreen(),
-   // AccountScreen()
+    CategoriesScreen(),
+    SellScreen(),
+    ActivityScreen(),
+    AccountScreen()
   ];
 
 }

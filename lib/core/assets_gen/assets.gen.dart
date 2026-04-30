@@ -297,6 +297,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/gift2.png
   AssetGenImage get gift2 => const AssetGenImage('assets/images/gift2.png');
 
+  /// File path: assets/images/gift_box.png
+  AssetGenImage get giftBox =>
+      const AssetGenImage('assets/images/gift_box.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
     appLogo,
@@ -306,6 +310,7 @@ class $AssetsImagesGen {
     followedHost,
     forYou,
     gift2,
+    giftBox,
   ];
 }
 

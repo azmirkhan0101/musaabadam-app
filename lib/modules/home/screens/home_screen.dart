@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/core/utils/app_constants.dart';
-import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/core/utils/app_constants.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
-import 'package:musaab_adam/widgets/livestream_grid_item/livestream_grid_item.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
+import 'package:musaab_adam/widgets/livestream_grid_item/livestream_grid_item.dart';
+
 import '../../../core/assets_gen/assets.gen.dart';
 import '../../../core/components/category_item.dart';
 import '../../../widgets/sized_box_widget/sized_box_widget.dart';
@@ -108,7 +108,7 @@ class HomeScreen extends StatelessWidget {
               onTap: () {},
             );
           },
-          childCount: 12,
+          childCount: 8,
         ),
       ),
     );
@@ -161,6 +161,9 @@ class HomeScreen extends StatelessWidget {
 
   AppBar appBar() {
     return AppBar(
+      leading: null,
+      automaticallyImplyLeading: false,
+      titleSpacing: 0,
       forceMaterialTransparency: true,
       systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarBrightness: Brightness.light,
@@ -170,27 +173,30 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.transparent,
       title: SizedBox(
         height: 37.h,
-        child: TextField(
-          decoration: InputDecoration(
-            hintText: 'Search...',
-            hintStyle: TextStyle(color: Colors.grey, fontSize: 14.sp),
-            prefixIcon: Padding(
-              padding: EdgeInsets.all(12.w),
-              child: SvgPicture.asset(
-                Assets.icons.search,
-                colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: 'Search...',
+              hintStyle: TextStyle(color: Colors.grey, fontSize: 14.sp),
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(12.w),
+                child: SvgPicture.asset(
+                  Assets.icons.search,
+                  colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                ),
               ),
-            ),
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16.w),
-            filled: true,
-            fillColor: Colors.white,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25.r),
-              borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25.r),
-              borderSide: const BorderSide(color: Colors.grey, width: 1.5),
+              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16.w),
+              filled: true,
+              fillColor: Colors.white,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.r),
+                borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.r),
+                borderSide: const BorderSide(color: Colors.grey, width: 1.5),
+              ),
             ),
           ),
         ),

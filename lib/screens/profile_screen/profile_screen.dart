@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/widgets/custom_button.dart';
-import 'package:musaab_adam/widgets/choice_chip_widget/custom_choice_chip.dart';
+import 'package:musaab_adam/core/widgets/custom_choice_chip.dart';
 import 'package:musaab_adam/widgets/text_button_widget/text_button_widget.dart';
 
 import '../../core/assets_gen/assets.gen.dart';

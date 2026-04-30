@@ -61,7 +61,7 @@ class LivestreamGridItem extends StatelessWidget {
 
           // 2. Thumbnail with Overlays
           SizedBoxWidget(
-            height: 100.h,
+            height: 90.h,
             width: 160.w,
             child: Stack(
               children: [
