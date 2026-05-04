@@ -8,7 +8,7 @@ import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/widgets/text_field_widget/custom_text_field.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 
-class AddAddressScreen extends StatelessWidget {
+class NewAddressScreen extends StatelessWidget {
 
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
@@ -19,7 +19,7 @@ class AddAddressScreen extends StatelessWidget {
 
   RxBool isDefaultShippingChecked = false.obs;
   RxBool isReturnAddressChecked = false.obs;
-  AddAddressScreen({super.key});
+  NewAddressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -20,7 +20,7 @@ class AddressesScreen extends StatelessWidget {
         leading: IconButton(onPressed: (){Get.back();} , icon: Icon(Icons.arrow_back_ios_new_rounded)),
         actions: [
           IconButton(onPressed: (){
-            Get.toNamed(AppRoutes.addAddressScreen);
+            Get.toNamed(AppRoutes.newAddressScreen);
           },
               icon: Icon(Icons.add)
           )

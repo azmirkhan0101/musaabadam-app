@@ -1,6 +1,8 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:musaab_adam/modules/home/screens/message_screen.dart';
 import 'package:musaab_adam/modules/main_nav/bindings/main_nav_binding.dart';
+import 'package:musaab_adam/modules/profile/screens/preferences_screen.dart';
+import 'package:musaab_adam/modules/profile/screens/sales_tax_exemption.dart';
 
 import '../modules/auth/screens/check_email_screen.dart';
 import '../modules/auth/screens/forgot_password_screen.dart';
@@ -10,14 +12,14 @@ import '../modules/auth/screens/signin_screen.dart';
 import '../modules/auth/screens/signup_screen.dart';
 import '../modules/profile/screens/account_health_screen.dart';
 import '../modules/profile/screens/my_rewards_screen.dart';
-import '../screens/account_screens/update_profile_screen/update_profile_screen.dart';
-import '../modules/profile/screens/add_address_screen.dart';
+import '../modules/profile/screens/update_profile_screen.dart';
+import '../modules/profile/screens/new_address_screen.dart';
 import '../screens/add_payment_method_screen/add_payment_method_screen.dart';
 import '../modules/profile/screens/addresses_screen.dart';
 import '../screens/boost_screen/boost_screen.dart';
 import '../screens/contact_us_screens/account_information_update_screen/account_information_update_screen.dart';
 import '../screens/contact_us_screens/account_issues_screen/account_issues_screen.dart';
-import '../screens/contact_us_screens/contact_us_screen/contact_us_screen.dart';
+import '../modules/profile/screens/contact_us_screen.dart';
 import '../screens/contact_us_screens/general_issues_screen/general_issues_screen.dart';
 import '../screens/contact_us_screens/payout_screen/payout_screen.dart';
 import '../modules/auth/screens/account_verified_screen.dart';
@@ -33,7 +35,7 @@ import '../screens/livestream_screens/livestream_screen/livestream_screen.dart';
 import '../modules/main_nav/screens/main_nav_screen.dart';
 import '../modules/home/screens/notification_settings_screen.dart';
 import '../screens/order_support_screen/order_support_screen.dart';
-import '../screens/profile_screen/profile_screen.dart';
+import '../modules/profile/screens/profile_screen.dart';
 import '../screens/send_tip_screen/send_tip_screen.dart';
 
 part 'app_routes.dart';
@@ -80,10 +82,12 @@ class AppPages {
     GetPage(name: AppRoutes.profileScreen, page: () => ProfileScreen()),
     GetPage(name: AppRoutes.updateProfileScreen, page: () => UpdateProfileScreen()),
     GetPage(name: AppRoutes.accountHealthScreen, page: () => AccountHealthScreen()),
+    GetPage(name: AppRoutes.preferencesScreen, page: () => PreferencesScreen()),
     GetPage(name: AppRoutes.accountInformationUpdateScreen, page: () => AccountInformationUpdateScreen()),
+    GetPage(name: AppRoutes.salesTaxExemptionScreen, page: () => SalesTaxExemptionScreen()),
 
     //===================ADDRESS====================
-    GetPage(name: AppRoutes.addAddressScreen, page: () => AddAddressScreen()),
+    GetPage(name: AppRoutes.newAddressScreen, page: () => NewAddressScreen()),
     GetPage(name: AppRoutes.addressesScreen, page: () => AddressesScreen()),
 
     //===================SUPPORT====================

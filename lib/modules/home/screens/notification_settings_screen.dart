@@ -14,6 +14,9 @@ class NotificationSettingsScreen extends StatelessWidget {
   // Section Expansion States
   final RxBool isBuyerExpanded = false.obs;
   final RxBool isSellerExpanded = false.obs;
+  final RxBool isSavedContentExpanded = false.obs;
+  final RxBool isSocialActivityExpanded = false.obs;
+  final RxBool isShowsExpanded = false.obs;
 
   // --- BUYER States ---
   final RxBool auctionsNotify = true.obs;
@@ -33,6 +36,20 @@ class NotificationSettingsScreen extends StatelessWidget {
   final RxBool promoOffersNotify = true.obs;
   final RxBool guidanceNotify = true.obs;
   final RxBool showsNotify = true.obs;
+
+  //=============SAVED================
+  final RxBool savedProducts = true.obs;
+  final RxBool savedSearches = true.obs;
+  final RxBool savedShows = true.obs;
+
+  //=============SOCIAL ACTIVITY================
+  final RxBool chatMentions = true.obs;
+  final RxBool directMessage = true.obs;
+  final RxBool newFollower = true.obs;
+
+  //=============SHOWS================
+  final RxBool newSaves = true.obs;
+  final RxBool showtimeReminder = true.obs;
 
   // --- GENERAL State ---
   final RxBool generalNotify = true.obs;
@@ -91,6 +108,41 @@ class NotificationSettingsScreen extends StatelessWidget {
                 ],
               ),
 
+              SizedBoxWidget(height: 10.h),
+              //======================== SAVED CONTENT ======================
+              expandableSection(
+                title: "Saved Content",
+                isExpanded: isSellerExpanded,
+                onExpansionChanged: (val) => toggleSeller(),
+                children: [
+                  customSwitch(AppStrings.savedProducts, Icons.save_alt, savedProducts),
+                  customSwitch(AppStrings.savedSearches, Icons.saved_search, savedSearches),
+                  customSwitch(AppStrings.savedShows, Icons.slideshow_sharp, savedShows),
+                  ],
+              ),
+              SizedBoxWidget(height: 10.h),
+              //======================== SOCIAL ACTIVITY ======================
+              expandableSection(
+                title: "Social Activity",
+                isExpanded: isSocialActivityExpanded,
+                onExpansionChanged: (val) => toggleSeller(),
+                children: [
+                  customSwitch(AppStrings.chatMentions, Icons.wechat_outlined, chatMentions),
+                  customSwitch(AppStrings.directMessages, Icons.message_outlined, directMessage),
+                  customSwitch(AppStrings.newFollowers, Icons.follow_the_signs_sharp, newFollower),
+                ],
+              ),
+              SizedBoxWidget(height: 10.h),
+              //======================== SHOWTIME REMINDER ======================
+              expandableSection(
+                title: "Showtime Reminder",
+                isExpanded: isShowsExpanded,
+                onExpansionChanged: (val) => toggleSeller(),
+                children: [
+                  customSwitch(AppStrings.newSaves, Icons.new_label_outlined, newSaves),
+                  customSwitch(AppStrings.showtimeReminders, Icons.notifications_none, showtimeReminder),
+                  ],
+              ),
               SizedBoxWidget(height: 20.h),
 
               //==================== GENERAL SECTION =====================

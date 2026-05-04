@@ -130,6 +130,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/live_icon.svg
   String get liveIcon => 'assets/icons/live_icon.svg';
 
+  /// File path: assets/icons/location_pin.svg
+  String get locationPin => 'assets/icons/location_pin.svg';
+
+  /// File path: assets/icons/mail.svg
+  String get mail => 'assets/icons/mail.svg';
+
   /// File path: assets/icons/message.svg
   String get message => 'assets/icons/message.svg';
 
@@ -153,6 +159,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/paypal.svg
   String get paypal => 'assets/icons/paypal.svg';
+
+  /// File path: assets/icons/phone.svg
+  String get phone => 'assets/icons/phone.svg';
 
   /// File path: assets/icons/photo_icon.svg
   String get photoIcon => 'assets/icons/photo_icon.svg';
@@ -208,6 +217,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/tip50.svg
   String get tip50 => 'assets/icons/tip50.svg';
 
+  /// File path: assets/icons/username.svg
+  String get username => 'assets/icons/username.svg';
+
   /// File path: assets/icons/wallet.svg
   String get wallet => 'assets/icons/wallet.svg';
 
@@ -239,6 +251,8 @@ class $AssetsIconsGen {
     home,
     insufficientBalance,
     liveIcon,
+    locationPin,
+    mail,
     message,
     more,
     myRewards,
@@ -247,6 +261,7 @@ class $AssetsIconsGen {
     orderIsses,
     payouts,
     paypal,
+    phone,
     photoIcon,
     preferences,
     referalCash,
@@ -265,6 +280,7 @@ class $AssetsIconsGen {
     tip20,
     tip5,
     tip50,
+    username,
     wallet,
   ];
 }

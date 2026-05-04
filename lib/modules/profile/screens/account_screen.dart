@@ -143,9 +143,13 @@ class AccountScreen extends StatelessWidget {
                   defaultIcon: Icons.key,
                 ),
                 SizedBoxWidget(height: 10,),
-                TileButton(title: AppStrings.preferences.tr,
+                TileButton(
+                  title: AppStrings.preferences.tr,
                   isIconDefault: false,
                   svgIconPath: Assets.icons.preferences,
+                  onClick: (){
+                    Get.toNamed(AppRoutes.preferencesScreen);
+                  },
                 ),
                 SizedBoxWidget(height: 30,),
                 //======================HELP AND LEGAL======================//
@@ -167,6 +171,9 @@ class AccountScreen extends StatelessWidget {
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.salesTaxExemption.tr,
                   defaultIcon: Icons.percent,
+                  onClick: (){
+                  Get.toNamed(AppRoutes.salesTaxExemptionScreen);
+                  },
                 ),
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.privacyPolicy.tr,

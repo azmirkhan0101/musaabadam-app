@@ -21,7 +21,9 @@ class AppRoutes {
   static final profileScreen = "/profile-screen";
   static final updateProfileScreen = "/update-profile-screen";
   static final accountHealthScreen = "/account-health-screen";
+  static final preferencesScreen = "/preferences-screen";
   static final accountInformationUpdateScreen = "/account-information-update-screen";
+  static final salesTaxExemptionScreen = "/sales-tax-exemption-screen";
 
   //===================MESSAGING====================
   static final inboxScreen = "/inbox-screen";
@@ -40,7 +42,7 @@ class AppRoutes {
   static final myRewardsScreen = "/my-rewards-screen";
 
   //===================ADDRESS====================
-  static final addAddressScreen = "/add-address-screen";
+  static final newAddressScreen = "/new-address-screen";
   static final addressesScreen = "/addresses-screen";
 
   //===================SUPPORT====================
