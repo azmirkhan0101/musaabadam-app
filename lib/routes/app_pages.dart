@@ -97,6 +97,6 @@ class AppPages {
     GetPage(name: AppRoutes.generalIssuesScreen, page: () => GeneralIssuesScreen()),
 
     //===================MISC====================
-    GetPage(name: AppRoutes.errorScreen, page: () => ErrorScreen()),
+    GetPage(name: AppRoutes.errorScreen, page: () => ErrorScreen())
   ];
 }

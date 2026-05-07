@@ -52,30 +52,12 @@ class ContactUsScreen extends StatelessWidget {
                   isExpanded: isAccountExpanded,
                   onExpansionChanged: (val) => toggleAccount(),
                   children: [
-                    TileButton(
-                      title: AppStrings.accountDeletion, defaultIcon: Icons.no_accounts_outlined, isIconDefault: true,onClick: (){
-                      Get.toNamed(AppRoutes.accountHealthScreen);
-                    },),
-                    TileButton(
-                      title: AppStrings.banningOrBanned, defaultIcon: Icons.block_flipped, isIconDefault: true,onClick: (){
-                      Get.toNamed(AppRoutes.addressesScreen);
-                    },),
-                    TileButton(
-                      title: AppStrings.duplicateAccount, defaultIcon: Icons.control_point_duplicate, isIconDefault: true,onClick: (){
-                      Get.toNamed(AppRoutes.notificationSettingsScreen);
-                    },),
-                    TileButton(
-                      title: AppStrings.orderHistoryRequest, defaultIcon: Icons.history, isIconDefault: true,onClick: (){
-                      Get.toNamed(AppRoutes.notificationSettingsScreen);
-                    },),
-                    TileButton(
-                      title: AppStrings.referralCreditInquiries, defaultIcon: Icons.credit_card, isIconDefault: true,onClick: (){
-                      Get.toNamed(AppRoutes.notificationSettingsScreen);
-                    },),
-                    TileButton(
-                      title: AppStrings.updateAccountInformation, defaultIcon: Icons.lightbulb_outline, isIconDefault: true,onClick: (){
-                      Get.toNamed(AppRoutes.notificationSettingsScreen);
-                    },),
+                    tileButtonWithNavigator(title: AppStrings.accountDeletion, defaultIcon: Icons.no_accounts_outlined, isIconDefault: true),
+                    tileButtonWithNavigator(title: AppStrings.banningOrBanned, defaultIcon: Icons.block_flipped, isIconDefault: true),
+                    tileButtonWithNavigator(title: AppStrings.duplicateAccount, defaultIcon: Icons.control_point_duplicate, isIconDefault: true),
+                    tileButtonWithNavigator(title: AppStrings.orderHistoryRequest, defaultIcon: Icons.history, isIconDefault: true),
+                    tileButtonWithNavigator(title: AppStrings.referralCreditInquiries, defaultIcon: Icons.credit_card, isIconDefault: true),
+                    tileButtonWithNavigator(title: AppStrings.updateAccountInformation, defaultIcon: Icons.lightbulb_outline, isIconDefault: true),
                   ]
               ),
               expandableSection(
@@ -83,12 +65,12 @@ class ContactUsScreen extends StatelessWidget {
                   isExpanded: isGeneralExpanded,
                   onExpansionChanged: (val) => toggleGeneral(),
                   children: [
-                    TileButton(title: AppStrings.addNewPayoutMethod.tr, svgIconPath: Assets.icons.newPayment, isIconDefault: false,),
-                    TileButton(title: AppStrings.earlyPayoutAccess.tr, svgIconPath: Assets.icons.earlyPayout, isIconDefault: false,),
-                    TileButton(title: AppStrings.feeInquiries.tr, svgIconPath: Assets.icons.feeInquiry, isIconDefault: false,),
-                    TileButton(title: AppStrings.incorrectBalance.tr, svgIconPath: Assets.icons.insufficientBalance, isIconDefault: false,),
-                    TileButton(title: AppStrings.paypalCashOutError.tr, svgIconPath: Assets.icons.paypal, isIconDefault: false,),
-                    TileButton(title: AppStrings.stripeCashOutError.tr, svgIconPath: Assets.icons.stripe, isIconDefault: false,),
+                    tileButtonWithNavigator(title: AppStrings.addNewPayoutMethod.tr, svgIconPath: Assets.icons.newPayment, isIconDefault: false),
+                    tileButtonWithNavigator(title: AppStrings.earlyPayoutAccess.tr, svgIconPath: Assets.icons.earlyPayout, isIconDefault: false),
+                    tileButtonWithNavigator(title: AppStrings.feeInquiries.tr, svgIconPath: Assets.icons.feeInquiry, isIconDefault: false),
+                    tileButtonWithNavigator(title: AppStrings.incorrectBalance.tr, svgIconPath: Assets.icons.insufficientBalance, isIconDefault: false),
+                    tileButtonWithNavigator(title: AppStrings.paypalCashOutError.tr, svgIconPath: Assets.icons.paypal, isIconDefault: false),
+                    tileButtonWithNavigator(title: AppStrings.stripeCashOutError.tr, svgIconPath: Assets.icons.stripe, isIconDefault: false),
                   ]
               ),
               const SizedBox(height: 30,)
@@ -96,6 +78,27 @@ class ContactUsScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  //TILE BUTTON WITH NAVIGATOR
+  TileButton tileButtonWithNavigator({
+    required String title,
+    IconData? defaultIcon,
+    String? svgIconPath,
+    required bool isIconDefault,
+  }) {
+    return TileButton(
+      title: title,
+      defaultIcon: defaultIcon,
+      svgIconPath: svgIconPath,
+      isIconDefault: isIconDefault,
+      onClick: () {
+        Get.toNamed(
+          AppRoutes.orderSupportScreen,
+          arguments: title,
+        );
+      },
     );
   }
 

@@ -52,20 +52,21 @@ class InviteScreen extends StatelessWidget {
                 ),
                   child: Row(
                     children: [
-                      CustomText(
-                        text: "https://heyguys.com",
-                        fontSize: 14,
-                        fontStyle: FontStyle.italic,
-                      ),
                       Expanded(
-                        child: Align(
-                          alignment: Alignment.topRight,
-                          child: CustomButton(
-                            label: AppStrings.copy.tr,
-                            buttonHeight: 40,
-                            buttonWidth: 85,
-                            backgroundColor: AppColors.primaryColor,
-                          ),
+                        child: CustomText(
+                          textAlignment: TextAlign.left,
+                          translate: false,
+                          text: "https://heyguys.com",
+                          fontSize: 14,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: CustomButton(
+                          label: AppStrings.copy.tr,
+                          buttonHeight: 40,
+                          backgroundColor: AppColors.primaryColor,
                         ),
                       )
                     ],

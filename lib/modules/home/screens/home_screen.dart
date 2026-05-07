@@ -244,7 +244,7 @@ class HomeScreen extends StatelessWidget {
               title,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -253,8 +253,7 @@ class HomeScreen extends StatelessWidget {
               subTitle,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 16,
-                height: 1.3,
+                fontSize: 14,
               ),
             ),
             const SizedBox(height: 16),
@@ -268,13 +267,14 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: SvgPicture.asset(Assets.icons.analysis),
                 ),
-                const SizedBox(width: 10),
+
+                const SizedBox(width: 5),
                 Text(
                   '$liveShowsCount Live Shows $viewerCount Viewers',
                   style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w900,
-                    fontSize: 18,
+                    fontSize: 16,
                   ),
                 ),
               ],
