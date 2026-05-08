@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
+import 'package:musaab_adam/modules/profile/components/payment_shipping_dialog.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
@@ -119,6 +120,9 @@ class AccountScreen extends StatelessWidget {
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.paymentsShipping.tr,
                   defaultIcon: Icons.payment,
+                  onClick: (){
+                  showPaymentDialog();
+                  },
                 ),
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.addresses.tr,
@@ -199,6 +203,15 @@ class AccountScreen extends StatelessWidget {
           ),
         )
       ),
+    );
+  }
+
+  void showPaymentDialog() {
+    Get.dialog(
+      const PaymentShippingDialog(),
+      barrierDismissible: true,
+      transitionCurve: Curves.easeOutBack,
+      transitionDuration: const Duration(milliseconds: 300),
     );
   }
 }

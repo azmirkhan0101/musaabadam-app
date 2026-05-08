@@ -101,7 +101,7 @@ class HomeScreen extends StatelessWidget {
             return LivestreamGridItem(
               userName: "Suja Rae",
               userAvatarUrl: Dummy.user1,
-              thumbnailUrl: Dummy.cover1,
+              thumbnailUrl: Dummy.live1,
               viewerCount: "2.5k",
               streamTitle: "Live Bag Haul Don’t Miss Out",
               category: "Women’s Category",
