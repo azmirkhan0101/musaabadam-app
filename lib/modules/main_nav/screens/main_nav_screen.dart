@@ -19,7 +19,7 @@ class MainNavScreen extends StatelessWidget {
         return BottomNavigationBar(
           elevation: 0,
           showUnselectedLabels: true,
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.backgroundColor,
           type: BottomNavigationBarType.fixed,
           currentIndex: controller.currentIndex.value,
           unselectedItemColor: AppColors.grey8C,

@@ -96,7 +96,7 @@ class _CategoryItemState extends State<CategoryItem> {
               CustomText(
                 text: widget.itemName,
                 fontSize: 14,
-                fontColor: AppColors.white,
+                fontColor: AppColors.backgroundColor,
                 maxLines: 1,
                 overflow: TextOverflow.fade,
                 textAlignment: TextAlign.center,

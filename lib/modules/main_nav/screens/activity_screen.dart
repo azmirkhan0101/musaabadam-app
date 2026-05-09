@@ -67,7 +67,7 @@ class ActivityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: appBar,
       body: Column(
         children: [
@@ -173,12 +173,12 @@ class ProductTile extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     decoration: BoxDecoration(
-                      color: item.statusColor ?? Colors.grey[300],
+                      color: item.statusColor ?? AppColors.grey86,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
                       item.status!,
-                      style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
+                      style: TextStyle(color: AppColors.textColor, fontSize: 12, fontWeight: FontWeight.w500),
                     ),
                   )
                 else
@@ -202,7 +202,7 @@ class ProductTile extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: 'From: ',
-                    style: const TextStyle(color: Colors.black54, fontSize: 14),
+                    style: TextStyle(color: AppColors.black80Percent, fontSize: 14),
                     children: [
                       TextSpan(
                         text: item.sellerName,

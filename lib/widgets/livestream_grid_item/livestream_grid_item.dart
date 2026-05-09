@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
@@ -51,7 +52,7 @@ class LivestreamGridItem extends StatelessWidget {
                 text: userName,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
-                fontColor: Colors.black,
+                fontColor: AppColors.black,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -81,7 +82,7 @@ class LivestreamGridItem extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.9),
+                      color: AppColors.backgroundColor.withValues(alpha: 0.9),
                       borderRadius: BorderRadius.circular(4.r),
                     ),
                     child: Row(
@@ -113,14 +114,14 @@ class LivestreamGridItem extends StatelessWidget {
             text: streamTitle,
             fontSize: 13,
             fontWeight: FontWeight.w600,
-            fontColor: Colors.black,
+            fontColor: AppColors.black,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
           CustomText(
             text: category,
             fontSize: 11.sp,
-            fontColor: Colors.grey,
+            fontColor: AppColors.grey8C,
             maxLines: 1,
           ),
         ],

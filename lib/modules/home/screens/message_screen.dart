@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/data/models/message/message_model.dart';
 
 import '../components/message_tile.dart';
@@ -21,18 +22,18 @@ class MessageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.backgroundColor,
         elevation: 0,
-        leading: const BackButton(color: Colors.black,),
+        leading: BackButton(color: AppColors.black,),
         title: Text(
           'Lucy',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
+          style: TextStyle(color: AppColors.black, fontWeight: FontWeight.normal),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.more_vert, color: Colors.black),
+            icon: Icon(Icons.more_vert, color: AppColors.black),
             onPressed: () {},
           ),
         ],

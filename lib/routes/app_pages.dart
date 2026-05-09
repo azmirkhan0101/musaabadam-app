@@ -2,7 +2,9 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:musaab_adam/modules/home/screens/message_screen.dart';
 import 'package:musaab_adam/modules/main_nav/bindings/main_nav_binding.dart';
 import 'package:musaab_adam/modules/profile/screens/preferences_screen.dart';
+import 'package:musaab_adam/modules/profile/screens/privacy_policy_screen.dart';
 import 'package:musaab_adam/modules/profile/screens/sales_tax_exemption.dart';
+import 'package:musaab_adam/modules/profile/screens/user_reports_screen.dart';
 
 import '../modules/auth/screens/check_email_screen.dart';
 import '../modules/auth/screens/forgot_password_screen.dart';
@@ -34,7 +36,7 @@ import '../modules/home/screens/notification_screen.dart';
 import '../screens/livestream_screens/livestream_screen/livestream_screen.dart';
 import '../modules/main_nav/screens/main_nav_screen.dart';
 import '../modules/home/screens/notification_settings_screen.dart';
-import '../screens/order_support_screen/order_support_screen.dart';
+import '../modules/profile/screens/order_support_screen.dart';
 import '../modules/profile/screens/profile_screen.dart';
 import '../screens/send_tip_screen/send_tip_screen.dart';
 
@@ -69,7 +71,7 @@ class AppPages {
 
     //===================FEATURES====================
     GetPage(name: AppRoutes.inviteScreen, page: () => InviteScreen()),
-    GetPage(name: AppRoutes.livestreamScreen, page: () => LivestreamScreen()),
+    GetPage(name: AppRoutes.livestreamScreen, page: () => LiveStreamScreen()),
     GetPage(name: AppRoutes.boostScreen, page: () => BoostScreen()),
 
     //===================PAYMENTS & REWARDS====================
@@ -85,12 +87,14 @@ class AppPages {
     GetPage(name: AppRoutes.preferencesScreen, page: () => PreferencesScreen()),
     GetPage(name: AppRoutes.accountInformationUpdateScreen, page: () => AccountInformationUpdateScreen()),
     GetPage(name: AppRoutes.salesTaxExemptionScreen, page: () => SalesTaxExemptionScreen()),
+    GetPage(name: AppRoutes.userReports, page: () => UserReportsScreen()),
 
     //===================ADDRESS====================
     GetPage(name: AppRoutes.newAddressScreen, page: () => NewAddressScreen()),
     GetPage(name: AppRoutes.addressesScreen, page: () => AddressesScreen()),
 
     //===================SUPPORT====================
+    GetPage(name: AppRoutes.privacyPolicy, page: () => PrivacyPolicyScreen()),
     GetPage(name: AppRoutes.orderSupportScreen, page: () => OrderSupportScreen()),
     GetPage(name: AppRoutes.contactUsScreen, page: () => ContactUsScreen()),
     GetPage(name: AppRoutes.accountIssuesScreen, page: () => AccountIssuesScreen()),

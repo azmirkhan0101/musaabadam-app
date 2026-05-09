@@ -22,7 +22,7 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: appBar(),
       body: SafeArea(
         child: Column(
@@ -118,7 +118,7 @@ class CategoriesScreen extends StatelessWidget {
         ),
         textStyle: WidgetStateProperty.all(
           TextStyle(
-              color: Colors.black,
+              color: AppColors.textColor,
               fontFamily: FontFamily.openSans,
               fontSize: 12.sp,
               fontWeight: FontWeight.w400
@@ -126,7 +126,7 @@ class CategoriesScreen extends StatelessWidget {
         ),
         hintStyle: WidgetStateProperty.all(
           TextStyle(
-              color: Colors.black,
+              color: AppColors.textColor,
               fontFamily: FontFamily.openSans,
               fontSize: 12.sp,
               fontWeight: FontWeight.w400

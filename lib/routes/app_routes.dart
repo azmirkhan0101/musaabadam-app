@@ -24,6 +24,7 @@ class AppRoutes {
   static final preferencesScreen = "/preferences-screen";
   static final accountInformationUpdateScreen = "/account-information-update-screen";
   static final salesTaxExemptionScreen = "/sales-tax-exemption-screen";
+  static final userReports = "/user-reports";
 
   //===================MESSAGING====================
   static final inboxScreen = "/inbox-screen";
@@ -46,6 +47,7 @@ class AppRoutes {
   static final addressesScreen = "/addresses-screen";
 
   //===================SUPPORT====================
+  static final privacyPolicy = "/privacy-policy";
   static final orderSupportScreen = "/order-support-screen";
   static final contactUsScreen = "/contact-us-screen";
   static final accountIssuesScreen = "/account-issues-screen";

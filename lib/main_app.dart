@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
 
 import 'core/assets_gen/fonts.gen.dart';
+import 'core/theme/app_theme.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -17,9 +18,14 @@ class MainApp extends StatelessWidget {
       //splitScreenMode: true, //THIS PROPERTY MAKES HEIGHT UNRESPONSIVE
       builder: (_, child) {
         return GetMaterialApp(
-          theme: ThemeData(
-              fontFamily: FontFamily.openSans,
-          ),
+          // theme: ThemeData(
+          //     fontFamily: FontFamily.openSans,
+          // ),
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: ThemeMode.light,
+          // themeMode: ThemeMode.light,
+          // themeMode: ThemeMode.dark,
           debugShowCheckedModeBanner: false,
           getPages: AppPages.pages,
           initialRoute: AppRoutes.signInScreen,

@@ -15,7 +15,7 @@ class AccountVerifiedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
           child: Align(
             alignment: Alignment.center,

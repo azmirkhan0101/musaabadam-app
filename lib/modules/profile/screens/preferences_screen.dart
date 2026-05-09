@@ -25,15 +25,15 @@ class PreferencesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         leading: const BackButton(),
-        title: const Text(
+        title: Text(
           'Preferences',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          style: TextStyle(color: AppColors.textColor, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.backgroundColor,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -52,7 +52,7 @@ class PreferencesScreen extends StatelessWidget {
                 child: Obx((){
                   return DropdownButton<String>(
                     value: selectedCountry.value,
-                    dropdownColor: Colors.white,
+                    dropdownColor: AppColors.backgroundColor,
                     isExpanded: true,
                     hint: const Text("Select Country", style: TextStyle(color: Colors.grey)),
                     items: const [
@@ -107,7 +107,7 @@ class PreferencesScreen extends StatelessWidget {
           ),
           Obx(() => Switch(
             value: state.value,
-            activeThumbColor: AppColors.white,
+            activeThumbColor: AppColors.backgroundColor,
             inactiveTrackColor: Colors.grey.shade200,
             inactiveThumbColor: AppColors.primaryColor,
             activeTrackColor: AppColors.primaryColor,

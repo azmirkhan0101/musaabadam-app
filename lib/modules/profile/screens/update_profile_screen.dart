@@ -25,7 +25,7 @@ final String userProfileName = "Jeremy Drake";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         forceMaterialTransparency: true,
         leading: const BackButton(style: ButtonStyle(),),

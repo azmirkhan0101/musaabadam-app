@@ -17,7 +17,7 @@ class SellScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: CustomText(text: AppStrings.sellerHub.tr),
@@ -36,7 +36,7 @@ class SellScreen extends StatelessWidget {
                     iconHeight: 33,
                     iconWidth: 33,
                     text: AppStrings.createAProduct.tr,
-                    fontColor: AppColors.white,
+                    fontColor: AppColors.backgroundColor,
                     isLabelInside: true,
                     borderRadius: 8,
                     fontWeight: FontWeight.w700,
@@ -54,7 +54,7 @@ class SellScreen extends StatelessWidget {
                     iconHeight: 33,
                     iconWidth: 33,
                     text: AppStrings.scheduleAShow.tr,
-                    fontColor: AppColors.white,
+                    fontColor: AppColors.backgroundColor,
                     isLabelInside: true,
                     borderRadius: 8,
                     fontWeight: FontWeight.w700,

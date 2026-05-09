@@ -10,7 +10,7 @@ class TextButtonWidget extends StatelessWidget {
   final FontWeight fontWeight;
   final FontStyle fontStyle;
   final TextDecoration? decoration;
-  final Color decorationColor;
+  final Color? decorationColor;
   final double decorationThickness;
 
   const TextButtonWidget({
@@ -22,7 +22,7 @@ class TextButtonWidget extends StatelessWidget {
     this.fontStyle = FontStyle.normal,
     required this.fontWeight,
     this.decoration,
-    this.decorationColor = AppColors.black50Percent,
+    this.decorationColor,
     this.decorationThickness = 3,
   });
 
@@ -45,7 +45,7 @@ class TextButtonWidget extends StatelessWidget {
           fontSize: fontSize.sp,
           fontWeight: fontWeight,
           decoration: decoration,
-          decorationColor: decorationColor,
+          decorationColor: decorationColor ?? AppColors.black50Percent,
           decorationThickness: decorationThickness.h,
         ),
       ),

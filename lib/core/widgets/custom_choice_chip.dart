@@ -35,7 +35,7 @@ class CustomChoiceChip extends StatelessWidget {
     return ChoiceChip(
       selected: selected,
       showCheckmark: false,
-      selectedColor: selected && colorChangeable ? AppColors.primaryColor : AppColors.white,
+      selectedColor: selected && colorChangeable ? AppColors.primaryColor : AppColors.backgroundColor,
       padding: EdgeInsets.symmetric(horizontal: padding[0], vertical: padding[1]),
       elevation: 4,
       shadowColor: showShadow ? AppColors.brandColorShade : Colors.transparent,
@@ -48,7 +48,7 @@ class CustomChoiceChip extends StatelessWidget {
         children: [
           CustomText(
             text: label,
-            fontColor: selected && colorChangeable ? AppColors.white : AppColors.primaryColor,
+            fontColor: selected && colorChangeable ? AppColors.backgroundColor : AppColors.primaryColor,
             fontWeight: FontWeight.w600,
             fontSize: 14,
           ),

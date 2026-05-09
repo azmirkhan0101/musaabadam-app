@@ -15,7 +15,7 @@ class MessageRequestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: appBar(),
       body: ListView.builder(
           itemCount: 3,
@@ -27,7 +27,7 @@ class MessageRequestScreen extends StatelessWidget {
               time: "Today",
               unreadCount: "2",
               onTap: () {
-
+                Get.toNamed(AppRoutes.messageScreen);
               },
             );
           })

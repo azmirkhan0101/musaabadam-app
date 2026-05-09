@@ -26,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         forceMaterialTransparency: true,
         leading: const BackButton(),
@@ -92,13 +92,13 @@ class ProfileScreen extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.star, color: Colors.orangeAccent),
-                            CustomText(text: "4.9", fontColor: AppColors.white),
+                            CustomText(text: "4.9", fontColor: AppColors.backgroundColor),
                           ],
                         ),
                         CustomText(
                           text: "Ratings",
                           fontSize: 14,
-                          fontColor: AppColors.white,
+                          fontColor: AppColors.backgroundColor,
                         ),
                       ],
                     ),
@@ -111,11 +111,11 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        CustomText(text: "1.5k", fontColor: AppColors.white),
+                        CustomText(text: "1.5k", fontColor: AppColors.backgroundColor),
                         CustomText(
                           text: "Follower",
                           fontSize: 14,
-                          fontColor: AppColors.white,
+                          fontColor: AppColors.backgroundColor,
                         ),
                       ],
                     ),
@@ -128,11 +128,11 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        CustomText(text: "7.5k", fontColor: AppColors.white),
+                        CustomText(text: "7.5k", fontColor: AppColors.backgroundColor),
                         CustomText(
                           text: "Following",
                           fontSize: 14,
-                          fontColor: AppColors.white,
+                          fontColor: AppColors.backgroundColor,
                         ),
                       ],
                     ),

@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: appBar(),
       // Use CustomScrollView to allow the Grid and other elements to scroll together
       body: CustomScrollView(
@@ -105,7 +105,9 @@ class HomeScreen extends StatelessWidget {
               viewerCount: "2.5k",
               streamTitle: "Live Bag Haul Don’t Miss Out",
               category: "Women’s Category",
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(AppRoutes.livestreamScreen);
+              },
             );
           },
           childCount: 8,
@@ -121,17 +123,17 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             Get.toNamed(AppRoutes.inboxScreen);
           },
-          icon: SvgPicture.asset(Assets.icons.message)),
+          icon: SvgPicture.asset(Assets.icons.message, colorFilter: ColorFilter.mode(AppColors.textColor, BlendMode.srcIn),)),
       IconButton(
           onPressed: () {
             Get.toNamed(AppRoutes.notificationScreen);
           },
-          icon: SvgPicture.asset(Assets.icons.notification)),
+          icon: SvgPicture.asset(Assets.icons.notification, colorFilter: ColorFilter.mode(AppColors.textColor, BlendMode.srcIn),)),
       IconButton(
           onPressed: () {
             Get.toNamed(AppRoutes.inviteScreen);
           },
-          icon: SvgPicture.asset(Assets.icons.gift))
+          icon: SvgPicture.asset(Assets.icons.gift, colorFilter: ColorFilter.mode(AppColors.textColor, BlendMode.srcIn),))
     ];
   }
 
@@ -188,7 +190,7 @@ class HomeScreen extends StatelessWidget {
               ),
               contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16.w),
               filled: true,
-              fillColor: Colors.white,
+              fillColor: AppColors.offWhite,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(25.r),
                 borderSide: const BorderSide(color: Colors.grey, width: 1.0),

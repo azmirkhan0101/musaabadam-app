@@ -16,7 +16,7 @@ class LabeledIconButton extends StatelessWidget {
   final bool isLabelInside;
   final double gap;
   final String text;
-  final Color fontColor;
+  final Color? fontColor;
   final FontWeight fontWeight;
   final double fontSize;
   final List<double> padding;
@@ -34,7 +34,7 @@ class LabeledIconButton extends StatelessWidget {
     this.borderWidth = 0,
     this.borderColor = Colors.transparent,
     this.isLabelInside = false,
-    this.fontColor = AppColors.black,
+    this.fontColor,
     this.fontWeight = FontWeight.w700,
     this.fontSize = 14,
     this.padding = const [0,0],
@@ -70,7 +70,7 @@ class LabeledIconButton extends StatelessWidget {
                     text: text,
                     fontWeight: fontWeight,
                     fontSize: fontSize.sp,
-                    fontColor: fontColor,
+                    fontColor: fontColor ?? AppColors.black,
                   ),
                 ],
               ),
@@ -105,7 +105,7 @@ class LabeledIconButton extends StatelessWidget {
                 text: text,
                 fontWeight: fontWeight,
                 fontSize: fontSize.sp,
-                fontColor: fontColor,
+                fontColor: fontColor ?? AppColors.black,
               ) : SizedBox.shrink(),
             ],
           );

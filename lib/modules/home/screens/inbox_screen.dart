@@ -20,7 +20,7 @@ class InboxScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: appBar(),
       body: Column(
         children: [
@@ -93,12 +93,12 @@ class InboxScreen extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.edit, color: AppColors.white,),
+            Icon(Icons.edit, color: AppColors.backgroundColor,),
             SizedBoxWidget(width: 5,),
             CustomText(text: AppStrings.compose.tr,
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              fontColor: AppColors.white,
+              fontColor: AppColors.backgroundColor,
             )
           ],
         ),
@@ -188,7 +188,7 @@ void menuAlertDialog(){
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          dropdownColor: Colors.white,
+          dropdownColor: AppColors.backgroundColor,
           value: currentValue,
           icon: const Icon(Icons.keyboard_arrow_down, color: AppColors.primaryColor, size: 20),
           style: const TextStyle(

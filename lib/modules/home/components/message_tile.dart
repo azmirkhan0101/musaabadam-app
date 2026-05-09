@@ -26,7 +26,7 @@ class MessageTile extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
-              color: AppColors.primaryColor.withValues(alpha: 0.2),
+              color: AppColors.primaryColor.withValues(alpha: 0.4),
               borderRadius: BorderRadius.circular(30),
             ),
             child: Row(
@@ -44,9 +44,9 @@ class MessageTile extends StatelessWidget {
                 const SizedBox(width: 10),
                 Text(
                   message,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
-                    color: Colors.black87,
+                    color: AppColors.white,
                   ),
                 ),
                 const SizedBox(width: 8),

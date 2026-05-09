@@ -24,7 +24,7 @@ class NewAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         forceMaterialTransparency: true,
         leading: IconButton(
@@ -119,7 +119,7 @@ class NewAddressScreen extends StatelessWidget {
                     onChanged: (isChecked){
                       isDefaultShippingChecked.value = isChecked!;
                     },
-                    checkColor: AppColors.white,
+                    checkColor: AppColors.backgroundColor,
                     activeColor: AppColors.orange,
                     focusColor: AppColors.orange,
                     hoverColor: AppColors.orange,
@@ -137,7 +137,7 @@ class NewAddressScreen extends StatelessWidget {
                     onChanged: (isChecked){
                       isReturnAddressChecked.value = isChecked!;
                     },
-                    checkColor: AppColors.white,
+                    checkColor: AppColors.backgroundColor,
                     activeColor: AppColors.orange,
                     focusColor: AppColors.orange,
                     hoverColor: AppColors.orange,

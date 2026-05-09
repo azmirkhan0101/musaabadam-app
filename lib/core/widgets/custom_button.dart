@@ -10,11 +10,11 @@ class CustomButton extends StatelessWidget {
   final IconData? prefixIcon;
   final String? prefixSvgIcon;
   final double prefixIconSize;
-  final Color prefixIconColor;
+  final Color? prefixIconColor;
   final IconData? icon;
   final double? iconHeight;
   final double? iconWidth;
-  final Color textColor;
+  final Color? textColor;
   final double fontSize;
   final FontWeight fontWeight;
   final VoidCallback? onPressed;
@@ -43,10 +43,10 @@ class CustomButton extends StatelessWidget {
     this.prefixIcon,
     this.prefixSvgIcon,
     this.prefixIconSize = 20,
-    this.prefixIconColor = AppColors.white,
+    this.prefixIconColor,
     this.iconHeight,
     this.iconWidth,
-    this.textColor = AppColors.white,
+    this.textColor,
     this.fontSize = 16,
     this.fontWeight = FontWeight.w600,
     this.onPressed,
@@ -67,6 +67,7 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     // Logic to determine the background color based on state
     final Color effectiveBackgroundColor = isEnabled
         ? backgroundColor
@@ -95,7 +96,7 @@ class CustomButton extends StatelessWidget {
           shadowColor: Colors.transparent,
           // Defines the look when isEnabled is false
           disabledBackgroundColor: Colors.transparent,
-          disabledForegroundColor: textColor.withValues(alpha: 0.6),
+          disabledForegroundColor: (textColor ?? AppColors.backgroundColor).withValues(alpha: 0.6),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(buttonRadius.r),
           ),
@@ -107,8 +108,8 @@ class CustomButton extends StatelessWidget {
           child: SizedBox(
             height: 25.h,
             width: 25.h,
-            child: const CircularProgressIndicator(
-              color: Colors.white,
+            child:  CircularProgressIndicator(
+              color: AppColors.textColor,
               strokeWidth: 2.5,
               padding: EdgeInsets.zero,
             ),
@@ -121,8 +122,8 @@ class CustomButton extends StatelessWidget {
               Icon(
                 prefixIcon,
                 color: isEnabled
-                    ? prefixIconColor
-                    : prefixIconColor.withValues(alpha: 0.5),
+                    ? (prefixIconColor ?? AppColors.textColor)
+                    : (prefixIconColor ?? AppColors.textColor).withValues(alpha: 0.5),
                 size: prefixIconSize.r,
               ),
             if( prefixSvgIcon != null )
@@ -130,8 +131,8 @@ class CustomButton extends StatelessWidget {
                 prefixSvgIcon!,
                 colorFilter: ColorFilter.mode(
                     isEnabled
-                    ? prefixIconColor
-                    : prefixIconColor.withValues(alpha: 0.5), BlendMode.srcIn),
+                    ? (prefixIconColor ?? AppColors.textColor)
+                    : (prefixIconColor ?? AppColors.textColor).withValues(alpha: 0.5), BlendMode.srcIn),
                 height: iconHeight?.h,
                 width: iconWidth?.w,
               ),
@@ -139,8 +140,8 @@ class CustomButton extends StatelessWidget {
             CustomText(
               text: label,
               fontColor: isEnabled
-                  ? textColor
-                  : textColor.withValues(alpha: 0.6),
+                  ? (textColor ?? AppColors.backgroundColor)
+                  : (textColor ?? AppColors.backgroundColor).withValues(alpha: 0.6),
               fontSize: fontSize.sp,
               fontWeight: fontWeight,
             ),
@@ -149,8 +150,8 @@ class CustomButton extends StatelessWidget {
               Icon(
                 icon,
                 color: isEnabled
-                    ? (iconColor ?? textColor)
-                    : (iconColor ?? textColor).withValues(alpha: 0.5),
+                    ? (iconColor ?? (textColor ?? AppColors.textColor))
+                    : (iconColor ?? (textColor ?? AppColors.textColor)).withValues(alpha: 0.5),
                 size: iconSize ?? fontSize,
               ),
           ],

@@ -85,7 +85,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if( widget.label != null )
           Text(
             widget.label!,
-            style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.grey8C),
+            style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.grey8C),
           ),
         if( widget.label != null )
           const SizedBox(height: 8),

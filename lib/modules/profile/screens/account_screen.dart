@@ -21,7 +21,7 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -171,6 +171,9 @@ class AccountScreen extends StatelessWidget {
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.userReports.tr,
                   defaultIcon: Icons.info_outline_rounded,
+                  onClick: (){
+                  Get.toNamed(AppRoutes.userReports);
+                  },
                 ),
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.salesTaxExemption.tr,
@@ -182,14 +185,23 @@ class AccountScreen extends StatelessWidget {
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.privacyPolicy.tr,
                   defaultIcon: Icons.privacy_tip_outlined,
+                  onClick: (){
+                  Get.toNamed(AppRoutes.privacyPolicy, arguments: AppStrings.privacyPolicy);
+                  },
                 ),
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.termsConditions.tr,
                   defaultIcon: Icons.bookmark_add_outlined,
+                  onClick: (){
+                    Get.toNamed(AppRoutes.privacyPolicy, arguments: AppStrings.termsConditions);
+                  },
                 ),
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.faqs.tr,
                   defaultIcon: Icons.question_mark,
+                  onClick: (){
+                    Get.toNamed(AppRoutes.privacyPolicy, arguments: AppStrings.faqs);
+                  },
                 ),
                 SizedBoxWidget(height: 20,),
                 CustomButton(

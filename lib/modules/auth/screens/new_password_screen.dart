@@ -24,7 +24,7 @@ class NewPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 31.w),
@@ -111,7 +111,7 @@ class NewPasswordScreen extends StatelessWidget {
   Future<void> showResetSuccessAlert() async{
     Get.dialog(
         AlertDialog(
-          backgroundColor: AppColors.white,
+          backgroundColor: AppColors.backgroundColor,
           content: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,

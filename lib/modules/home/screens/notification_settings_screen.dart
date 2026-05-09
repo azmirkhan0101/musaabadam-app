@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:musaab_adam/core/utils/context_extension.dart';
 
 import '../../../core/components/switch_tile.dart';
 import '../../../core/utils/app_colors.dart';
@@ -56,11 +57,14 @@ class NotificationSettingsScreen extends StatelessWidget {
 
   void toggleBuyer() => isBuyerExpanded.value = !isBuyerExpanded.value;
   void toggleSeller() => isSellerExpanded.value = !isSellerExpanded.value;
+  void toggleSavedContent() => isSavedContentExpanded.value = !isSavedContentExpanded.value;
+  void toggleSocialActivity() => isSocialActivityExpanded.value = !isSocialActivityExpanded.value;
+  void toggleShows() => isShowsExpanded.value = !isShowsExpanded.value;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: CustomText(text: AppStrings.notificationSettings),
@@ -112,8 +116,8 @@ class NotificationSettingsScreen extends StatelessWidget {
               //======================== SAVED CONTENT ======================
               expandableSection(
                 title: "Saved Content",
-                isExpanded: isSellerExpanded,
-                onExpansionChanged: (val) => toggleSeller(),
+                isExpanded: isSavedContentExpanded,
+                onExpansionChanged: (val) => toggleSavedContent(),
                 children: [
                   customSwitch(AppStrings.savedProducts, Icons.save_alt, savedProducts),
                   customSwitch(AppStrings.savedSearches, Icons.saved_search, savedSearches),
@@ -125,7 +129,7 @@ class NotificationSettingsScreen extends StatelessWidget {
               expandableSection(
                 title: "Social Activity",
                 isExpanded: isSocialActivityExpanded,
-                onExpansionChanged: (val) => toggleSeller(),
+                onExpansionChanged: (val) => toggleSocialActivity(),
                 children: [
                   customSwitch(AppStrings.chatMentions, Icons.wechat_outlined, chatMentions),
                   customSwitch(AppStrings.directMessages, Icons.message_outlined, directMessage),
@@ -137,7 +141,7 @@ class NotificationSettingsScreen extends StatelessWidget {
               expandableSection(
                 title: "Showtime Reminder",
                 isExpanded: isShowsExpanded,
-                onExpansionChanged: (val) => toggleSeller(),
+                onExpansionChanged: (val) => toggleShows(),
                 children: [
                   customSwitch(AppStrings.newSaves, Icons.new_label_outlined, newSaves),
                   customSwitch(AppStrings.showtimeReminders, Icons.notifications_none, showtimeReminder),
@@ -152,7 +156,6 @@ class NotificationSettingsScreen extends StatelessWidget {
               ),
               SizedBoxWidget(height: 10.h),
               customSwitch(AppStrings.promotional, Icons.star_outline, generalNotify),
-
               const SizedBox(height: 30),
             ],
           ),

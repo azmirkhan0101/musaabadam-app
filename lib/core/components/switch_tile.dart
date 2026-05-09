@@ -49,7 +49,7 @@ class SwitchTile extends StatelessWidget {
           onChanged: onChanged,
           activeColor: AppColors.white,
           activeTrackColor: Colors.greenAccent.withOpacity(0.5),
-          inactiveThumbColor: AppColors.white,
+          inactiveThumbColor: AppColors.backgroundColor,
           inactiveTrackColor: Colors.grey.withOpacity(0.5),
         ),
       ),
