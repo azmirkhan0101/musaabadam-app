@@ -38,6 +38,8 @@ class AppRoutes {
 
   //===================PAYMENTS & REWARDS====================
   static final sendTipScreen = "/send-tip-screen";
+  static final tipInfoScreen = "/tip-info-screen";
+  static final tipAmountScreen = "/tip-amount-screen";
   static final addPaymentMethodScreen = "/add-payment-method-screen";
   static final payoutScreen = "/payout-screen";
   static final myRewardsScreen = "/my-rewards-screen";
@@ -57,6 +59,7 @@ class AppRoutes {
   static final inviteScreen = "/invite-screen";
   static final livestreamScreen = "/livestream-screen";
   static final boostScreen = "/boost-screen";
+  static final boostInfoScreen = "/boost-info-screen";
 
   //===================MISC====================
   static final errorScreen = "/error-screen";

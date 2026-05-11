@@ -190,6 +190,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/send_a_tip_big.svg
   String get sendATipBig => 'assets/icons/send_a_tip_big.svg';
 
+  /// File path: assets/icons/send_tips.svg
+  String get sendTips => 'assets/icons/send_tips.svg';
+
   /// File path: assets/icons/share.svg
   String get share => 'assets/icons/share.svg';
 
@@ -271,6 +274,7 @@ class $AssetsIconsGen {
     send,
     sendATip,
     sendATipBig,
+    sendTips,
     share,
     shop,
     stripe,

@@ -1,5 +1,8 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:musaab_adam/modules/home/screens/boost_info_screen.dart';
 import 'package:musaab_adam/modules/home/screens/message_screen.dart';
+import 'package:musaab_adam/modules/home/screens/tip_amount_screen.dart';
+import 'package:musaab_adam/modules/home/screens/tip_info_screen.dart';
 import 'package:musaab_adam/modules/main_nav/bindings/main_nav_binding.dart';
 import 'package:musaab_adam/modules/profile/screens/preferences_screen.dart';
 import 'package:musaab_adam/modules/profile/screens/privacy_policy_screen.dart';
@@ -18,7 +21,7 @@ import '../modules/profile/screens/update_profile_screen.dart';
 import '../modules/profile/screens/new_address_screen.dart';
 import '../screens/add_payment_method_screen/add_payment_method_screen.dart';
 import '../modules/profile/screens/addresses_screen.dart';
-import '../screens/boost_screen/boost_screen.dart';
+import '../modules/home/screens/boost_screen.dart';
 import '../screens/contact_us_screens/account_information_update_screen/account_information_update_screen.dart';
 import '../screens/contact_us_screens/account_issues_screen/account_issues_screen.dart';
 import '../modules/profile/screens/contact_us_screen.dart';
@@ -33,12 +36,12 @@ import '../modules/home/screens/inbox_screen.dart';
 import '../modules/home/screens/invite_screen.dart';
 import '../modules/home/screens/message_request_screen.dart';
 import '../modules/home/screens/notification_screen.dart';
-import '../screens/livestream_screens/livestream_screen/livestream_screen.dart';
+import '../modules/home/screens/livestream_screen.dart';
 import '../modules/main_nav/screens/main_nav_screen.dart';
 import '../modules/home/screens/notification_settings_screen.dart';
 import '../modules/profile/screens/order_support_screen.dart';
 import '../modules/profile/screens/profile_screen.dart';
-import '../screens/send_tip_screen/send_tip_screen.dart';
+import '../modules/home/screens/send_tip_screen.dart';
 
 part 'app_routes.dart';
 
@@ -73,9 +76,12 @@ class AppPages {
     GetPage(name: AppRoutes.inviteScreen, page: () => InviteScreen()),
     GetPage(name: AppRoutes.livestreamScreen, page: () => LiveStreamScreen()),
     GetPage(name: AppRoutes.boostScreen, page: () => BoostScreen()),
+    GetPage(name: AppRoutes.boostInfoScreen, page: () => BoostInfoScreen()),
 
     //===================PAYMENTS & REWARDS====================
     GetPage(name: AppRoutes.sendTipScreen, page: () => SendTipScreen()),
+    GetPage(name: AppRoutes.tipInfoScreen, page: () => TipInfoScreen()),
+    GetPage(name: AppRoutes.tipAmountScreen, page: () => TipAmountScreen()),
     GetPage(name: AppRoutes.addPaymentMethodScreen, page: () => AddPaymentMethodScreen()),
     GetPage(name: AppRoutes.payoutScreen, page: () => PayoutScreen()),
     GetPage(name: AppRoutes.myRewardsScreen, page: () => MyRewardsScreen()),

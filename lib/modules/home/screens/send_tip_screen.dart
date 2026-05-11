@@ -3,13 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/widgets/labeled_iconbutton/labeled_iconbutton.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 
-import '../../core/assets_gen/assets.gen.dart';
-import '../../core/utils/app_strings.dart';
-import '../../core/widgets/custom_button.dart';
-import '../../core/widgets/custom_text.dart';
+import '../../../core/assets_gen/assets.gen.dart';
+import '../../../core/utils/app_strings.dart';
+import '../../../core/widgets/custom_button.dart';
+import '../../../core/widgets/custom_text.dart';
 
 class SendTipScreen extends StatelessWidget {
   const SendTipScreen({super.key});
@@ -30,7 +31,7 @@ class SendTipScreen extends StatelessWidget {
             SizedBoxWidget(height: 20,),
             Align(
                 alignment: AlignmentGeometry.center,
-                child: SvgPicture.asset(Assets.icons.sendATipBig)
+                child: SvgPicture.asset(Assets.icons.sendTips)
             ),
             SizedBoxWidget(height: 10,),
             tipAmountSelection()
@@ -156,6 +157,9 @@ tipAmountSelection(){
                         label: AppStrings.cancel.tr,
                         backgroundColor: AppColors.grey86,
                         buttonHeight: 40,
+                        onPressed: (){
+                          Get.back();
+                        },
                       ),
                     ),
                     SizedBoxWidget(width: 15,),
@@ -165,6 +169,9 @@ tipAmountSelection(){
                         backgroundColor: AppColors.brandColorShade,
                         buttonHeight: 40,
                         textColor: AppColors.primaryColor,
+                        onPressed: (){
+                          Get.toNamed(AppRoutes.tipAmountScreen);
+                        },
                       ),
                     ),
                     SizedBoxWidget(width: 15,),
@@ -172,7 +179,8 @@ tipAmountSelection(){
                 ),
               ),
             ),
-          )
+          ),
+          const SizedBox(height: 30,)
         ],
       ),
     );
