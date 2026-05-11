@@ -67,6 +67,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/camera.svg
   String get camera => 'assets/icons/camera.svg';
 
+  /// File path: assets/icons/circle_cross.svg
+  String get circleCross => 'assets/icons/circle_cross.svg';
+
   /// File path: assets/icons/clip.svg
   String get clip => 'assets/icons/clip.svg';
 
@@ -75,6 +78,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/create_product.svg
   String get createProduct => 'assets/icons/create_product.svg';
+
+  /// File path: assets/icons/diamond.svg
+  String get diamond => 'assets/icons/diamond.svg';
 
   /// File path: assets/icons/done_orange.svg
   String get doneOrange => 'assets/icons/done_orange.svg';
@@ -99,6 +105,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/general.svg
   String get general => 'assets/icons/general.svg';
+
+  /// File path: assets/icons/get_paid.svg
+  String get getPaid => 'assets/icons/get_paid.svg';
 
   /// File path: assets/icons/gift.svg
   String get gift => 'assets/icons/gift.svg';
@@ -136,6 +145,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/mail.svg
   String get mail => 'assets/icons/mail.svg';
 
+  /// File path: assets/icons/make_referral.svg
+  String get makeReferral => 'assets/icons/make_referral.svg';
+
   /// File path: assets/icons/message.svg
   String get message => 'assets/icons/message.svg';
 
@@ -148,6 +160,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/new_payment.svg
   String get newPayment => 'assets/icons/new_payment.svg';
 
+  /// File path: assets/icons/no_limit.svg
+  String get noLimit => 'assets/icons/no_limit.svg';
+
   /// File path: assets/icons/notification.svg
   String get notification => 'assets/icons/notification.svg';
 
@@ -156,9 +171,6 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/payouts.svg
   String get payouts => 'assets/icons/payouts.svg';
-
-  /// File path: assets/icons/paypal.svg
-  String get paypal => 'assets/icons/paypal.svg';
 
   /// File path: assets/icons/phone.svg
   String get phone => 'assets/icons/phone.svg';
@@ -233,9 +245,11 @@ class $AssetsIconsGen {
     analysis,
     boost,
     camera,
+    circleCross,
     clip,
     communityBoost,
     createProduct,
+    diamond,
     doneOrange,
     earlyPayout,
     eye,
@@ -244,6 +258,7 @@ class $AssetsIconsGen {
     feeInquiry,
     friends,
     general,
+    getPaid,
     gift,
     googleLogin,
     grCheckEmail,
@@ -256,14 +271,15 @@ class $AssetsIconsGen {
     liveIcon,
     locationPin,
     mail,
+    makeReferral,
     message,
     more,
     myRewards,
     newPayment,
+    noLimit,
     notification,
     orderIsses,
     payouts,
-    paypal,
     phone,
     photoIcon,
     preferences,
@@ -300,12 +316,45 @@ class $AssetsImagesGen {
   AssetGenImage get arrowOrange =>
       const AssetGenImage('assets/images/arrow_orange.png');
 
+  /// File path: assets/images/bag.png
+  AssetGenImage get bag => const AssetGenImage('assets/images/bag.png');
+
+  /// File path: assets/images/boost_info_graphic.png
+  AssetGenImage get boostInfoGraphic =>
+      const AssetGenImage('assets/images/boost_info_graphic.png');
+
+  /// File path: assets/images/bow.png
+  AssetGenImage get bow => const AssetGenImage('assets/images/bow.png');
+
+  /// File path: assets/images/candy.png
+  AssetGenImage get candy => const AssetGenImage('assets/images/candy.png');
+
+  /// File path: assets/images/cards.png
+  AssetGenImage get cards => const AssetGenImage('assets/images/cards.png');
+
   /// File path: assets/images/circle_orange.png
   AssetGenImage get circleOrange =>
       const AssetGenImage('assets/images/circle_orange.png');
 
+  /// File path: assets/images/clock.png
+  AssetGenImage get clock => const AssetGenImage('assets/images/clock.png');
+
+  /// File path: assets/images/coin_stack.png
+  AssetGenImage get coinStack =>
+      const AssetGenImage('assets/images/coin_stack.png');
+
+  /// File path: assets/images/credit_card.png
+  AssetGenImage get creditCard =>
+      const AssetGenImage('assets/images/credit_card.png');
+
+  /// File path: assets/images/drop.png
+  AssetGenImage get drop => const AssetGenImage('assets/images/drop.png');
+
   /// File path: assets/images/error.png
   AssetGenImage get error => const AssetGenImage('assets/images/error.png');
+
+  /// File path: assets/images/fire.png
+  AssetGenImage get fire => const AssetGenImage('assets/images/fire.png');
 
   /// File path: assets/images/followed_host.png
   AssetGenImage get followedHost =>
@@ -314,6 +363,13 @@ class $AssetsImagesGen {
   /// File path: assets/images/for_you.png
   AssetGenImage get forYou => const AssetGenImage('assets/images/for_you.png');
 
+  /// File path: assets/images/gem_store_cover.jpg
+  AssetGenImage get gemStoreCover =>
+      const AssetGenImage('assets/images/gem_store_cover.jpg');
+
+  /// File path: assets/images/gift.png
+  AssetGenImage get gift => const AssetGenImage('assets/images/gift.png');
+
   /// File path: assets/images/gift2.png
   AssetGenImage get gift2 => const AssetGenImage('assets/images/gift2.png');
 
@@ -321,16 +377,86 @@ class $AssetsImagesGen {
   AssetGenImage get giftBox =>
       const AssetGenImage('assets/images/gift_box.png');
 
+  /// File path: assets/images/giveaway.png
+  AssetGenImage get giveaway =>
+      const AssetGenImage('assets/images/giveaway.png');
+
+  /// File path: assets/images/google_apple_pay.png
+  AssetGenImage get googleApplePay =>
+      const AssetGenImage('assets/images/google_apple_pay.png');
+
+  /// File path: assets/images/heat.png
+  AssetGenImage get heat => const AssetGenImage('assets/images/heat.png');
+
+  /// File path: assets/images/hot.png
+  AssetGenImage get hot => const AssetGenImage('assets/images/hot.png');
+
+  /// File path: assets/images/klarna.png
+  AssetGenImage get klarna => const AssetGenImage('assets/images/klarna.png');
+
+  /// File path: assets/images/love.png
+  AssetGenImage get love => const AssetGenImage('assets/images/love.png');
+
+  /// File path: assets/images/open_the_app.png
+  AssetGenImage get openTheApp =>
+      const AssetGenImage('assets/images/open_the_app.png');
+
+  /// File path: assets/images/paypal.png
+  AssetGenImage get paypal => const AssetGenImage('assets/images/paypal.png');
+
+  /// File path: assets/images/referral_cover.jpg
+  AssetGenImage get referralCover =>
+      const AssetGenImage('assets/images/referral_cover.jpg');
+
+  /// File path: assets/images/smile.png
+  AssetGenImage get smile => const AssetGenImage('assets/images/smile.png');
+
+  /// File path: assets/images/sun.png
+  AssetGenImage get sun => const AssetGenImage('assets/images/sun.png');
+
+  /// File path: assets/images/tip_info_coin.png
+  AssetGenImage get tipInfoCoin =>
+      const AssetGenImage('assets/images/tip_info_coin.png');
+
+  /// File path: assets/images/watch_show.png
+  AssetGenImage get watchShow =>
+      const AssetGenImage('assets/images/watch_show.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
     appLogo,
     arrowOrange,
+    bag,
+    boostInfoGraphic,
+    bow,
+    candy,
+    cards,
     circleOrange,
+    clock,
+    coinStack,
+    creditCard,
+    drop,
     error,
+    fire,
     followedHost,
     forYou,
+    gemStoreCover,
+    gift,
     gift2,
     giftBox,
+    giveaway,
+    googleApplePay,
+    heat,
+    hot,
+    klarna,
+    love,
+    openTheApp,
+    paypal,
+    referralCover,
+    smile,
+    sun,
+    tipInfoCoin,
+    watchShow,
   ];
 }
 

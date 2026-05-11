@@ -177,27 +177,33 @@ class HomeScreen extends StatelessWidget {
         height: 37.h,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
-          child: TextField(
-            decoration: InputDecoration(
-              hintText: 'Search...',
-              hintStyle: TextStyle(color: Colors.grey, fontSize: 14.sp),
-              prefixIcon: Padding(
-                padding: EdgeInsets.all(12.w),
-                child: SvgPicture.asset(
-                  Assets.icons.search,
-                  colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+          child: GestureDetector(
+            onTap: () {
+              Get.toNamed(AppRoutes.searchScreen);
+            },
+            child: TextField(
+              enabled: false,
+              decoration: InputDecoration(
+                hintText: 'Search...',
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 14.sp),
+                prefixIcon: Padding(
+                  padding: EdgeInsets.all(12.w),
+                  child: SvgPicture.asset(
+                    Assets.icons.search,
+                    colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                  ),
                 ),
-              ),
-              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16.w),
-              filled: true,
-              fillColor: AppColors.offWhite,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25.r),
-                borderSide: const BorderSide(color: Colors.grey, width: 1.0),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25.r),
-                borderSide: const BorderSide(color: Colors.grey, width: 1.5),
+                contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16.w),
+                filled: true,
+                fillColor: AppColors.offWhite,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.r),
+                  borderSide: const BorderSide(color: Colors.grey, width: 1.0),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.r),
+                  borderSide: const BorderSide(color: Colors.grey, width: 1.5),
+                ),
               ),
             ),
           ),

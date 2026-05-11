@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../core/assets_gen/assets.gen.dart';
 
 class TipAmountScreen extends StatelessWidget {
   const TipAmountScreen({super.key});
@@ -31,28 +34,7 @@ class TipAmountScreen extends StatelessWidget {
             const SizedBox(height: 40),
             // The Tip Icon/Logo
             Center(
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.blue.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.face, size: 50, color: Colors.orange),
-                    const Text(
-                      'TIPS',
-                      style: TextStyle(
-                        color: Colors.cyan,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              child: SvgPicture.asset(Assets.icons.sendTips),
             ),
             const SizedBox(height: 60),
 

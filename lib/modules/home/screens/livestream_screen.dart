@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -53,11 +54,16 @@ class LiveStreamScreen extends StatelessWidget {
                 },
                 icon: Icon(Icons.arrow_back_ios, color: Colors.black),
               ),
-              CachedImageWidget(
-                imageUrl: Dummy.user1,
-                height: 36.h,
-                width: 36.w,
-                borderRadius: 50,
+              GestureDetector(
+                onTap: (){
+                  Get.toNamed(AppRoutes.storyScreen);
+                },
+                child: CachedImageWidget(
+                  imageUrl: Dummy.user1,
+                  height: 36.h,
+                  width: 36.w,
+                  borderRadius: 50,
+                ),
               ),
               const SizedBox(width: 8),
               const Text(
@@ -146,7 +152,9 @@ class LiveStreamScreen extends StatelessWidget {
                 sideIcon(AppStrings.boost, Assets.icons.boost, () {
                   Get.toNamed(AppRoutes.boostScreen);
                 }),
-                sideIcon(AppStrings.clip, Assets.icons.clip, () {}),
+                sideIcon(AppStrings.clip, Assets.icons.clip, () {
+                  showClipEditDialog(context: context);
+                }),
                 sideIcon(AppStrings.share, Assets.icons.share, () {}),
                 sideIcon(AppStrings.wallet, Assets.icons.wallet, () {}),
                 sideIcon(AppStrings.shop, Assets.icons.shop, () {}),
@@ -337,7 +345,12 @@ class LiveStreamScreen extends StatelessWidget {
   Widget productInfo() {
     return Row(
       children: [
-        Image.network('https://i.imgur.com/u7r37pS.png', width: 50, height: 50),
+        CachedImageWidget(
+            imageUrl: Dummy.product1,
+          borderRadius: 12,
+          height: 45.h,
+          width: 45.w,
+        ),
         const SizedBox(width: 8),
         Expanded(
           child: Column(
@@ -409,12 +422,12 @@ class LiveStreamScreen extends StatelessWidget {
                 const Text(
                   'Options',
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 18),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -448,7 +461,7 @@ class LiveStreamScreen extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          height: 140,
+          height: 100,
           decoration: BoxDecoration(
             color: const Color(0xFF008EAC),
             borderRadius: BorderRadius.circular(16),
@@ -456,13 +469,13 @@ class LiveStreamScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, color: Colors.white, size: 48),
+              Icon(icon, color: Colors.white, size: 30),
               const SizedBox(height: 8),
               Text(
                 label,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -728,5 +741,50 @@ class LiveStreamScreen extends StatelessWidget {
       ],
     );
   }
+  
+  //CLIP DIALOG
+void showClipEditDialog({required BuildContext context}){
+  showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      shape: Platform.isIOS
+          ? null
+          : RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      backgroundColor: const Color(0xFFE1EBF1), // Light blue-grey background
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        constraints: const BoxConstraints(maxWidth: 350, maxHeight: 320),
+        child: Stack(
+          children: [
+            // Edit Button in the top right
+
+            // Network Image centered at the bottom
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: CachedImageWidget(
+                    imageUrl: Dummy.live1,
+                ),
+              ),
+            ),
+            Positioned(
+              top: 0,
+              right: 0,
+              child: CustomButton(
+                label: AppStrings.edit,
+                buttonHeight: 30,
+                onPressed: (){
+                  Get.back();
+                  Get.toNamed(AppRoutes.clipEditScreen);
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
 }
 

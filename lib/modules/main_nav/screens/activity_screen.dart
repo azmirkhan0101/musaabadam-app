@@ -4,6 +4,7 @@ import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
 
 import '../../../core/utils/app_constants.dart';
 import '../components/app_bar.dart';
@@ -128,7 +129,14 @@ class ActivityScreen extends StatelessWidget {
             child: ListView.builder(
               itemCount: products.length,
               itemBuilder: (context, index) {
-                return ProductTile(item: products[index]);
+                return GestureDetector(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.activityDetailsScreen);
+                  },
+                  child: ProductTile(
+                      item: products[index]
+                  ),
+                );
               },
             ),
           ),

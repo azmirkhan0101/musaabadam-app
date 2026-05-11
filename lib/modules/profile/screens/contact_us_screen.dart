@@ -69,7 +69,7 @@ class ContactUsScreen extends StatelessWidget {
                     tileButtonWithNavigator(title: AppStrings.earlyPayoutAccess.tr, svgIconPath: Assets.icons.earlyPayout, isIconDefault: false),
                     tileButtonWithNavigator(title: AppStrings.feeInquiries.tr, svgIconPath: Assets.icons.feeInquiry, isIconDefault: false),
                     tileButtonWithNavigator(title: AppStrings.incorrectBalance.tr, svgIconPath: Assets.icons.insufficientBalance, isIconDefault: false),
-                    tileButtonWithNavigator(title: AppStrings.paypalCashOutError.tr, svgIconPath: Assets.icons.paypal, isIconDefault: false),
+                    //tileButtonWithNavigator(title: AppStrings.paypalCashOutError.tr, svgIconPath: Assets.icons.paypal, isIconDefault: false),
                     tileButtonWithNavigator(title: AppStrings.stripeCashOutError.tr, svgIconPath: Assets.icons.stripe, isIconDefault: false),
                   ]
               ),

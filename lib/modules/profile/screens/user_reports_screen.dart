@@ -20,44 +20,47 @@ class UserReportsScreen extends StatelessWidget {
         centerTitle: true,
         title: CustomText(text: AppStrings.userReports, fontWeight: FontWeight.w700, fontSize: 18,),
       ),
-      body: Column(
-        children: [
-          Row(
-            spacing: 15,
-            children: [
-              Obx((){
-                return CustomChoiceChip(
-                  label: AppStrings.all,
-                  selected: isAllSelected.value,
-                  borderRadius: 50,
-                  onSelected: (bool p1) {
-                    isAllSelected.value = !isAllSelected.value;
-                  },
-                );
-              }),
-              Obx((){
-                return CustomChoiceChip(
-                  label: AppStrings.submitted,
-                  selected: isSubmittedSelected.value,
-                  borderRadius: 50,
-                  onSelected: (bool p1) {
-                    isSubmittedSelected.value = !isSubmittedSelected.value;
-                  },
-                );
-              }),
-              Obx((){
-                return CustomChoiceChip(
-                  label: AppStrings.closed,
-                  selected: isClosedSelected.value,
-                  borderRadius: 50,
-                  onSelected: (bool p1) {
-                    isClosedSelected.value = !isClosedSelected.value;
-                  },
-                );
-              })
-            ],
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+            Row(
+              spacing: 15,
+              children: [
+                Obx((){
+                  return CustomChoiceChip(
+                    label: AppStrings.all,
+                    selected: isAllSelected.value,
+                    borderRadius: 50,
+                    onSelected: (bool p1) {
+                      isAllSelected.value = !isAllSelected.value;
+                    },
+                  );
+                }),
+                Obx((){
+                  return CustomChoiceChip(
+                    label: AppStrings.submitted,
+                    selected: isSubmittedSelected.value,
+                    borderRadius: 50,
+                    onSelected: (bool p1) {
+                      isSubmittedSelected.value = !isSubmittedSelected.value;
+                    },
+                  );
+                }),
+                Obx((){
+                  return CustomChoiceChip(
+                    label: AppStrings.closed,
+                    selected: isClosedSelected.value,
+                    borderRadius: 50,
+                    onSelected: (bool p1) {
+                      isClosedSelected.value = !isClosedSelected.value;
+                    },
+                  );
+                })
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -141,10 +141,20 @@ class AccountScreen extends StatelessWidget {
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.changeEmail.tr,
                   defaultIcon: Icons.mail_outline_rounded,
+                  onClick: (){
+                  Get.toNamed(AppRoutes.changeCredential, arguments: {
+                    'isPasswordChange': false
+                  });
+                  },
                 ),
                 SizedBoxWidget(height: 10,),
                 TileButton(title: AppStrings.changePassword.tr,
                   defaultIcon: Icons.key,
+                    onClick: () {
+                      Get.toNamed(AppRoutes.changeCredential, arguments: {
+                        'isPasswordChange': true
+                      });
+                    }
                 ),
                 SizedBoxWidget(height: 10,),
                 TileButton(
@@ -169,35 +179,40 @@ class AccountScreen extends StatelessWidget {
                   },
                 ),
                 SizedBoxWidget(height: 10,),
-                TileButton(title: AppStrings.userReports.tr,
+                TileButton(
+                  title: AppStrings.userReports.tr,
                   defaultIcon: Icons.info_outline_rounded,
                   onClick: (){
                   Get.toNamed(AppRoutes.userReports);
                   },
                 ),
                 SizedBoxWidget(height: 10,),
-                TileButton(title: AppStrings.salesTaxExemption.tr,
+                TileButton(
+                  title: AppStrings.salesTaxExemption.tr,
                   defaultIcon: Icons.percent,
                   onClick: (){
                   Get.toNamed(AppRoutes.salesTaxExemptionScreen);
                   },
                 ),
                 SizedBoxWidget(height: 10,),
-                TileButton(title: AppStrings.privacyPolicy.tr,
+                TileButton(
+                  title: AppStrings.privacyPolicy.tr,
                   defaultIcon: Icons.privacy_tip_outlined,
                   onClick: (){
                   Get.toNamed(AppRoutes.privacyPolicy, arguments: AppStrings.privacyPolicy);
                   },
                 ),
                 SizedBoxWidget(height: 10,),
-                TileButton(title: AppStrings.termsConditions.tr,
+                TileButton(
+                  title: AppStrings.termsConditions.tr,
                   defaultIcon: Icons.bookmark_add_outlined,
                   onClick: (){
                     Get.toNamed(AppRoutes.privacyPolicy, arguments: AppStrings.termsConditions);
                   },
                 ),
                 SizedBoxWidget(height: 10,),
-                TileButton(title: AppStrings.faqs.tr,
+                TileButton(
+                  title: AppStrings.faqs.tr,
                   defaultIcon: Icons.question_mark,
                   onClick: (){
                     Get.toNamed(AppRoutes.privacyPolicy, arguments: AppStrings.faqs);

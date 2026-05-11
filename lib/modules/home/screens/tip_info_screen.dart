@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
+
+import '../../../core/assets_gen/assets.gen.dart';
 
 class TipInfoScreen extends StatelessWidget {
   const TipInfoScreen({super.key});
@@ -23,11 +27,12 @@ class TipInfoScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 20),
             // Your SVG Graphic
-            SvgPicture.asset(
-              'assets/coin_graphic.svg',
-              height: 180,
-              width: 180,
-            ),
+            Center(child:
+              ImageWidget(
+                  width: 80.w,
+                  height: 80.h,
+                  imagePath: Assets.images.tipInfoCoin.keyName
+              ),),
             const SizedBox(height: 40),
             const Text(
               'Support your favorite sellers with tips',
@@ -64,13 +69,9 @@ class TipInfoScreen extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 4.0),
-            child: Icon(
-              Icons.contrast, // Closest material icon to the one in image
-              size: 24,
-              color: Colors.black,
-            ),
+          Padding(
+            padding: const EdgeInsets.only(top: 4.0),
+            child: SvgPicture.asset(Assets.icons.circleCross),
           ),
           const SizedBox(width: 16),
           Expanded(

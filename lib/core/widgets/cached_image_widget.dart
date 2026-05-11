@@ -13,6 +13,7 @@ class CachedImageWidget extends StatelessWidget {
   final double borderRadius;
   final double borderWidth;
   final Color borderColor;
+  final BoxFit fit;
 
   const CachedImageWidget({
     super.key,
@@ -25,6 +26,7 @@ class CachedImageWidget extends StatelessWidget {
     this.borderRadius = 0,
     this.borderWidth = 0,
     this.borderColor = Colors.transparent,
+    this.fit = BoxFit.cover,
   });
 
   @override
@@ -41,7 +43,7 @@ class CachedImageWidget extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: CachedNetworkImage(
         imageUrl: imageUrl,
-        fit: BoxFit.cover,
+        fit: fit,
         placeholder: (context, url) => Shimmer.fromColors(
           baseColor: Colors.grey[300]!,
           highlightColor: Colors.grey[100]!,

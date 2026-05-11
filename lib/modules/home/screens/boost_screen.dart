@@ -59,7 +59,9 @@ class BoostScreen extends StatelessWidget {
                     buttonHeight: 45,
                     backgroundColor: const Color(0xFFFFD5A1),
                     textColor: const Color(0xFFE67E22),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.addPaymentMethodScreen);
+                    },
                   ),
                 ),
               ],
@@ -89,7 +91,7 @@ class BoostScreen extends StatelessWidget {
                 Expanded(
                   child: CustomButton(
                     label: "Send Tip",
-                    buttonHeight: 45.h,
+                    buttonHeight: 45,
                     backgroundColor: const Color(0xFFFFD5A1),
                     textColor: const Color(0xFFE67E22),
                     onPressed: () {

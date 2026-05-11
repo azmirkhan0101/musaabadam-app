@@ -15,7 +15,7 @@ class AccountHealthScreen extends StatelessWidget {
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: CustomText(text: AppStrings.accountHealth.tr),
+        title: CustomText(text: AppStrings.accountHealth.tr, fontSize: 18, fontWeight: FontWeight.w700,),
         centerTitle: true,
         leading: IconButton(onPressed: (){
           Get.back();

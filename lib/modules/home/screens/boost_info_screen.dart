@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
+
+import '../../../core/assets_gen/assets.gen.dart';
 
 class BoostInfoScreen extends StatelessWidget {
   const BoostInfoScreen({super.key});
@@ -19,11 +23,10 @@ class BoostInfoScreen extends StatelessWidget {
         child: Column(
           children: [
             // Top Illustration
-            Image.network(
-              'https://placeholder.com/illustration_url', // Replace with your asset image path
-              height: 250,
-              width: double.infinity,
-              fit: BoxFit.cover,
+            ImageWidget(
+                width: double.infinity,
+                height: 200,
+                imagePath: Assets.images.boostInfoGraphic.keyName
             ),
             const SizedBox(height: 24),
 
@@ -82,13 +85,9 @@ class _FeatureRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Custom Icon (Using Contrast icon as a placeholder for the logo in your image)
-          const Padding(
-            padding: EdgeInsets.only(top: 2.0),
-            child: Icon(
-              Icons.contrast,
-              size: 24,
-              color: Colors.black,
-            ),
+          Padding(
+            padding: const EdgeInsets.only(top: 2.0),
+            child: SvgPicture.asset(Assets.icons.circleCross),
           ),
           const SizedBox(width: 16),
           // Text Content

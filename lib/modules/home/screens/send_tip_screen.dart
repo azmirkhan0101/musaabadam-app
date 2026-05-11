@@ -13,15 +13,18 @@ import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/custom_text.dart';
 
 class SendTipScreen extends StatelessWidget {
-  const SendTipScreen({super.key});
+  SendTipScreen({super.key});
+
+  RxBool isSwitchEnabled = false.obs;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
-        leading: Icon(Icons.close),
-        title: CustomText(text: AppStrings.sendATip.tr),
+        centerTitle: true,
+        leading: const BackButton(),
+        title: CustomText(text: AppStrings.sendATip.tr, fontSize: 18, fontWeight: FontWeight.w700,),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -42,7 +45,7 @@ class SendTipScreen extends StatelessWidget {
   }
 
   //TIP AMOUNT SELECTION - THIS SECTION COMES FIRST
-tipAmountSelection(){
+Expanded tipAmountSelection(){
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,18 +128,22 @@ tipAmountSelection(){
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomText(text: AppStrings.addAThankYouNote.tr),
-              Switch(
-                value: false,
-                onChanged: (v) {},
-                activeColor: Colors.white,
-                inactiveThumbColor: Colors.white,
-                inactiveTrackColor: Color(0xFFCCCCCC),
-                trackOutlineColor: WidgetStateProperty.all(
-                    AppColors.greyA8
-                ),
-                trackOutlineWidth: WidgetStateProperty.all(2),
-                activeTrackColor: Colors.blue,
-              ),
+              Obx((){
+                return Switch(
+                  value: isSwitchEnabled.value,
+                  onChanged: (v) {
+                    isSwitchEnabled.value = v;
+                  },
+                  activeColor: Colors.white,
+                  inactiveThumbColor: Colors.white,
+                  inactiveTrackColor: Color(0xFFCCCCCC),
+                  trackOutlineColor: WidgetStateProperty.all(
+                      AppColors.greyA8
+                  ),
+                  trackOutlineWidth: WidgetStateProperty.all(2),
+                  activeTrackColor: Colors.blue,
+                );
+              }),
             ],
           ),
           CustomText(
@@ -187,7 +194,7 @@ tipAmountSelection(){
 }
 
 //TIP SENDING SECTION
-tipSendingSection(){
+Expanded tipSendingSection(){
     return Expanded(
       child: Column(
         children: [

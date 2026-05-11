@@ -25,7 +25,17 @@ class AppRoutes {
   static final accountInformationUpdateScreen = "/account-information-update-screen";
   static final salesTaxExemptionScreen = "/sales-tax-exemption-screen";
   static final userReports = "/user-reports";
+  static final changeCredential = "/change-credential";
 
+  //===================ACTIVITY====================
+  static final friendsScreen = "/friends-screen";
+  static final activityDetailsScreen = "/activity-details-screen";
+  static final purchaseHelpScreen = "/purchase-help-screen";
+  static final requestReceivedScreen = "/request-received-screen";
+  static final rewardPerksScreen = "/rewards-perks-screen";
+  static final reactionStoreScreen = "/reaction-store-screen";
+  static final receiptDetailsScreen = "/receipt-details-screen";
+  static final videoReceiptScreen = "/video-receipt-screen";
   //===================MESSAGING====================
   static final inboxScreen = "/inbox-screen";
   static final messageScreen = "/message-screen";
@@ -56,10 +66,13 @@ class AppRoutes {
   static final generalIssuesScreen = "/general-issues-screen";
 
   //===================FEATURES====================
+  static final searchScreen = "/search-screen";
   static final inviteScreen = "/invite-screen";
   static final livestreamScreen = "/livestream-screen";
   static final boostScreen = "/boost-screen";
   static final boostInfoScreen = "/boost-info-screen";
+  static final clipEditScreen = "/clip-edit-screen";
+  static final storyScreen = "/story-screen";
 
   //===================MISC====================
   static final errorScreen = "/error-screen";
