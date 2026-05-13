@@ -13,7 +13,7 @@ import '../../../core/assets_gen/assets.gen.dart';
 import '../../../routes/app_pages.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../../../widgets/sized_box_widget/sized_box_widget.dart';
-import '../../../widgets/text_field_widget/custom_text_field.dart';
+import '../../../core/widgets/custom_text_field.dart';
 
 class UpdateProfileScreen extends StatelessWidget {
 

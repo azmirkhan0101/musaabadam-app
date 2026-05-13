@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../utils/app_colors.dart';
+import 'package:get/get.dart';
 import 'custom_text.dart';
 
 class CustomButton extends StatelessWidget {
@@ -22,18 +21,14 @@ class CustomButton extends StatelessWidget {
   final double? buttonWidth;
   final EdgeInsetsGeometry? padding;
   final double buttonRadius;
-  final Color backgroundColor;
+  final Color? backgroundColor; // Now nullable to support theme defaults
   final Color? borderColor;
   final Color? iconColor;
   final double? iconSize;
   final double borderWidth;
   final Gradient? gradient;
-
-  //state control
   final bool isEnabled;
-  final Color disabledColor;
-
-  //LOADING CONTROLLER
+  final Color? disabledColor;
   final bool isLoading;
 
   const CustomButton({
@@ -54,49 +49,47 @@ class CustomButton extends StatelessWidget {
     this.buttonWidth,
     this.padding,
     this.buttonRadius = 50,
-    this.backgroundColor = AppColors.primaryColor,
-    this.borderColor = Colors.transparent,
+    this.backgroundColor,
+    this.borderColor,
     this.iconColor,
     this.iconSize,
     this.borderWidth = 0,
     this.gradient,
-    this.isEnabled = true, // Defaulting to true
-    this.disabledColor = Colors.grey, // Default disabled color
-    this.isLoading = false, // Defaulting to false
+    this.isEnabled = true,
+    this.disabledColor,
+    this.isLoading = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
 
-    // Logic to determine the background color based on state
+    // Default to Primary color if backgroundColor is null
     final Color effectiveBackgroundColor = isEnabled
-        ? backgroundColor
-        : disabledColor;
+        ? (backgroundColor ?? theme.primaryColor)
+        : (disabledColor ?? theme.disabledColor);
+
+    // Default text color to surface (contrast color) if not provided
+    final Color effectiveTextColor = textColor ?? theme.colorScheme.onPrimary;
 
     return Container(
       height: buttonHeight.h,
       width: buttonWidth?.w,
       decoration: BoxDecoration(
-        // We only show the gradient if enabled and provided
         gradient: isEnabled ? gradient : null,
-        color: (isEnabled && gradient != null)
-            ? null
-            : effectiveBackgroundColor,
+        color: (isEnabled && gradient != null) ? null : effectiveBackgroundColor,
         borderRadius: BorderRadius.circular(buttonRadius.r),
         border: borderColor != null
             ? Border.all(color: borderColor!, width: borderWidth.r)
             : null,
       ),
       child: ElevatedButton(
-        // Passing null to onPressed disables the button
         onPressed: isEnabled ? onPressed : null,
         style: ElevatedButton.styleFrom(
           padding: padding,
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          // Defines the look when isEnabled is false
           disabledBackgroundColor: Colors.transparent,
-          disabledForegroundColor: (textColor ?? AppColors.backgroundColor).withValues(alpha: 0.6),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(buttonRadius.r),
           ),
@@ -106,54 +99,48 @@ class CustomButton extends StatelessWidget {
         child: isLoading
             ? Center(
           child: SizedBox(
-            height: 25.h,
-            width: 25.h,
-            child:  CircularProgressIndicator(
-              color: AppColors.textColor,
+            height: 20.h,
+            width: 20.h,
+            child: CircularProgressIndicator(
+              color: effectiveTextColor,
               strokeWidth: 2.5,
-              padding: EdgeInsets.zero,
             ),
           ),
         )
             : Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children:[
             if (prefixIcon != null)
               Icon(
                 prefixIcon,
-                color: isEnabled
-                    ? (prefixIconColor ?? AppColors.textColor)
-                    : (prefixIconColor ?? AppColors.textColor).withValues(alpha: 0.5),
+                color: (prefixIconColor ?? effectiveTextColor).withValues(alpha: isEnabled ? 1.0 : 0.5),
                 size: prefixIconSize.r,
               ),
-            if( prefixSvgIcon != null )
+            if (prefixSvgIcon != null)
               SvgPicture.asset(
                 prefixSvgIcon!,
                 colorFilter: ColorFilter.mode(
-                    isEnabled
-                    ? (prefixIconColor ?? AppColors.textColor)
-                    : (prefixIconColor ?? AppColors.textColor).withValues(alpha: 0.5), BlendMode.srcIn),
+                  (prefixIconColor ?? effectiveTextColor).withValues(alpha: isEnabled ? 1.0 : 0.5),
+                  BlendMode.srcIn,
+                ),
                 height: iconHeight?.h,
                 width: iconWidth?.w,
               ),
             if (prefixIcon != null || prefixSvgIcon != null) SizedBox(width: 12.w),
             CustomText(
               text: label,
-              fontColor: isEnabled
-                  ? (textColor ?? AppColors.backgroundColor)
-                  : (textColor ?? AppColors.backgroundColor).withValues(alpha: 0.6),
+              fontColor: effectiveTextColor.withValues(alpha: isEnabled ? 1.0 : 0.6),
               fontSize: fontSize.sp,
               fontWeight: fontWeight,
             ),
-            if (icon != null) const SizedBox(width: 12),
-            if (icon != null)
+            if (icon != null) ...[
+              SizedBox(width: 12.w),
               Icon(
                 icon,
-                color: isEnabled
-                    ? (iconColor ?? (textColor ?? AppColors.textColor))
-                    : (iconColor ?? (textColor ?? AppColors.textColor)).withValues(alpha: 0.5),
-                size: iconSize ?? fontSize,
+                color: (iconColor ?? effectiveTextColor).withValues(alpha: isEnabled ? 1.0 : 0.5),
+                size: (iconSize ?? fontSize).r,
               ),
+            ],
           ],
         ),
       ),

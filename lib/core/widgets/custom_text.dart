@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../assets_gen/fonts.gen.dart';
-import '../utils/app_colors.dart';
-
 
 class CustomText extends StatelessWidget {
   final String text;
@@ -18,7 +15,6 @@ class CustomText extends StatelessWidget {
   final bool underline;
   final Color? underlineColor;
   final double underlineWidth;
-  final double figmaLetterSpacing;
   final bool translate;
 
   const CustomText({
@@ -35,9 +31,31 @@ class CustomText extends StatelessWidget {
     this.underline = false,
     this.underlineColor,
     this.underlineWidth = 1.0,
-    this.figmaLetterSpacing = 0,
-    this.translate = true
+    this.translate = true,
   });
+
+  @override
+  Widget build(BuildContext context) {
+    // Theme-aware color: defaults to the current theme's onSurface color
+    final Color effectiveColor = fontColor ?? Theme.of(context).colorScheme.onSurface;
+
+    return Text(
+      translate ? text.tr : text,
+      overflow: overflow,
+      maxLines: maxLines,
+      textAlign: textAlignment,
+      style: TextStyle(
+        fontWeight: fontWeight,
+        fontSize: fontSize,
+        fontStyle: fontStyle,
+        color: effectiveColor,
+        fontFamily: fontFamily,
+        decoration: underline ? TextDecoration.underline : TextDecoration.none,
+        decorationColor: underline ? (underlineColor ?? effectiveColor) : null,
+        decorationThickness: underline ? underlineWidth : null,
+      ),
+    );
+  }
 
   CustomText copyWith({
     FontWeight? fontWeight,
@@ -51,69 +69,40 @@ class CustomText extends StatelessWidget {
     bool? underline,
     Color? underlineColor,
     double? underlineWidth,
-    double? figmaLetterSpacing,
-    bool? translate
+    bool? translate,
   }) {
     return CustomText(
-      text: (translate ?? this.translate) ? text.tr : text,
-        translate: translate ?? this.translate,
-        fontWeight: fontWeight ?? this.fontWeight,
-        fontSize: fontSize ?? this.fontSize,
-        fontStyle: fontStyle ?? this.fontStyle,
-        fontColor: fontColor ?? this.fontColor,
-        overflow: overflow ?? this.overflow,
-        maxLines: maxLines ?? this.maxLines,
-        textAlignment: textAlignment ?? this.textAlignment,
-        fontFamily: fontFamily ?? this.fontFamily,
-        underline: underline ?? this.underline,
-        underlineColor: underlineColor ?? this.underlineColor,
-        underlineWidth: underlineWidth ?? this.underlineWidth,
-        figmaLetterSpacing: figmaLetterSpacing ?? this.figmaLetterSpacing,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-        translate ? text.tr : text,
-        overflow: overflow,
-        maxLines: maxLines,
-        textAlign: textAlignment,
-        style: TextStyle(
-            fontWeight: fontWeight,
-            fontSize: fontSize,
-            fontStyle: fontStyle,
-            color: fontColor ?? AppColors.textColor,
-            fontFamily: fontFamily,
-            decoration:
-            underline ? TextDecoration.underline : TextDecoration.none,
-            decorationColor: underline ? underlineColor : null,
-            decorationThickness: underline ? underlineWidth : null
-        )
+      text: text,
+      fontWeight: fontWeight ?? this.fontWeight,
+      fontSize: fontSize ?? this.fontSize,
+      fontStyle: fontStyle ?? this.fontStyle,
+      fontColor: fontColor ?? this.fontColor,
+      overflow: overflow ?? this.overflow,
+      maxLines: maxLines ?? this.maxLines,
+      textAlignment: textAlignment ?? this.textAlignment,
+      fontFamily: fontFamily ?? this.fontFamily,
+      underline: underline ?? this.underline,
+      underlineColor: underlineColor ?? this.underlineColor,
+      underlineWidth: underlineWidth ?? this.underlineWidth,
+      translate: translate ?? this.translate,
     );
   }
 }
 
+// Extensions for convenient styling
 extension CustomTextSizeExt on CustomText {
   CustomText get s12 => copyWith(fontSize: 12);
   CustomText get s14 => copyWith(fontSize: 14);
   CustomText get s16 => copyWith(fontSize: 16);
   CustomText get s18 => copyWith(fontSize: 18);
   CustomText get s20 => copyWith(fontSize: 20);
-  CustomText get s22 => copyWith(fontSize: 22);
   CustomText get s24 => copyWith(fontSize: 24);
-  CustomText get s26 => copyWith(fontSize: 26);
-  CustomText get s28 => copyWith(fontSize: 28);
 }
 
 extension CustomTextWeightExt on CustomText {
   CustomText get bold => copyWith(fontWeight: FontWeight.bold);
-  CustomText get w400 => copyWith(fontWeight: FontWeight.w400);
-  CustomText get w500 => copyWith(fontWeight: FontWeight.w500);
   CustomText get w600 => copyWith(fontWeight: FontWeight.w600);
   CustomText get w700 => copyWith(fontWeight: FontWeight.w700);
-  CustomText get w800 => copyWith(fontWeight: FontWeight.w800);
-  CustomText get w900 => copyWith(fontWeight: FontWeight.w900);
 }
 
 extension CustomTextColorExt on CustomText {

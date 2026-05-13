@@ -1,92 +1,61 @@
 import 'package:flutter/material.dart';
-
-import '../assets_gen/fonts.gen.dart';
+import '../utils/app_colors.dart';
 
 class AppTheme {
+  AppTheme._();
 
-  /// LIGHT THEME
-  static ThemeData lightTheme = ThemeData(
+  static ThemeData get lightTheme => _baseTheme(Brightness.light);
+  static ThemeData get darkTheme => _baseTheme(Brightness.dark);
 
-    brightness: Brightness.light,
+  static ThemeData _baseTheme(Brightness brightness) {
+    final isDark = brightness == Brightness.dark;
 
-    fontFamily: FontFamily.openSans,
+    final colorScheme = ColorScheme.fromSeed(
+      seedColor: AppColors.primaryColor,
+      brightness: brightness,
+      primary: AppColors.primaryColor,
+      surface: isDark ? AppColors.darkBackground : AppColors.lightBackground,
+      onSurface: isDark ? AppColors.darkText : AppColors.lightText,
+      outline: isDark ? AppColors.grey86Dark : AppColors.grey86Light,
+      surfaceContainerHighest: isDark ? AppColors.greyD9Dark : AppColors.greyD9Light,
+      error: AppColors.errorRed, // Ensure ErrorRed is used globally
+    );
 
-    scaffoldBackgroundColor: Colors.white,
+    return ThemeData(
+      useMaterial3: true,
+      brightness: brightness,
+      colorScheme: colorScheme,
+      scaffoldBackgroundColor: colorScheme.surface,
 
-    primaryColor: const Color(0xFF0066FF),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
 
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
-      elevation: 0,
-    ),
+        // Error styling integrated into the theme
+        errorStyle: TextStyle(color: colorScheme.error, fontSize: 12),
 
-    cardColor: Colors.white,
-
-    dividerColor: Color(0xFFE0E0E0),
-
-    textTheme: const TextTheme(
-
-      bodyLarge: TextStyle(
-        color: Colors.black,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: colorScheme.outline.withValues(alpha: 0.2)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: colorScheme.outline.withValues(alpha: 0.2)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: colorScheme.primary, width: 1.5),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: colorScheme.error, width: 1.0),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(color: colorScheme.error, width: 1.5),
+        ),
       ),
-
-      bodyMedium: TextStyle(
-        color: Colors.black,
-      ),
-
-      bodySmall: TextStyle(
-        color: Colors.black54,
-      ),
-    ),
-
-    colorScheme: ColorScheme.light(
-      primary: Color(0xFF0066FF),
-      secondary: Color(0xFF0066FF),
-    ),
-  );
-
-
-
-  /// DARK THEME
-  static ThemeData darkTheme = ThemeData(
-
-    brightness: Brightness.dark,
-
-    fontFamily: FontFamily.openSans,
-
-    scaffoldBackgroundColor: const Color(0xFF121212),
-
-    primaryColor: const Color(0xFF0066FF),
-
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Color(0xFF121212),
-      foregroundColor: Colors.white,
-      elevation: 0,
-    ),
-
-    cardColor: const Color(0xFF1E1E1E),
-
-    dividerColor: Color(0xFF2C2C2C),
-
-    textTheme: const TextTheme(
-
-      bodyLarge: TextStyle(
-        color: Colors.white,
-      ),
-
-      bodyMedium: TextStyle(
-        color: Colors.white,
-      ),
-
-      bodySmall: TextStyle(
-        color: Colors.white70,
-      ),
-    ),
-
-    colorScheme: ColorScheme.dark(
-      primary: Color(0xFF0066FF),
-      secondary: Color(0xFF0066FF),
-    ),
-  );
+    );
+  }
 }

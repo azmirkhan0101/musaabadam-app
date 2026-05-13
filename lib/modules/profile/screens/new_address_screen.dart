@@ -5,7 +5,7 @@ import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_button.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_field_widget/custom_text_field.dart';
+import 'package:musaab_adam/core/widgets/custom_text_field.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 
 class NewAddressScreen extends StatelessWidget {

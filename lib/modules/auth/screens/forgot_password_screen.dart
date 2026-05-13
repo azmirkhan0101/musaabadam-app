@@ -7,7 +7,7 @@ import 'package:musaab_adam/core/widgets/custom_button.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_field_widget/custom_text_field.dart';
+import 'package:musaab_adam/core/widgets/custom_text_field.dart';
 
 import '../../../core/assets_gen/assets.gen.dart';
 import '../../../core/utils/app_colors.dart';
@@ -43,7 +43,6 @@ class ForgotPasswordScreen extends StatelessWidget {
                   CustomText(
                     text: AppStrings.forgotYourPassword.tr,
                     fontColor: AppColors.black50Percent,
-                    figmaLetterSpacing: -2,
                     fontWeight: FontWeight.w700,
                   ),
                   SizedBoxWidget(height: 8),
@@ -99,7 +98,6 @@ class ForgotPasswordScreen extends StatelessWidget {
                             text: AppStrings.backToThePlatform.tr,
                             fontColor: AppColors.primaryColor,
                             fontSize: 14,
-                            figmaLetterSpacing: -2,
                           ),
                         ],
                       ),

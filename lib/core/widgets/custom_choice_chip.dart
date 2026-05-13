@@ -38,7 +38,7 @@ class CustomChoiceChip extends StatelessWidget {
       selectedColor: selected && colorChangeable ? AppColors.primaryColor : AppColors.backgroundColor,
       padding: EdgeInsets.symmetric(horizontal: padding[0], vertical: padding[1]),
       elevation: 4,
-      shadowColor: showShadow ? AppColors.brandColorShade : Colors.transparent,
+      shadowColor: showShadow ? AppColors.brandShadeDark : Colors.transparent,
       backgroundColor: selected && colorChangeable ? AppColors.primaryColor : AppColors.brandColorShade,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),

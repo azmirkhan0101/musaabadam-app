@@ -99,7 +99,7 @@ class _EditIcon extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(2),
       decoration: BoxDecoration(
-        color: AppColors.black40Percent,
+        color: AppColors.black50,
         borderRadius: BorderRadius.circular(100),
       ),
       child: Center(

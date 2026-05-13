@@ -39,7 +39,6 @@ class CheckEmailScreen extends StatelessWidget {
               CustomText(
                 text: AppStrings.checkYourEmail.tr,
                 fontColor: AppColors.black50Percent,
-                figmaLetterSpacing: -2,
                 fontWeight: FontWeight.w700,
               ),
               SizedBoxWidget(height: 8),
@@ -119,7 +118,6 @@ class CheckEmailScreen extends StatelessWidget {
                         text: AppStrings.backToThePlatform.tr,
                         fontColor: AppColors.primaryColor,
                         fontSize: 14,
-                        figmaLetterSpacing: -2,
                       ),
                     ],
                   ),
