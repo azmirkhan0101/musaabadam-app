@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 
@@ -24,70 +23,74 @@ class InboxItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+        margin: EdgeInsets.symmetric(horizontal: 15.w, vertical: 8.h),
         height: 90.h,
         decoration: BoxDecoration(
-          color: AppColors.brandColorShade,
-          borderRadius: BorderRadius.circular(8),
+          // Use surfaceContainer for items to differentiate from main background
+          color: colorScheme.surfaceContainer,
+          borderRadius: BorderRadius.circular(12.r),
         ),
         child: Row(
           children: [
             Expanded(
               child: ListTile(
+                contentPadding: EdgeInsets.zero,
                 leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(50.r),
                   child: CachedImageWidget(
-                    width: 30, // You might want to use .w here if using screenutil
-                    height: 30,
+                    width: 45.w,
+                    height: 45.h,
                     imageUrl: imageUrl,
                   ),
                 ),
                 title: CustomText(
                   text: name,
                   translate: false,
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
                   textAlignment: TextAlign.start,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
+                  fontColor: colorScheme.onSurface,
                 ),
                 subtitle: CustomText(
                   text: lastMessage,
                   translate: false,
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   textAlignment: TextAlign.start,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
+                  fontColor: colorScheme.onSurface.withValues(alpha: 0.6),
                 ),
               ),
             ),
             Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                // Only show badge if there is an unread count
                 if (unreadCount != "0" && unreadCount.isNotEmpty)
                   CircleAvatar(
-                    backgroundColor: AppColors.orange,
-                    radius: 10,
+                    backgroundColor: colorScheme.primary,
+                    radius: 10.r,
                     child: CustomText(
                       translate: false,
                       text: unreadCount,
-                      fontColor: Colors.white,
-                      fontSize: 12,
+                      fontColor: colorScheme.onPrimary,
+                      fontSize: 10.sp,
+                      fontWeight: FontWeight.bold,
                     ),
                   )
                 else
-                  const SizedBox(),
+                  SizedBox(height: 20.h),
+                SizedBox(height: 5.h),
                 CustomText(
                   translate: false,
                   text: time,
-                  fontSize: 12,
+                  fontSize: 12.sp,
+                  fontColor: colorScheme.onSurface.withValues(alpha: 0.5),
                 )
               ],
             )

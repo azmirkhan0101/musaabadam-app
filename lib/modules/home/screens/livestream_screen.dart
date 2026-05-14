@@ -1,19 +1,14 @@
-import 'dart:async';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/utils/app_constants.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
-
 import '../../../core/assets_gen/assets.gen.dart';
-import '../../../core/widgets/custom_button.dart';
+import '../components/livestream_dialogs.dart';
 
 class LiveStreamScreen extends StatelessWidget {
   const LiveStreamScreen({super.key});
@@ -28,9 +23,9 @@ class LiveStreamScreen extends StatelessWidget {
           SafeArea(
             child: Column(
               children: [
-                headerSection(context: context),
-                Flexible(child: middleSection(context: context)),
-                footerSection(),
+                _headerSection(context),
+                Flexible(child: _middleSection(context)),
+                _footerSection(context),
               ],
             ),
           ),
@@ -39,7 +34,8 @@ class LiveStreamScreen extends StatelessWidget {
     );
   }
 
-  Widget headerSection({required BuildContext context}) {
+  Widget _headerSection(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -47,744 +43,129 @@ class LiveStreamScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              IconButton(
-                padding: EdgeInsets.all(0),
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-              ),
+              IconButton(onPressed: Get.back, icon: Icon(Icons.arrow_back_ios, color: colorScheme.onSurface)),
               GestureDetector(
-                onTap: (){
-                  Get.toNamed(AppRoutes.storyScreen);
-                },
-                child: CachedImageWidget(
-                  imageUrl: Dummy.user1,
-                  height: 36.h,
-                  width: 36.w,
-                  borderRadius: 50,
-                ),
+                onTap: () => Get.toNamed(AppRoutes.storyScreen),
+                child: CachedImageWidget(imageUrl: Dummy.user1, height: 36.h, width: 36.w, borderRadius: 50),
               ),
               const SizedBox(width: 8),
-              const Text(
-                "Azmir Khan",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              Text("Azmir Khan", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: colorScheme.onSurface)),
               const Spacer(),
-              const Icon(Icons.fullscreen, color: Colors.black, size: 30),
+              Icon(Icons.fullscreen, color: colorScheme.onSurface, size: 30),
             ],
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8.h),
           Row(
-            spacing: 6,
             children: [
               SvgPicture.asset(Assets.icons.liveIcon, height: 20),
               const SizedBox(width: 8),
-              const Icon(
-                Icons.remove_red_eye_outlined,
-                size: 20,
-                color: AppColors.primaryColor,
-              ),
-              CustomText(
-                text: "5.2k",
-                fontColor: AppColors.primaryColor,
-                translate: false,
-              ),
+              Icon(Icons.remove_red_eye_outlined, size: 20, color: colorScheme.primary),
+              SizedBox(width: 6.w),
+              CustomText(text: "5.2k", fontColor: colorScheme.primary, translate: false),
               const SizedBox(width: 12),
               GestureDetector(
-                onTap: () {
-                  showFollowSellerDialog(context);
-                },
+                onTap: () => showFollowSellerDialog(context),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.primaryColor,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Text(
-                    "Follow",
-                    style: TextStyle(color: Colors.white),
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  decoration: BoxDecoration(color: colorScheme.primary, borderRadius: BorderRadius.circular(20)),
+                  child: Text("Follow", style: TextStyle(color: colorScheme.onPrimary)),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [chipLabel("Notes"), giveawayCard()],
+            children: [_chipLabel(context, "Notes"), _giveawayCard(context)],
           ),
         ],
       ),
     );
   }
 
-  Widget middleSection({required BuildContext context}) {
+  Widget _middleSection(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                chatTile("Lora", "Price?", false),
-                chatTile("David", "I want to buy", false),
-                chatTile("Alice", "Very nice", true),
-              ],
-            ),
-          ),
-        ),
+        Expanded(child: Padding(padding: const EdgeInsets.all(16.0), child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+          _chatTile(context, "Lora", "Price?", false),
+          _chatTile(context, "Alice", "Very nice", true),
+        ]))),
         Padding(
           padding: const EdgeInsets.only(right: 16, bottom: 10),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                sideIcon(AppStrings.more, Assets.icons.more, () {
-                  showOptionsDialog(context);
-                }, iconSize: 8),
-                sideIcon(AppStrings.boost, Assets.icons.boost, () {
-                  Get.toNamed(AppRoutes.boostScreen);
-                }),
-                sideIcon(AppStrings.clip, Assets.icons.clip, () {
-                  showClipEditDialog(context: context);
-                }),
-                sideIcon(AppStrings.share, Assets.icons.share, () {}),
-                sideIcon(AppStrings.wallet, Assets.icons.wallet, () {}),
-                sideIcon(AppStrings.shop, Assets.icons.shop, () {}),
-              ],
-            ),
-          ),
+          child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+            _sideIcon(context, AppStrings.more, Assets.icons.more, () => showOptionsDialog(context)),
+            _sideIcon(context, AppStrings.boost, Assets.icons.boost, () => Get.toNamed(AppRoutes.boostScreen)),
+          ]),
         ),
       ],
     );
   }
 
-  Widget footerSection() {
+  Widget _footerSection(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Type comment........",
-                suffixIcon: SvgPicture.asset(
-                  Assets.icons.send,
-                  fit: BoxFit.scaleDown,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-              ),
-            ),
-            const SizedBox(height: 12),
-            productInfo(),
-            const SizedBox(height: 12),
-            Row(
-              children: [
-                Expanded(
-                  child:
-                  actionButton("Custom", Colors.white, Colors.cyan, true, () {
-                    showBiddingDialog();
-                  }, ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: actionButton(
-                      "Bid", Colors.orange, Colors.orange, false, () {
-
-                      },),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      decoration: BoxDecoration(color: colorScheme.surface, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+      child: Column(mainAxisSize: MainAxisSize.min, children: [
+        TextField(decoration: InputDecoration(hintText: "Type comment........", suffixIcon: SvgPicture.asset(Assets.icons.send, fit: BoxFit.scaleDown))),
+        SizedBox(height: 12.h),
+        _productInfo(context),
+      ]),
     );
   }
 
-  Widget chipLabel(String text) {
+  Widget _chipLabel(BuildContext context, String text) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      decoration: BoxDecoration(
-        color: AppColors.grey86,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Text(text, style: const TextStyle(color: Colors.white)),
+      decoration: BoxDecoration(color: colorScheme.outline, borderRadius: BorderRadius.circular(8)),
+      child: Text(text, style: TextStyle(color: colorScheme.onSurface)),
     );
   }
 
-  Widget giveawayCard() {
+  Widget _giveawayCard(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.6),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        children: [
-          const Icon(Icons.card_giftcard, color: Colors.blueAccent),
-          const SizedBox(width: 4),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                "Giveaway",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-              ),
-              Text("356 Entries", style: TextStyle(fontSize: 10)),
-            ],
-          ),
-        ],
-      ),
+      decoration: BoxDecoration(color: colorScheme.surfaceContainerHighest.withValues(alpha: 0.6), borderRadius: BorderRadius.circular(8)),
+      child: Row(children: [Icon(Icons.card_giftcard, color: colorScheme.primary), const SizedBox(width: 4), Text("Giveaway", style: TextStyle(fontWeight: FontWeight.bold))]),
     );
   }
 
-  Widget sideIcon(
-      String label,
-      String asset,
-      VoidCallback onTap, {
-        double iconSize = 20,
-      }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        child: Column(
-          children: [
-            CircleAvatar(
-              backgroundColor: AppColors.primaryColor,
-              child: SvgPicture.asset(
-                asset,
-                colorFilter: const ColorFilter.mode(
-                  Colors.white,
-                  BlendMode.srcIn,
-                ),
-                width: iconSize,
-                height: iconSize,
-              ),
-            ),
-            Text(
-              label,
-              style: TextStyle(
-                color: AppColors.primaryColor,
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+  Widget _sideIcon(BuildContext context, String label, String asset, VoidCallback onTap) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return GestureDetector(onTap: onTap, child: Padding(padding: const EdgeInsets.symmetric(vertical: 8), child: Column(children: [
+      CircleAvatar(backgroundColor: colorScheme.primary, child: SvgPicture.asset(asset, colorFilter: ColorFilter.mode(colorScheme.onPrimary, BlendMode.srcIn))),
+      CustomText(text: label, fontColor: colorScheme.primary, fontSize: 12, fontWeight: FontWeight.bold)
+    ])));
   }
 
-  Widget chatTile(String user, String msg, bool isMod) {
+  Widget _chatTile(BuildContext context, String user, String msg, bool isMod) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(8),
-      decoration: isMod
-          ? BoxDecoration(
-        color: Colors.white.withOpacity(0.8),
-        border: Border.all(color: Colors.cyan),
-        borderRadius: BorderRadius.circular(12),
-      )
-          : null,
-      child: Row(
-        children: [
-          const CircleAvatar(
-            radius: 12,
-            backgroundImage: NetworkImage('https://i.pravatar.cc/100'),
-          ),
-          const SizedBox(width: 8),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    user,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  if (isMod) ...[
-                    const SizedBox(width: 4),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      color: Colors.orange.shade200,
-                      child: const Text(
-                        "MOD",
-                        style: TextStyle(fontSize: 10, color: Colors.orange),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-              Text(
-                msg,
-                style: TextStyle(color: isMod ? Colors.orange : Colors.black),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget productInfo() {
-    return Row(
-      children: [
-        CachedImageWidget(
-            imageUrl: Dummy.product1,
-          borderRadius: 12,
-          height: 45.h,
-          width: 45.w,
-        ),
+      decoration: isMod ? BoxDecoration(color: colorScheme.surfaceContainer, borderRadius: BorderRadius.circular(12)) : null,
+      child: Row(children: [
+        CircleAvatar(radius: 12.r),
         const SizedBox(width: 8),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Nike Air Max Sneakers",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              const Text(
-                "Size : 34-44  • New  • 1 Available",
-                style: TextStyle(fontSize: 12),
-              ),
-              const Text(
-                "+shipping+taxes",
-                style: TextStyle(fontSize: 10, color: Colors.grey),
-              ),
-            ],
-          ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: const [
-            Text("£4.13", style: TextStyle(fontWeight: FontWeight.bold)),
-            Text("00:09", style: TextStyle(color: Colors.red, fontSize: 12)),
-          ],
-        ),
-      ],
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(user, style: const TextStyle(fontWeight: FontWeight.bold)),
+          Text(msg, style: TextStyle(color: isMod ? colorScheme.primary : colorScheme.onSurface)),
+        ]),
+      ]),
     );
   }
 
-  Widget actionButton(String label, Color bg, Color border, bool isOutlined, VoidCallback onPressed) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        decoration: BoxDecoration(
-          color: bg,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: border, width: 2),
-        ),
-        alignment: Alignment.center,
-        child: Text(
-          label,
-          style: TextStyle(
-            color: isOutlined ? border : Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
+  Widget _productInfo(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    return Row(children: [
+      CachedImageWidget(imageUrl: Dummy.product1, borderRadius: 12, height: 45.h, width: 45.w),
+      const SizedBox(width: 8),
+      Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text("Nike Air Max", style: TextStyle(fontWeight: FontWeight.bold, color: colorScheme.onSurface)),
+      ])),
+    ]);
   }
-
-  void showOptionsDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          backgroundColor: const Color(0xFFDDE9EC),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24.0),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Options',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 18),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _buildOptionButton(
-                      icon: Icons.report_problem_outlined,
-                      label: 'Report',
-                      onTap: () {},
-                    ),
-                    const SizedBox(width: 16),
-                    _buildOptionButton(
-                      icon: Icons.volume_up_outlined,
-                      label: 'Sound',
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildOptionButton({
-    required IconData icon,
-    required String label,
-    required VoidCallback onTap,
-  }) {
-    return Expanded(
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          height: 100,
-          decoration: BoxDecoration(
-            color: const Color(0xFF008EAC),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, color: Colors.white, size: 30),
-              const SizedBox(height: 8),
-              Text(
-                label,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  void showFollowSellerDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-          backgroundColor: const Color(0xFFD9E9F0),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 24.0,
-              horizontal: 20.0,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text(
-                  'Follow This Seller?',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black87,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                CachedImageWidget(
-                  imageUrl: Dummy.user1,
-                  height: 50.h,
-                  width: 50.w,
-                  borderRadius: 50,
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  'Azmir Khan',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  children: [
-                    Expanded(
-                      child: OutlinedButton(
-                        onPressed: () => Navigator.pop(context),
-                        style: OutlinedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 14),
-                          side: const BorderSide(
-                            color: Color(0xFF0083A4),
-                            width: 2,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        child: const Text(
-                          'Not Now',
-                          style: TextStyle(
-                            color: Color(0xFF0083A4),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF0083A4),
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 14),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        child: const Text(
-                          'Follow',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-
-  //===============COMMENT=================
-// BIDDING DIALOG IMPLEMENTATION
-//===============COMMENT=================
-
-  void showBiddingDialog() {
-    int secondsRemaining = 11;
-    int currentBid = 5;
-    bool isMaxBid = true;
-    Timer? timer;
-
-    Get.dialog(
-      StatefulBuilder(
-        builder: (context, setState) {
-          // Init timer once
-          timer ??= Timer.periodic(const Duration(seconds: 1), (t) {
-            if (secondsRemaining > 0) {
-              setState(() => secondsRemaining--);
-            } else {
-              t.cancel();
-            }
-          });
-
-          return Dialog(
-            backgroundColor: const Color(0xFFDDE7EB),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                  biddingDialogHeaderSection(secondsRemaining),
-              const SizedBox(height: 10),
-              Text(
-                AppStrings.enterCustomBid.tr, // Assuming this exists in your AppStrings
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-              ),
-              const SizedBox(height: 15),
-              bidSelector(
-                  currentBid: currentBid,
-                  onDecrement: () => setState((){
-                    if(currentBid > 0){
-                       currentBid--;
-                    }
-                  }),
-              onIncrement: () => setState(() => currentBid++),
-            ),
-            const SizedBox(height: 15),
-            maxBidToggle(
-              value: isMaxBid,
-              onChanged: (val) => setState(() => isMaxBid = val),
-            ),
-            const SizedBox(height: 20),
-            CustomButton(
-              label: AppStrings.send.tr,
-              buttonHeight: 50,
-              buttonWidth: double.infinity,
-              onPressed: () {
-                timer?.cancel();
-                Get.back();
-              },
-            ),
-            ],
-          ),
-          ),
-          );
-        },
-      ),
-    ).then((_) => timer?.cancel()); // Ensure timer is destroyed when dialog closes
-  }
-
-//===============COMMENT=================
-// HELPER WIDGETS (NO BUILD PREFIX / NO UNDERSCORES)
-//===============COMMENT=================
-
-  Widget biddingDialogHeaderSection(int seconds) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const SizedBox(width: 40), // Spacer for symmetry
-        Text(
-          "00:${seconds.toString().padLeft(2, '0')}",
-          style: const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold, fontSize: 18),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            const Text("£5", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-            Text("Shipping Tax", style: const TextStyle(fontSize: 12)),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget bidSelector({required int currentBid, required VoidCallback onDecrement, required VoidCallback onIncrement}) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        IconButton(
-          icon: const Icon(Icons.remove, size: 35, color: Colors.black),
-          onPressed: onDecrement,
-        ),
-        Expanded(
-          child: Container(
-            height: 55,
-            alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: const Color(0xFF008BA3), width: 1.5),
-            ),
-            child: Text(
-              "£$currentBid",
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-            ),
-          ),
-        ),
-        IconButton(
-          icon: const Icon(Icons.add, size: 35, color: Colors.black),
-          onPressed: onIncrement,
-        ),
-      ],
-    );
-  }
-
-  Widget maxBidToggle({required bool value, required ValueChanged<bool> onChanged}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Text(
-              AppStrings.maxBid.tr,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-            ),
-            const SizedBox(width: 5),
-            const Icon(Icons.info_outline, size: 20, color: Color(0xFF008BA3)),
-            const Spacer(),
-            Switch(
-              value: value,
-              onChanged: onChanged,
-              activeColor: Colors.white,
-              activeTrackColor: const Color(0xFF008BA3),
-            ),
-          ],
-        ),
-        Text(
-          "When on,we’ll automatically place bids for you, up to this price", // "When on, we'll automatically..."
-          style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-        ),
-      ],
-    );
-  }
-  
-  //CLIP DIALOG
-void showClipEditDialog({required BuildContext context}){
-  showDialog(
-    context: context,
-    builder: (context) => Dialog(
-      shape: Platform.isIOS
-          ? null
-          : RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-      backgroundColor: const Color(0xFFE1EBF1), // Light blue-grey background
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        constraints: const BoxConstraints(maxWidth: 350, maxHeight: 320),
-        child: Stack(
-          children: [
-            // Edit Button in the top right
-
-            // Network Image centered at the bottom
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: CachedImageWidget(
-                    imageUrl: Dummy.live1,
-                ),
-              ),
-            ),
-            Positioned(
-              top: 0,
-              right: 0,
-              child: CustomButton(
-                label: AppStrings.edit,
-                buttonHeight: 30,
-                onPressed: (){
-                  Get.back();
-                  Get.toNamed(AppRoutes.clipEditScreen);
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
 }
-}
-

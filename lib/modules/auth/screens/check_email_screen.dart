@@ -10,18 +10,19 @@ import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 
 import '../../../core/assets_gen/assets.gen.dart';
-import '../../../core/utils/app_colors.dart';
 
 class CheckEmailScreen extends StatelessWidget {
-
   final String userEmail = "dummymail@mail.com";
 
-  CheckEmailScreen({super.key});
+  const CheckEmailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 31.w),
@@ -32,14 +33,15 @@ class CheckEmailScreen extends StatelessWidget {
               //===================GRAPHICS=========================//
               SvgPicture.asset(
                 Assets.icons.grCheckEmail,
-                width: 240,
-                height: 238,
+                width: 240.w,
+                height: 238.h,
               ),
               SizedBox(height: 15),
               CustomText(
-                text: AppStrings.checkYourEmail.tr,
-                fontColor: AppColors.black50Percent,
+                text: AppStrings.checkYourEmail,
+                fontColor: colorScheme.onSurface.withValues(alpha: 0.6),
                 fontWeight: FontWeight.w700,
+                fontSize: 20.sp,
               ),
               SizedBoxWidget(height: 8),
               RichText(
@@ -49,15 +51,15 @@ class CheckEmailScreen extends StatelessWidget {
                     TextSpan(
                       text: AppStrings.weSentVarificationLinkTo.tr,
                       style: TextStyle(
-                        color: AppColors.greyA8,
-                        fontSize: 16.sp,
+                        color: colorScheme.onSurface.withValues(alpha: 0.5),
+                        fontSize: 14.sp,
                       ),
                     ),
                     TextSpan(
                       text: "  $userEmail",
                       style: TextStyle(
-                        color: AppColors.greyA8,
-                        fontSize: 16.sp,
+                        color: colorScheme.onSurface.withValues(alpha: 0.7),
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -65,64 +67,58 @@ class CheckEmailScreen extends StatelessWidget {
                 ),
               ),
               SizedBoxWidget(height: 20),
-              //===================CONTINUE BUTTON=========================//
+              //===================OPEN EMAIL APP=========================//
               CustomButton(
-                label: AppStrings.openEmailApp.tr,
+                label: AppStrings.openEmailApp,
                 fontWeight: FontWeight.w700,
                 buttonHeight: 40.h,
-                onPressed: (){
-                  //TODO: OPEN DEVICE EMAIL APP
+                onPressed: () {
                   Get.offAndToNamed(AppRoutes.newPasswordScreen);
                 },
               ),
-              SizedBoxWidget(height: 15,),
+              SizedBoxWidget(height: 15),
               //===================RESEND=========================//
-              RichText(text: TextSpan(
+              RichText(
+                text: TextSpan(
                   children: [
-                    TextSpan(text: AppStrings.didntReceiveTheEmail.tr,
-                        style: TextStyle(color: AppColors.greyA8,
-                            fontSize: 14.sp,
-                        )
-                    ),
-                    TextSpan(text: "  ${AppStrings.clickToResend.tr}",
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = (){
-                            print("Resend");
-                          },
-                        style: TextStyle(
-                            color: AppColors.primaryColor,
-                            fontSize: 14.sp,
-                          fontWeight: FontWeight.w600
-                        )
-                    ),
-                  ]
-              ),
-              ),
-              //===================BACK TO THE PLATFORM=========================//
-              Align(
-                alignment: AlignmentGeometry.center,
-                child: TextButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.arrow_back_rounded,
-                        color: AppColors.primaryColor,
+                    TextSpan(
+                      text: AppStrings.didntReceiveTheEmail.tr,
+                      style: TextStyle(
+                        color: colorScheme.onSurface.withValues(alpha: 0.5),
+                        fontSize: 14.sp,
                       ),
-                      SizedBoxWidget(width: 8),
-                      CustomText(
-                        text: AppStrings.backToThePlatform.tr,
-                        fontColor: AppColors.primaryColor,
-                        fontSize: 14,
+                    ),
+                    TextSpan(
+                      text: "  ${AppStrings.clickToResend.tr}",
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () => debugPrint("Resend"),
+                      style: TextStyle(
+                        color: colorScheme.primary,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
+              //===================BACK TO THE PLATFORM=========================//
+              const Spacer(),
+              TextButton(
+                onPressed: () => Get.back(),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.arrow_back_rounded, color: colorScheme.primary),
+                    SizedBoxWidget(width: 8),
+                    CustomText(
+                      text: AppStrings.backToThePlatform,
+                      fontColor: colorScheme.primary,
+                      fontSize: 14.sp,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBoxWidget(height: 20),
             ],
           ),
         ),

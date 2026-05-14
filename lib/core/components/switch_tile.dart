@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../core/utils/app_colors.dart';
-import '../../core/widgets/custom_text.dart';
+import '../widgets/custom_text.dart';
 
 class SwitchTile extends StatelessWidget {
   final String title;
@@ -23,21 +22,28 @@ class SwitchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.primaryColor,
+        color: colorScheme.primary,
         borderRadius: BorderRadius.circular(10),
       ),
       child: ListTile(
         leading: isIconDefault
             ? Icon(
           defaultIcon ?? Icons.notifications,
-          color: AppColors.white,
+          color: colorScheme.onPrimary,
         )
-            : SvgPicture.asset(svgIconPath!),
+            : SvgPicture.asset(
+          svgIconPath!,
+          // Apply color filter to match the icon color
+          colorFilter: ColorFilter.mode(colorScheme.onPrimary, BlendMode.srcIn),
+        ),
         title: CustomText(
           text: title,
-          fontColor: AppColors.white,
+          fontColor: colorScheme.onPrimary,
           fontWeight: FontWeight.w700,
           textAlignment: TextAlign.start,
           maxLines: 1,
@@ -47,10 +53,11 @@ class SwitchTile extends StatelessWidget {
         trailing: Switch(
           value: value,
           onChanged: onChanged,
-          activeColor: AppColors.white,
-          activeTrackColor: Colors.greenAccent.withOpacity(0.5),
-          inactiveThumbColor: AppColors.backgroundColor,
-          inactiveTrackColor: Colors.grey.withOpacity(0.5),
+          // Using theme-based colors for switch states
+          activeColor: colorScheme.onPrimary,
+          activeTrackColor: colorScheme.secondaryContainer,
+          inactiveThumbColor: colorScheme.surface,
+          inactiveTrackColor: colorScheme.surfaceVariant,
         ),
       ),
     );

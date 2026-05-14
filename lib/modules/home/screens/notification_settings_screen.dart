@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/core/utils/context_extension.dart';
 
 import '../../../core/components/switch_tile.dart';
-import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/widgets/custom_text.dart';
 import '../../../widgets/sized_box_widget/sized_box_widget.dart';
@@ -63,26 +61,29 @@ class NotificationSettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: CustomText(text: AppStrings.notificationSettings),
         centerTitle: true,
-        leading: const BackButton(),
+        leading: BackButton(color: colorScheme.onSurface),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children:[
               //==================== BUYER SECTION =====================
               expandableSection(
+                context,
                 title: AppStrings.buyerNotifications,
                 isExpanded: isBuyerExpanded,
                 onExpansionChanged: (val) => toggleBuyer(),
-                children: [
+                children:[
                   customSwitch(AppStrings.auctions, Icons.touch_app_outlined, auctionsNotify),
                   customSwitch(AppStrings.followedUsers, Icons.person_pin_outlined, followedNotify),
                   customSwitch(AppStrings.offers, Icons.percent_outlined, offersNotify),
@@ -99,10 +100,11 @@ class NotificationSettingsScreen extends StatelessWidget {
 
               //======================== SELLER SECTION ======================
               expandableSection(
+                context,
                 title: "Seller Notifications",
                 isExpanded: isSellerExpanded,
                 onExpansionChanged: (val) => toggleSeller(),
-                children: [
+                children:[
                   customSwitch(AppStrings.auctions, Icons.touch_app_outlined, sellerAuctionsNotify),
                   customSwitch(AppStrings.orders, Icons.insert_drive_file_outlined, ordersNotify),
                   customSwitch(AppStrings.promoteTools, Icons.rocket_launch_outlined, promoteToolsNotify),
@@ -115,22 +117,24 @@ class NotificationSettingsScreen extends StatelessWidget {
               SizedBoxWidget(height: 10.h),
               //======================== SAVED CONTENT ======================
               expandableSection(
+                context,
                 title: "Saved Content",
                 isExpanded: isSavedContentExpanded,
                 onExpansionChanged: (val) => toggleSavedContent(),
-                children: [
+                children:[
                   customSwitch(AppStrings.savedProducts, Icons.save_alt, savedProducts),
                   customSwitch(AppStrings.savedSearches, Icons.saved_search, savedSearches),
                   customSwitch(AppStrings.savedShows, Icons.slideshow_sharp, savedShows),
-                  ],
+                ],
               ),
               SizedBoxWidget(height: 10.h),
               //======================== SOCIAL ACTIVITY ======================
               expandableSection(
+                context,
                 title: "Social Activity",
                 isExpanded: isSocialActivityExpanded,
                 onExpansionChanged: (val) => toggleSocialActivity(),
-                children: [
+                children:[
                   customSwitch(AppStrings.chatMentions, Icons.wechat_outlined, chatMentions),
                   customSwitch(AppStrings.directMessages, Icons.message_outlined, directMessage),
                   customSwitch(AppStrings.newFollowers, Icons.follow_the_signs_sharp, newFollower),
@@ -139,13 +143,14 @@ class NotificationSettingsScreen extends StatelessWidget {
               SizedBoxWidget(height: 10.h),
               //======================== SHOWTIME REMINDER ======================
               expandableSection(
+                context,
                 title: "Showtime Reminder",
                 isExpanded: isShowsExpanded,
                 onExpansionChanged: (val) => toggleShows(),
-                children: [
+                children:[
                   customSwitch(AppStrings.newSaves, Icons.new_label_outlined, newSaves),
                   customSwitch(AppStrings.showtimeReminders, Icons.notifications_none, showtimeReminder),
-                  ],
+                ],
               ),
               SizedBoxWidget(height: 20.h),
 
@@ -174,14 +179,17 @@ class NotificationSettingsScreen extends StatelessWidget {
     ));
   }
 
-  Widget expandableSection({
-    required String title,
-    required RxBool isExpanded,
-    required Function(bool) onExpansionChanged,
-    required List<Widget> children
-  }) {
+  Widget expandableSection(
+      BuildContext context, {
+        required String title,
+        required RxBool isExpanded,
+        required Function(bool) onExpansionChanged,
+        required List<Widget> children,
+      }) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Obx(() => Theme(
-      data: Theme.of(Get.context!).copyWith(dividerColor: Colors.transparent),
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
         title: CustomText(
           text: title,
@@ -193,9 +201,9 @@ class NotificationSettingsScreen extends StatelessWidget {
         onExpansionChanged: onExpansionChanged,
         trailing: Icon(
           isExpanded.value ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-          color: AppColors.black,
+          color: colorScheme.onSurface, // Uses theme dynamic color
         ),
-        children: [
+        children:[
           Column(
             children: children
                 .map((child) => Padding(

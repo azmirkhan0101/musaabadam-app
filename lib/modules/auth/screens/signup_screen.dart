@@ -9,23 +9,21 @@ import 'package:musaab_adam/core/widgets/custom_button.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text_field.dart';
-
 import '../../../core/assets_gen/assets.gen.dart';
-import '../../../core/utils/app_colors.dart';
 
 class SignUpScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 31.w),
@@ -33,106 +31,20 @@ class SignUpScreen extends StatelessWidget {
             child: Form(
               key: formKey,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBoxWidget(height: 38),
-                  //===================GRAPHICS=========================//
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: SvgPicture.asset(
-                      Assets.icons.grSignup,
-                      width: 240,
-                      height: 235,
-                    ),
-                  ),
-                  SizedBoxWidget(height: 15),
-                  //===================EMAIL=========================//
-                  SizedBoxWidget(height: 8),
-                  CustomTextField(
-                    label: AppStrings.email,
-                    hintText: AppStrings.enterEmail.tr,
-                    controller: emailController,
-                    validator: (value) {
-                      if (value == null ||
-                          !isEmailValid(email: emailController.text.trim())) {
-                        return "Enter a valid email";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBoxWidget(height: 16),
-                  //===================PASSWORD=========================//
-                  CustomTextField(
-                    label: AppStrings.password,
-                    hintText: AppStrings.enterPassword.tr,
-                    controller: passwordController,
-                    isPassword: true,
-                    validator: (value) {
-                      if (value == null ||
-                          !isPasswordValid(
-                            password: passwordController.text.trim(),
-                          )) {
-                        return "Enter a valid password";
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBoxWidget(height: 16),
-                  //===================CONFIRM PASSWORD=========================//
-                  CustomTextField(
-                    label: AppStrings.confirmPassword,
-                    hintText: AppStrings.enterPassword.tr,
-                    controller: confirmPasswordController,
-                    isPassword: true,
-                    validator: (value) {
-                      if (value == null ||
-                          passwordController.text !=
-                              confirmPasswordController.text) {
-                        return "Passwords do not match";
-                      }
-                      return null;
-                    },
-                  ),
+                  Align(alignment: Alignment.topCenter, child: SvgPicture.asset(Assets.icons.grSignup, width: 240.w, height: 235.h)),
+                  CustomTextField(label: AppStrings.email, hintText: AppStrings.enterEmail, controller: emailController, validator: (v) => !isEmailValid(email: v ?? "") ? "Enter valid email" : null),
+                  CustomTextField(label: AppStrings.password, hintText: AppStrings.enterPassword, controller: passwordController, isPassword: true, validator: (v) => !isPasswordValid(password: v ?? "") ? "Invalid password" : null),
+                  CustomTextField(label: AppStrings.confirmPassword, hintText: AppStrings.enterPassword, controller: confirmPasswordController, isPassword: true, validator: (v) => passwordController.text != v ? "Passwords do not match" : null),
                   SizedBoxWidget(height: 20.h),
-                  //===================BUTTON=========================//
-                  CustomButton(
-                    label: AppStrings.signUp.tr,
-                    fontWeight: FontWeight.w700,
-                    buttonHeight: 40.h,
-                    onPressed: () {
-                      // if (formKey.currentState!.validate()) {
-                      //   print("Valid");
-                      // }
-                      Get.offAndToNamed(AppRoutes.verifyEmailScreen);
-                    },
-                  ),
+                  CustomButton(label: AppStrings.signUp, fontWeight: FontWeight.w700, buttonHeight: 40.h, onPressed: () => Get.offAndToNamed(AppRoutes.verifyEmailScreen)),
                   SizedBoxWidget(height: 15.h),
-                  Align(
-                    alignment: AlignmentGeometry.center,
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: AppStrings.alreadyHaveAnAccount.tr,
-                            style: TextStyle(
-                              color: AppColors.black80Percent,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          TextSpan(
-                            text: AppStrings.signIn.tr,
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Get.offAndToNamed(AppRoutes.signInScreen);
-                              },
-                            style: TextStyle(
-                              color: AppColors.primaryColor,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  RichText(
+                    text: TextSpan(children: [
+                      TextSpan(text: AppStrings.alreadyHaveAnAccount.tr, style: TextStyle(color: colorScheme.onSurface.withValues(alpha: 0.7), fontSize: 14.sp)),
+                      TextSpan(text: AppStrings.signIn.tr, recognizer: TapGestureRecognizer()..onTap = () => Get.offAndToNamed(AppRoutes.signInScreen), style: TextStyle(color: colorScheme.primary, fontSize: 14.sp, fontWeight: FontWeight.bold)),
+                    ]),
                   ),
                 ],
               ),

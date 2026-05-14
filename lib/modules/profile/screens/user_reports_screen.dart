@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_choice_chip.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
@@ -8,60 +7,45 @@ import 'package:musaab_adam/core/widgets/custom_text.dart';
 class UserReportsScreen extends StatelessWidget {
   UserReportsScreen({super.key});
 
-  RxBool isAllSelected = true.obs;
-  RxBool isSubmittedSelected = true.obs;
-  RxBool isClosedSelected = true.obs;
+  final RxBool isAllSelected = true.obs;
+  final RxBool isSubmittedSelected = true.obs;
+  final RxBool isClosedSelected = true.obs;
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         centerTitle: true,
-        title: CustomText(text: AppStrings.userReports, fontWeight: FontWeight.w700, fontSize: 18,),
+        leading: BackButton(color: colorScheme.onSurface),
+        title: CustomText(
+          text: AppStrings.userReports,
+          fontWeight: FontWeight.w700,
+          fontSize: 18,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
-            Row(
-              spacing: 15,
-              children: [
-                Obx((){
-                  return CustomChoiceChip(
-                    label: AppStrings.all,
-                    selected: isAllSelected.value,
-                    borderRadius: 50,
-                    onSelected: (bool p1) {
-                      isAllSelected.value = !isAllSelected.value;
-                    },
-                  );
-                }),
-                Obx((){
-                  return CustomChoiceChip(
-                    label: AppStrings.submitted,
-                    selected: isSubmittedSelected.value,
-                    borderRadius: 50,
-                    onSelected: (bool p1) {
-                      isSubmittedSelected.value = !isSubmittedSelected.value;
-                    },
-                  );
-                }),
-                Obx((){
-                  return CustomChoiceChip(
-                    label: AppStrings.closed,
-                    selected: isClosedSelected.value,
-                    borderRadius: 50,
-                    onSelected: (bool p1) {
-                      isClosedSelected.value = !isClosedSelected.value;
-                    },
-                  );
-                })
-              ],
-            )
+        child: Row(
+          spacing: 15,
+          children:[
+            _buildChip(AppStrings.all, isAllSelected),
+            _buildChip(AppStrings.submitted, isSubmittedSelected),
+            _buildChip(AppStrings.closed, isClosedSelected),
           ],
         ),
       ),
     );
+  }
+
+  Widget _buildChip(String label, RxBool state) {
+    return Obx(() => CustomChoiceChip(
+      label: label,
+      selected: state.value,
+      borderRadius: 50,
+      onSelected: (val) => state.value = !state.value,
+    ));
   }
 }

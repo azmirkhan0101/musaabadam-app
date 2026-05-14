@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
-
 import '../../core/assets_gen/assets.gen.dart';
 
 class LivestreamGridItem extends StatelessWidget {
@@ -30,31 +28,36 @@ class LivestreamGridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return GestureDetector(
       onTap: onTap,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children:[
           // 1. User Header
           Row(
-            children: [
+            children:[
               ClipRRect(
                 borderRadius: BorderRadius.circular(50.r),
                 child: CachedImageWidget(
                   height: 25.h,
-                    width: 25.w,
-                    iconSize: 20,
-                    imageUrl: userAvatarUrl
+                  width: 25.w,
+                  iconSize: 20,
+                  imageUrl: userAvatarUrl,
                 ),
               ),
               SizedBox(width: 4.w),
-              CustomText(
-                text: userName,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                fontColor: AppColors.black,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+              Expanded(
+                child: CustomText(
+                  text: userName,
+                  textAlignment: TextAlign.left,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  fontColor: colorScheme.onSurface,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
@@ -65,7 +68,7 @@ class LivestreamGridItem extends StatelessWidget {
             height: 90.h,
             width: 160.w,
             child: Stack(
-              children: [
+              children:[
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10.r),
                   child: Image.network(
@@ -82,17 +85,17 @@ class LivestreamGridItem extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
                     decoration: BoxDecoration(
-                      color: AppColors.backgroundColor.withValues(alpha: 0.9),
+                      color: colorScheme.surface.withValues(alpha: 0.9),
                       borderRadius: BorderRadius.circular(4.r),
                     ),
                     child: Row(
-                      children: [
-                        Icon(Icons.visibility, size: 12.sp, color: Colors.cyan),
+                      children:[
+                        Icon(Icons.visibility, size: 12.sp, color: colorScheme.primary),
                         SizedBox(width: 4.w),
                         CustomText(
                           text: viewerCount,
                           fontSize: 10.sp,
-                          fontColor: Colors.cyan,
+                          fontColor: colorScheme.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ],
@@ -103,25 +106,25 @@ class LivestreamGridItem extends StatelessWidget {
                 Positioned(
                   bottom: 20.h,
                   right: 20.w,
-                  child: SvgPicture.asset(
-                    Assets.icons.liveIcon),
+                  child: SvgPicture.asset(Assets.icons.liveIcon),
                 ),
               ],
             ),
           ),
           // 3. Stream Details
+          SizedBox(height: 4.h),
           CustomText(
             text: streamTitle,
             fontSize: 13,
             fontWeight: FontWeight.w600,
-            fontColor: AppColors.black,
+            fontColor: colorScheme.onSurface,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
           CustomText(
             text: category,
             fontSize: 11.sp,
-            fontColor: AppColors.grey8C,
+            fontColor: colorScheme.outline,
             maxLines: 1,
           ),
         ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:musaab_adam/core/utils/app_constants.dart';
-
 import '../../../core/widgets/cached_image_widget.dart';
 
 class ShowsTab extends StatelessWidget {
@@ -11,36 +10,39 @@ class ShowsTab extends StatelessWidget {
     return GridView.builder(
       itemCount: 6,
       shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-          childAspectRatio: 9/10,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-        ),
-        itemBuilder: (context, index){
-          return showItem(
-              imageUrl: Dummy.live1,
-              userName: "Jackob",
-              userAvatar: Dummy.user1,
-              timeStamp: "Today 8:30 PM"
-          );
-        }
+        childAspectRatio: 9 / 10,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+      ),
+      itemBuilder: (context, index) {
+        return showItem(
+          context,
+          imageUrl: Dummy.live1,
+          userName: "Jackob",
+          userAvatar: Dummy.user2,
+          timeStamp: "Today 8:30 PM",
+        );
+      },
     );
   }
 
-  Widget showItem({
-    required String imageUrl,
-    required String userName,
-    required String userAvatar,
-    required String timeStamp,
-  }) {
+  Widget showItem(
+      BuildContext context, {
+        required String imageUrl,
+        required String userName,
+        required String userAvatar,
+        required String timeStamp,
+      }) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // 1. User Header
+      children:[
         Row(
-          children: [
+          children:[
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: CachedImageWidget(
@@ -52,40 +54,37 @@ class ShowsTab extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               userName,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: colorScheme.onSurface
+              ),
             ),
           ],
         ),
         const SizedBox(height: 8),
-
-        // 2. Main Image with Overlay
         Expanded(
           child: Stack(
-            children: [
-              // The Main Content Image
+            children:[
               Positioned.fill(
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: CachedImageWidget(
-                    imageUrl: imageUrl,
-                  ),
+                  child: CachedImageWidget(imageUrl: imageUrl),
                 ),
               ),
-
-              // The Time Badge Overlay
               Positioned(
                 top: 12,
                 left: 12,
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
+                    color: colorScheme.surface.withValues(alpha: 0.9),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
                     timeStamp,
-                    style: const TextStyle(
-                      color: Color(0xFF0084AD), // Matching the blue in your image
+                    style: TextStyle(
+                      color: colorScheme.primary,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),

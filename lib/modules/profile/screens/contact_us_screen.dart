@@ -3,77 +3,73 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/modules/auth/controllers/auth_controller.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
-import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/widgets/tile_button/tile_button.dart';
-
 import '../../../core/assets_gen/assets.gen.dart';
 
 class ContactUsScreen extends StatelessWidget {
-
   final AuthController authController = Get.find<AuthController>();
-  RxBool isAccountExpanded = false.obs;
-  RxBool isGeneralExpanded = false.obs;
+  final RxBool isAccountExpanded = false.obs;
+  final RxBool isGeneralExpanded = false.obs;
 
-  void toggleAccount() => isAccountExpanded.value = !isAccountExpanded.value;
-  void toggleGeneral() => isGeneralExpanded.value = !isGeneralExpanded.value;
+  ContactUsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         forceMaterialTransparency: true,
         title: CustomText(
-            text: AppStrings.contactUs,
+          text: AppStrings.contactUs,
           fontSize: 18,
           fontWeight: FontWeight.w900,
         ),
         centerTitle: true,
-        leading: const BackButton(),
+        leading: BackButton(color: colorScheme.onSurface),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             spacing: 10.h,
-            children: [
-              //SELLER OPTIONS
-              if( authController.isSeller.value )...[
+            children:[
+              if (authController.isSeller.value)
                 TileButton(
-                  title: AppStrings.payouts, svgIconPath: Assets.icons.payouts, isIconDefault: false, onClick: (){
-                  Get.toNamed(AppRoutes.payoutScreen);
-                },),
-              ],
-              //ACCOUNT OPTIONS
-              expandableSection(
-                  title: AppStrings.account,
-                  isExpanded: isAccountExpanded,
-                  onExpansionChanged: (val) => toggleAccount(),
-                  children: [
-                    tileButtonWithNavigator(title: AppStrings.accountDeletion, defaultIcon: Icons.no_accounts_outlined, isIconDefault: true),
-                    tileButtonWithNavigator(title: AppStrings.banningOrBanned, defaultIcon: Icons.block_flipped, isIconDefault: true),
-                    tileButtonWithNavigator(title: AppStrings.duplicateAccount, defaultIcon: Icons.control_point_duplicate, isIconDefault: true),
-                    tileButtonWithNavigator(title: AppStrings.orderHistoryRequest, defaultIcon: Icons.history, isIconDefault: true),
-                    tileButtonWithNavigator(title: AppStrings.referralCreditInquiries, defaultIcon: Icons.credit_card, isIconDefault: true),
-                    tileButtonWithNavigator(title: AppStrings.updateAccountInformation, defaultIcon: Icons.lightbulb_outline, isIconDefault: true),
-                  ]
+                  title: AppStrings.payouts,
+                  svgIconPath: Assets.icons.payouts,
+                  isIconDefault: false,
+                  onClick: () => Get.toNamed(AppRoutes.payoutScreen),
+                ),
+              _buildExpandableSection(
+                context,
+                title: AppStrings.account,
+                isExpanded: isAccountExpanded,
+                children:[
+                  _tileButtonWithNavigator(AppStrings.accountDeletion, Icons.no_accounts_outlined),
+                  _tileButtonWithNavigator(AppStrings.banningOrBanned, Icons.block_flipped),
+                  _tileButtonWithNavigator(AppStrings.duplicateAccount, Icons.control_point_duplicate),
+                  _tileButtonWithNavigator(AppStrings.orderHistoryRequest, Icons.history),
+                  _tileButtonWithNavigator(AppStrings.referralCreditInquiries, Icons.credit_card),
+                  _tileButtonWithNavigator(AppStrings.updateAccountInformation, Icons.lightbulb_outline),
+                ],
               ),
-              expandableSection(
-                  title: AppStrings.general,
-                  isExpanded: isGeneralExpanded,
-                  onExpansionChanged: (val) => toggleGeneral(),
-                  children: [
-                    tileButtonWithNavigator(title: AppStrings.addNewPayoutMethod.tr, svgIconPath: Assets.icons.newPayment, isIconDefault: false),
-                    tileButtonWithNavigator(title: AppStrings.earlyPayoutAccess.tr, svgIconPath: Assets.icons.earlyPayout, isIconDefault: false),
-                    tileButtonWithNavigator(title: AppStrings.feeInquiries.tr, svgIconPath: Assets.icons.feeInquiry, isIconDefault: false),
-                    tileButtonWithNavigator(title: AppStrings.incorrectBalance.tr, svgIconPath: Assets.icons.insufficientBalance, isIconDefault: false),
-                    //tileButtonWithNavigator(title: AppStrings.paypalCashOutError.tr, svgIconPath: Assets.icons.paypal, isIconDefault: false),
-                    tileButtonWithNavigator(title: AppStrings.stripeCashOutError.tr, svgIconPath: Assets.icons.stripe, isIconDefault: false),
-                  ]
+              _buildExpandableSection(
+                context,
+                title: AppStrings.general,
+                isExpanded: isGeneralExpanded,
+                children:[
+                  _tileButtonWithNavigator(AppStrings.addNewPayoutMethod, null, Assets.icons.newPayment, false),
+                  _tileButtonWithNavigator(AppStrings.earlyPayoutAccess, null, Assets.icons.earlyPayout, false),
+                  _tileButtonWithNavigator(AppStrings.feeInquiries, null, Assets.icons.feeInquiry, false),
+                  _tileButtonWithNavigator(AppStrings.incorrectBalance, null, Assets.icons.insufficientBalance, false),
+                  _tileButtonWithNavigator(AppStrings.stripeCashOutError, null, Assets.icons.stripe, false),
+                ],
               ),
-              const SizedBox(height: 30,)
+              SizedBox(height: 30.h)
             ],
           ),
         ),
@@ -81,58 +77,37 @@ class ContactUsScreen extends StatelessWidget {
     );
   }
 
-  //TILE BUTTON WITH NAVIGATOR
-  TileButton tileButtonWithNavigator({
-    required String title,
-    IconData? defaultIcon,
-    String? svgIconPath,
-    required bool isIconDefault,
-  }) {
+  Widget _tileButtonWithNavigator(String title,[IconData? icon, String? svg, bool isDefault = true]) {
     return TileButton(
       title: title,
-      defaultIcon: defaultIcon,
-      svgIconPath: svgIconPath,
-      isIconDefault: isIconDefault,
-      onClick: () {
-        Get.toNamed(
-          AppRoutes.orderSupportScreen,
-          arguments: title,
-        );
-      },
+      defaultIcon: icon,
+      svgIconPath: svg,
+      isIconDefault: isDefault,
+      onClick: () => Get.toNamed(AppRoutes.orderSupportScreen, arguments: title),
     );
   }
 
-  Widget expandableSection({
+  Widget _buildExpandableSection(BuildContext context, {
     required String title,
     required RxBool isExpanded,
-    required Function(bool) onExpansionChanged,
     required List<Widget> children
   }) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Obx(() => Theme(
-      data: Theme.of(Get.context!).copyWith(dividerColor: Colors.transparent),
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
-        title: CustomText(
-          text: title,
-          fontWeight: FontWeight.w600,
-        ),
+        title: CustomText(text: title, fontWeight: FontWeight.w600),
         tilePadding: EdgeInsets.zero,
-        childrenPadding: EdgeInsets.zero,
         initiallyExpanded: isExpanded.value,
-        onExpansionChanged: onExpansionChanged,
+        onExpansionChanged: (val) => isExpanded.value = val,
         trailing: Icon(
           isExpanded.value ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-          color: AppColors.black,
+          color: colorScheme.onSurface,
         ),
-        children: [
-          Column(
-            children: children
-                .map((child) => Padding(
-              padding: EdgeInsets.only(bottom: 10.h),
-              child: child,
-            ))
-                .toList(),
-          ),
-        ],
+        children: children.map((child) => Padding(
+          padding: EdgeInsets.only(bottom: 10.h),
+          child: child,
+        )).toList(),
       ),
     ));
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 import 'custom_text.dart';
 
 class CustomButton extends StatelessWidget {
@@ -21,7 +20,7 @@ class CustomButton extends StatelessWidget {
   final double? buttonWidth;
   final EdgeInsetsGeometry? padding;
   final double buttonRadius;
-  final Color? backgroundColor; // Now nullable to support theme defaults
+  final Color? backgroundColor;
   final Color? borderColor;
   final Color? iconColor;
   final double? iconSize;
@@ -45,7 +44,7 @@ class CustomButton extends StatelessWidget {
     this.fontSize = 16,
     this.fontWeight = FontWeight.w600,
     this.onPressed,
-    this.buttonHeight = 50,
+    this.buttonHeight = 42,
     this.buttonWidth,
     this.padding,
     this.buttonRadius = 50,
@@ -62,15 +61,20 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final colorScheme = Theme.of(context).colorScheme;
 
-    // Default to Primary color if backgroundColor is null
+    // 1. Determine Background Color
+    // Default to primary color if no background provided.
+    // Using colorScheme ensures it adapts to Dark/Light mode.
     final Color effectiveBackgroundColor = isEnabled
-        ? (backgroundColor ?? theme.primaryColor)
-        : (disabledColor ?? theme.disabledColor);
+        ? (backgroundColor ?? colorScheme.primary)
+        : (disabledColor ?? colorScheme.surfaceContainerHighest);
 
-    // Default text color to surface (contrast color) if not provided
-    final Color effectiveTextColor = textColor ?? theme.colorScheme.onPrimary;
+    // 2. Determine Text Color
+    // If backgroundColor is custom (not null), we default to onSurface for contrast.
+    // If using the default primary button, we use onPrimary for contrast.
+    final Color effectiveTextColor = textColor ??
+        (backgroundColor == null ? colorScheme.onPrimary : colorScheme.onSurface);
 
     return Container(
       height: buttonHeight.h,
@@ -87,7 +91,7 @@ class CustomButton extends StatelessWidget {
         onPressed: isEnabled ? onPressed : null,
         style: ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.transparent, // Background handled by Container
           shadowColor: Colors.transparent,
           disabledBackgroundColor: Colors.transparent,
           shape: RoundedRectangleBorder(

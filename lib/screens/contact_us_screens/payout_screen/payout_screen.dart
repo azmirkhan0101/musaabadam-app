@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../../../core/assets_gen/assets.gen.dart';
-import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/widgets/custom_text.dart';
 import '../../../widgets/tile_button/tile_button.dart';
@@ -13,25 +11,29 @@ class PayoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        title: CustomText(text: AppStrings.contactUs.tr),
+        title: CustomText(text: AppStrings.contactUs),
         centerTitle: true,
-        leading: Icon(Icons.arrow_back_ios_new_rounded),
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, color: colorScheme.onSurface),
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
           spacing: 10.h,
-          children: [
-            TileButton(title: AppStrings.addNewPayoutMethod.tr, svgIconPath: Assets.icons.newPayment, isIconDefault: false,),
-            TileButton(title: AppStrings.earlyPayoutAccess.tr, svgIconPath: Assets.icons.earlyPayout, isIconDefault: false,),
-            TileButton(title: AppStrings.feeInquiries.tr, svgIconPath: Assets.icons.feeInquiry, isIconDefault: false,),
-            TileButton(title: AppStrings.incorrectBalance.tr, svgIconPath: Assets.icons.insufficientBalance, isIconDefault: false,),
-            //TileButton(title: AppStrings.paypalCashOutError.tr, svgIconPath: Assets.icons.paypal, isIconDefault: false,),
-            TileButton(title: AppStrings.stripeCashOutError.tr, svgIconPath: Assets.icons.stripe, isIconDefault: false,),
+          children:[
+            TileButton(title: AppStrings.addNewPayoutMethod, svgIconPath: Assets.icons.newPayment, isIconDefault: false),
+            TileButton(title: AppStrings.earlyPayoutAccess, svgIconPath: Assets.icons.earlyPayout, isIconDefault: false),
+            TileButton(title: AppStrings.feeInquiries, svgIconPath: Assets.icons.feeInquiry, isIconDefault: false),
+            TileButton(title: AppStrings.incorrectBalance, svgIconPath: Assets.icons.insufficientBalance, isIconDefault: false),
+            TileButton(title: AppStrings.stripeCashOutError, svgIconPath: Assets.icons.stripe, isIconDefault: false),
           ],
         ),
       ),

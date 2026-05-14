@@ -7,13 +7,12 @@ import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/utils/app_validator.dart';
 import 'package:musaab_adam/core/widgets/custom_button.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
-import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text_field.dart';
-
+import 'package:musaab_adam/routes/app_pages.dart';
+import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import '../../../core/assets_gen/assets.gen.dart';
 import '../../../core/assets_gen/fonts.gen.dart';
-import '../../../core/utils/app_colors.dart';
-import '../../../routes/app_pages.dart';
+import '../../../core/services/theme_language_service.dart';
 
 class SignInScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -24,8 +23,9 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 31.w),
@@ -34,89 +34,53 @@ class SignInScreen extends StatelessWidget {
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children:[
+                children: [
                   SizedBoxWidget(height: 38),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: SvgPicture.asset(
-                      Assets.icons.grLogin,
-                      width: 281.w,
-                      height: 269.h,
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  CustomTextField(
-                      label: AppStrings.email,
-                      hintText: AppStrings.enterEmail, // CustomTextField should handle translation
-                      controller: emailController,
-                      validator: (value) {
-                        if (value == null || !isEmailValid(email: emailController.text.trim())) {
-                          return "Enter a valid email";
-                        }
-                        return null;
-                      }
-                  ),
+                  Align(alignment: Alignment.topCenter, child: SvgPicture.asset(Assets.icons.grLogin, width: 281.w, height: 269.h)),
+                  SizedBoxWidget(height: 15),
+                  CustomTextField(label: AppStrings.email, hintText: AppStrings.enterEmail, controller: emailController, validator: (v) => !isEmailValid(email: v ?? "") ? "Enter valid email" : null),
                   SizedBoxWidget(height: 16),
-                  CustomTextField(
-                      label: AppStrings.password,
-                      hintText: AppStrings.enterPassword,
-                      controller: passwordController,
-                      isPassword: true,
-                      validator: (value) {
-                        if (value == null || !isPasswordValid(password: passwordController.text.trim())) {
-                          return "Enter a valid password";
-                        }
-                        return null;
-                      }
-                  ),
+                  CustomTextField(label: AppStrings.password, hintText: AppStrings.enterPassword, controller: passwordController, isPassword: true, validator: (v) => !isPasswordValid(password: v ?? "") ? "Enter valid password" : null),
                   Align(
                     alignment: Alignment.centerRight,
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
                       child: GestureDetector(
                         onTap: () => Get.toNamed(AppRoutes.forgotPasswordScreen),
-                        child: CustomText(
-                          text: AppStrings.forgotPassword,
-                          fontFamily: FontFamily.mulish,
-                          fontColor: AppColors.primaryColor,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        child: CustomText(text: AppStrings.forgotPassword, fontFamily: FontFamily.mulish, fontColor: colorScheme.primary, fontSize: 14.sp, fontWeight: FontWeight.w500),
                       ),
                     ),
                   ),
                   SizedBoxWidget(height: 20.h),
-                  CustomButton(
-                    label: AppStrings.signIn,
-                    fontWeight: FontWeight.w700,
-                    buttonHeight: 40.h,
-                    onPressed: () {
-                      Get.offAndToNamed(AppRoutes.mainScreen);
-                    },
-                  ),
+                  CustomButton(label: AppStrings.signIn, fontWeight: FontWeight.w700, buttonHeight: 40.h, onPressed: () => Get.offAndToNamed(AppRoutes.mainScreen)),
                   SizedBoxWidget(height: 10.h),
+                  //#############################################
+                  // // Inside your UI code
+                  // SwitchListTile(
+                  //   title: CustomText(text: "Dark Mode"), // Use your CustomText here
+                  //   value: ThemeLanguageService.to.isDarkMode,
+                  //   onChanged: (val) {
+                  //     ThemeLanguageService.to.toggleTheme();
+                  //   },
+                  // ),
+                  // CustomText(text: "Select Language"), // Your CustomText
+                  // ListTile(
+                  //   title: CustomText(text: "English"),
+                  //   onTap: () => ThemeLanguageService.to.updateLanguage('en_US'),
+                  // ),
+                  // ListTile(
+                  //   title: CustomText(text: "Arabic"),
+                  //   onTap: () => ThemeLanguageService.to.updateLanguage('ar_SA'),
+                  // ),
+                  // //#############################################
+                  // SizedBoxWidget(height: 10.h),
                   Align(
                     alignment: Alignment.center,
                     child: RichText(
                       text: TextSpan(
-                        children:[
-                          TextSpan(
-                            text: AppStrings.dontHaveAnAccount.tr,
-                            style: TextStyle(
-                              color: AppColors.black80Percent,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                          TextSpan(
-                            text: AppStrings.signUp.tr,
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => Get.offAndToNamed(AppRoutes.signUpScreen),
-                            style: TextStyle(
-                                color: AppColors.primaryColor,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
+                        children: [
+                          TextSpan(text: AppStrings.dontHaveAnAccount.tr, style: TextStyle(color: colorScheme.onSurface.withValues(alpha: 0.7), fontSize: 14.sp)),
+                          TextSpan(text: AppStrings.signUp.tr, recognizer: TapGestureRecognizer()..onTap = () => Get.offAndToNamed(AppRoutes.signUpScreen), style: TextStyle(color: colorScheme.primary, fontSize: 14.sp, fontWeight: FontWeight.bold)),
                         ],
                       ),
                     ),

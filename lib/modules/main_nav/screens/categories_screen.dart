@@ -1,141 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/core/utils/app_colors.dart';
-import 'package:musaab_adam/core/utils/app_strings.dart';
-import 'package:musaab_adam/core/components/category_item.dart';
 import 'package:musaab_adam/core/widgets/custom_choice_chip.dart';
-import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-
-import '../../../core/assets_gen/fonts.gen.dart';
+import 'package:musaab_adam/core/components/category_item.dart';
 import '../../../core/utils/app_constants.dart';
 
-
 class CategoriesScreen extends StatelessWidget {
-
-  RxBool recommendedChipSelected = true.obs;
-  RxBool popularChipSelected = false.obs;
-  RxBool azChipSelected = false.obs;
-
   CategoriesScreen({super.key});
+
+  final RxInt selectedIndex = 0.obs;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
-      appBar: appBar(),
-      body: SafeArea(
+      backgroundColor: theme.colorScheme.surface,
+      appBar: AppBar(title: _searchBar(theme)),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.only(left: 15.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  //===================RECOMMENDED=======================//
-                  Obx((){
-                    return CustomChoiceChip(
-                        label: AppStrings.recommended.tr,
-                        selected: recommendedChipSelected.value,
-                        colorChangeable: true,
-                        borderRadius: 20,
-                        borderColor: Colors.transparent,
-                        onSelected: (isSelected){
-                          recommendedChipSelected.value = isSelected;
-                        }
-                    );
-                  }),
-                  SizedBoxWidget(width: 10,),
-                  //===================POPULAR=======================//
-                  Obx((){
-                    return CustomChoiceChip(
-                        label: AppStrings.popular.tr,
-                        selected: popularChipSelected.value,
-                        colorChangeable: true,
-                        borderColor: Colors.transparent,
-                        borderRadius: 20,
-                        onSelected: (isSelected){
-                          popularChipSelected.value = isSelected;
-                        }
-                    );
-                  }),
-                  SizedBoxWidget(width: 10,),
-                  //===================A-Z=======================//
-                  Obx((){
-                    return CustomChoiceChip(
-                        label: AppStrings.az,
-                        selected: azChipSelected.value,
-                        colorChangeable: true,
-                        borderRadius: 20,
-                        onSelected: (isSelected){
-                          azChipSelected.value = isSelected;
-                        }
-                    );
-                  }),
-                ],
+            Row(
+              children: ["Recommended", "Popular", "A-Z"]
+                  .asMap()
+                  .entries
+                  .map(
+                    (e) => Obx(
+                      () => Padding(
+                        padding: EdgeInsets.all(8.w),
+                        child: CustomChoiceChip(
+                          label: e.value,
+                          selected: selectedIndex.value == e.key,
+                          onSelected: (_) => selectedIndex.value = e.key,
+                          borderRadius: 50,
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+            Expanded(
+              child: GridView.builder(
+                itemCount: 12,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  mainAxisExtent: 120,
+                  mainAxisSpacing: 8
+                ),
+                itemBuilder: (context, i) =>
+                    CategoryItem(image: Dummy.product1, itemName: "Watch"),
               ),
             ),
-            Expanded(child: gridViewBuilder())
           ],
-        )
-      )
-    );
-  }
-
-  GridView gridViewBuilder(){
-    return GridView.builder(
-        padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 10.h),
-        shrinkWrap: true,
-        itemCount: 12,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: 0.8,
-            crossAxisCount: 4,
-            mainAxisSpacing: 10.h,
-            crossAxisSpacing: 5
         ),
-        itemBuilder: (context, index){
-          return CategoryItem(
-              marginRight: 0,
-              image: Dummy.product1,
-              itemName: "Watch"
-          );
-        });
-  }
-
-  AppBar appBar(){
-    return AppBar(
-      forceMaterialTransparency: true,
-      title: SearchBar(
-        padding: WidgetStateProperty.all(EdgeInsets.symmetric(horizontal: 10)),
-        hintText: AppStrings.searchOrders.tr,
-        backgroundColor: WidgetStateProperty.all(Colors.transparent),
-        elevation: WidgetStateProperty.all(0),
-        shape: WidgetStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.w),
-            side: BorderSide(color: Colors.blue, width: 1.w),
-          ),
-        ),
-        textStyle: WidgetStateProperty.all(
-          TextStyle(
-              color: AppColors.textColor,
-              fontFamily: FontFamily.openSans,
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w400
-          ),
-        ),
-        hintStyle: WidgetStateProperty.all(
-          TextStyle(
-              color: AppColors.textColor,
-              fontFamily: FontFamily.openSans,
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w400
-          ),
-        ),
-        trailing: [
-          Icon(Icons.search, color: Colors.blue),
-        ],
       ),
     );
   }
+
+  Widget _searchBar(ThemeData theme) => SearchBar(
+    elevation: WidgetStatePropertyAll(0),
+    hintText: "Search...",
+    backgroundColor: WidgetStateProperty.all(
+      theme.colorScheme.surfaceContainer,
+    ),
+    trailing: [Icon(Icons.search, color: theme.colorScheme.primary)],
+  );
 }

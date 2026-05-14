@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:musaab_adam/core/utils/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
-
 import '../../../core/assets_gen/assets.gen.dart';
 import '../../../widgets/image_widget/image_widget.dart';
 
@@ -13,21 +10,21 @@ class MyRewardsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         forceMaterialTransparency: true,
         centerTitle: true,
-        title: CustomText(text: AppStrings.myRewards.tr, fontSize: 18, fontWeight: FontWeight.w700,),
+        title: CustomText(text: AppStrings.myRewards, fontSize: 18, fontWeight: FontWeight.w700),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(height: 40,),
+        children:[
+          SizedBox(height: 40.h),
           Center(child: ImageWidget(width: 183, height: 153, imagePath: Assets.images.giftBox.keyName)),
-          const SizedBox(height: 30,),
+          SizedBox(height: 30.h),
           CustomText(text: AppStrings.theresNothingHereAtTheMoment)
-
         ],
       ),
     );

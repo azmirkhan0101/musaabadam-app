@@ -1,41 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:musaab_adam/core/utils/app_colors.dart';
 import 'package:musaab_adam/core/utils/app_constants.dart';
 import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_button.dart';
-import 'package:musaab_adam/core/widgets/custom_choice_chip.dart';
 import 'package:musaab_adam/modules/profile/components/clips_tab.dart';
 import 'package:musaab_adam/modules/profile/components/review_tab.dart';
 import 'package:musaab_adam/modules/profile/components/shop_tab.dart';
 import 'package:musaab_adam/modules/profile/components/shows_tab.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/widgets/text_button_widget/text_button_widget.dart';
-
-import '../../../core/assets_gen/assets.gen.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/widgets/custom_text.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
 
-  RxInt mainTabCurrentIndex = 0.obs;
+  final RxInt mainTabCurrentIndex = 0.obs;
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         forceMaterialTransparency: true,
-        leading: const BackButton(),
-        actions: [
+        leading: BackButton(color: colorScheme.onSurface),
+        actions:[
           IconButton(
             onPressed: () {},
             icon: Icon(
               Icons.screen_share_outlined,
-              color: AppColors.primaryColor,
+              color: colorScheme.primary,
             ),
           ),
         ],
@@ -45,26 +42,7 @@ class ProfileScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             spacing: 20.h,
-            children: [
-              // Center(
-              //   child: Stack(
-              //     children: [
-              //       ClipRRect(
-              //         borderRadius: BorderRadius.circular(50),
-              //         child: CachedImageWidget(
-              //             imageUrl: Dummy.user1,
-              //           height: 60.h,
-              //           width: 60.w,
-              //         ),
-              //       ),
-              //       Positioned(
-              //         bottom: 0.h,
-              //         right: 0.w,
-              //         child: SvgPicture.asset(Assets.icons.camera),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+            children:[
               ClipRRect(
                 borderRadius: BorderRadius.circular(50),
                 child: CachedImageWidget(
@@ -77,166 +55,122 @@ class ProfileScreen extends StatelessWidget {
                 text: "Henry Jackob",
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
+                fontColor: colorScheme.onSurface,
               ),
+
+              // Stats Container
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryColor,
+                  color: colorScheme.primary,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.star, color: Colors.orangeAccent),
-                            CustomText(text: "4.9", fontColor: AppColors.backgroundColor),
-                          ],
-                        ),
-                        CustomText(
-                          text: "Ratings",
-                          fontSize: 14,
-                          fontColor: AppColors.backgroundColor,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 60,
-                      child: VerticalDivider(
-                        color: AppColors.black50Percent,
-                        thickness: 2,
-                      ),
-                    ),
-                    Column(
-                      children: [
-                        CustomText(text: "1.5k", fontColor: AppColors.backgroundColor),
-                        CustomText(
-                          text: "Follower",
-                          fontSize: 14,
-                          fontColor: AppColors.backgroundColor,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 60,
-                      child: VerticalDivider(
-                        color: AppColors.black50Percent,
-                        thickness: 2,
-                      ),
-                    ),
-                    Column(
-                      children: [
-                        CustomText(text: "7.5k", fontColor: AppColors.backgroundColor),
-                        CustomText(
-                          text: "Following",
-                          fontSize: 14,
-                          fontColor: AppColors.backgroundColor,
-                        ),
-                      ],
-                    ),
+                  children:[
+                    _buildStatColumn("4.9", "Ratings", colorScheme, icon: Icons.star),
+                    _buildVerticalDivider(colorScheme),
+                    _buildStatColumn("1.5k", "Follower", colorScheme),
+                    _buildVerticalDivider(colorScheme),
+                    _buildStatColumn("7.5k", "Following", colorScheme),
                   ],
                 ),
               ),
+
+              // Action Buttons
               Row(
                 spacing: 20.w,
-                children: [
+                children:[
                   Expanded(
                     child: CustomButton(
-                      label: AppStrings.message.tr,
-                      backgroundColor: AppColors.orange,
+                      label: AppStrings.message,
+                      textColor: Colors.white,
+                      backgroundColor: Colors.orange,
                       buttonHeight: 40,
                       fontSize: 14,
-                      onPressed: () {
-                        Get.toNamed(AppRoutes.inboxScreen);
-                      },
+                      onPressed: () => Get.toNamed(AppRoutes.inboxScreen),
                     ),
                   ),
                   Expanded(
                     child: CustomButton(
-                      label: AppStrings.editProfile.tr,
-                      backgroundColor: AppColors.primaryColor,
+                      label: AppStrings.editProfile,
+                      textColor: Colors.white,
+                      backgroundColor: colorScheme.primary,
                       buttonHeight: 40,
                       fontSize: 14,
-                      onPressed: () {
-                        Get.toNamed(AppRoutes.updateProfileScreen);
-                      },
+                      onPressed: () => Get.toNamed(AppRoutes.updateProfileScreen),
                     ),
                   ),
                 ],
               ),
+
+              // Tabs Row
               Row(
                 spacing: 15.w,
-                children: [
-                  Obx(() {
-                    return TextButtonWidget(
-                      text: AppStrings.shop.tr,
-                      textColor: AppColors.black80Percent,
-                      fontSize: 14,
-                      decoration: mainTabCurrentIndex.value == 0
-                          ? TextDecoration.underline
-                          : null,
-                      fontWeight: FontWeight.w600,
-                      onPressed: () {
-                        mainTabCurrentIndex.value = 0;
-                      },
-                    );
-                  }),
-                  Obx(() {
-                    return TextButtonWidget(
-                      text: AppStrings.shows.tr,
-                      textColor: AppColors.black80Percent,
-                      fontSize: 14,
-                      decoration: mainTabCurrentIndex.value == 1
-                          ? TextDecoration.underline
-                          : null,
-                      fontWeight: FontWeight.w600,
-                      onPressed: () {
-                        mainTabCurrentIndex.value = 1;
-                      },
-                    );
-                  }),
-                  Obx(() {
-                    return TextButtonWidget(
-                      text: AppStrings.reviews.tr,
-                      textColor: AppColors.black80Percent,
-                      fontSize: 14,
-                      decoration: mainTabCurrentIndex.value == 2
-                          ? TextDecoration.underline
-                          : null,
-                      fontWeight: FontWeight.w600,
-                      onPressed: () {
-                        mainTabCurrentIndex.value = 2;
-                      },
-                    );
-                  }),
-                  Obx(() {
-                    return TextButtonWidget(
-                      text: AppStrings.clips.tr,
-                      textColor: AppColors.black80Percent,
-                      fontSize: 14,
-                      decoration: mainTabCurrentIndex.value == 3
-                          ? TextDecoration.underline
-                          : null,
-                      fontWeight: FontWeight.w600,
-                      onPressed: () {
-                        mainTabCurrentIndex.value = 3;
-                      },
-                    );
-                  }),
+                children:[
+                  _buildTab(AppStrings.shop.tr, 0, colorScheme),
+                  _buildTab(AppStrings.shows.tr, 1, colorScheme),
+                  _buildTab(AppStrings.reviews.tr, 2, colorScheme),
+                  _buildTab(AppStrings.clips.tr, 3, colorScheme),
                 ],
               ),
-              Obx(() {
-                return IndexedStack(
-                  index: mainTabCurrentIndex.value,
-                  children: [ShopTab(), ShowsTab(), ReviewTab(), ClipsTab()],
-                );
-              }),
+
+              // Tab Content
+              Obx(() => IndexedStack(
+                index: mainTabCurrentIndex.value,
+                children: [ShopTab(), ShowsTab(), ReviewTab(), ClipsTab()],
+              )),
             ],
           ),
         ),
       ),
     );
+  }
+
+  // Helper for Stats Columns
+  Widget _buildStatColumn(String value, String label, ColorScheme colorScheme, {IconData? icon}) {
+    return Column(
+      children: [
+        Row(
+          children:[
+            if (icon != null) Icon(icon, color: Colors.orangeAccent, size: 16),
+            if (icon != null) SizedBox(width: 4.w),
+            CustomText(text: value, fontColor: colorScheme.onPrimary),
+          ],
+        ),
+        CustomText(
+          text: label,
+          fontSize: 14,
+          fontColor: colorScheme.onPrimary.withValues(alpha: 0.9),
+        ),
+      ],
+    );
+  }
+
+  // Helper for Divider
+  Widget _buildVerticalDivider(ColorScheme colorScheme) {
+    return SizedBox(
+      height: 60,
+      child: VerticalDivider(
+        color: colorScheme.onPrimary.withValues(alpha: 0.5),
+        thickness: 2,
+      ),
+    );
+  }
+
+  // Helper for Tabs
+  Widget _buildTab(String title, int index, ColorScheme colorScheme) {
+    return Obx(() {
+      final isSelected = mainTabCurrentIndex.value == index;
+      return TextButtonWidget(
+        text: title,
+        textColor: isSelected ? colorScheme.primary : colorScheme.onSurface.withValues(alpha: 0.7),
+        fontSize: 14,
+        decoration: isSelected ? TextDecoration.underline : null,
+        decorationColor: colorScheme.primary,
+        fontWeight: FontWeight.w600,
+        onPressed: () => mainTabCurrentIndex.value = index,
+      );
+    });
   }
 }

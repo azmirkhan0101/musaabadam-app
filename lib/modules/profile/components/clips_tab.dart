@@ -8,21 +8,21 @@ class ClipsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: 6,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 9/10
-        ),
-        itemBuilder: (context, index){
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: CachedImageWidget(imageUrl: Dummy.live1),
-          );
-        }
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 9 / 10,
+      ),
+      itemBuilder: (context, index) {
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: CachedImageWidget(imageUrl: Dummy.live1),
+        );
+      },
     );
   }
 }

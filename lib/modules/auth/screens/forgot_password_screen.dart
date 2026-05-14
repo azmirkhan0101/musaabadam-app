@@ -8,9 +8,7 @@ import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text_field.dart';
-
 import '../../../core/assets_gen/assets.gen.dart';
-import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_validator.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
@@ -21,8 +19,11 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
+      backgroundColor: colorScheme.surface,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 31.w),
@@ -36,30 +37,30 @@ class ForgotPasswordScreen extends StatelessWidget {
                   //===================GRAPHICS=========================//
                   SvgPicture.asset(
                     Assets.icons.grForgotPass,
-                    width: 240,
-                    height: 238,
+                    width: 240.w,
+                    height: 238.h,
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 15.h),
                   CustomText(
-                    text: AppStrings.forgotYourPassword.tr,
-                    fontColor: AppColors.black50Percent,
+                    text: AppStrings.forgotYourPassword,
+                    fontColor: colorScheme.onSurface.withValues(alpha: 0.6),
                     fontWeight: FontWeight.w700,
+                    fontSize: 18.sp,
                   ),
                   SizedBoxWidget(height: 8),
                   CustomText(
-                    text: AppStrings.noWorries.tr,
-                    fontColor: AppColors.greyA8,
-                    fontSize: 15,
+                    text: AppStrings.noWorries,
+                    fontColor: colorScheme.onSurface.withValues(alpha: 0.5),
+                    fontSize: 15.sp,
                   ),
-                  SizedBoxWidget(height: 10),
+                  SizedBoxWidget(height: 20),
                   //===================EMAIL=========================//
                   CustomTextField(
                     label: AppStrings.email,
-                    hintText: AppStrings.enterEmail.tr,
+                    hintText: AppStrings.enterEmail,
                     controller: emailController,
                     validator: (value) {
-                      if (value == null ||
-                          !isEmailValid(email: emailController.text.trim())) {
+                      if (value == null || !isEmailValid(email: emailController.text.trim())) {
                         return "Enter a valid email";
                       }
                       return null;
@@ -68,36 +69,32 @@ class ForgotPasswordScreen extends StatelessWidget {
                   SizedBoxWidget(height: 30),
                   //===================CONTINUE BUTTON=========================//
                   CustomButton(
-                    label: AppStrings.continuee.tr,
+                    label: AppStrings.continuee,
                     fontWeight: FontWeight.w700,
-                    buttonHeight: 40,
+                    buttonHeight: 40.h,
                     onPressed: () {
-                      // if (formKey.currentState!.validate()) {
-                      //   print("Valid");
-                      // }
-                      Get.toNamed(AppRoutes.checkEmailScreen);
+                      if (formKey.currentState!.validate()) {
+                        Get.toNamed(AppRoutes.checkEmailScreen);
+                      }
                     },
                   ),
                   //===================BACK TO THE PLATFORM=========================//
                   Align(
-                    alignment: AlignmentGeometry.center,
+                    alignment: Alignment.center,
                     child: TextButton(
-                      onPressed: () {
-                        Get.back();
-                      },
+                      onPressed: () => Get.back(),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
                             Icons.arrow_back_rounded,
-                            color: AppColors.primaryColor,
+                            color: colorScheme.primary,
                           ),
                           SizedBoxWidget(width: 8),
                           CustomText(
-                            text: AppStrings.backToThePlatform.tr,
-                            fontColor: AppColors.primaryColor,
-                            fontSize: 14,
+                            text: AppStrings.backToThePlatform,
+                            fontColor: colorScheme.primary,
+                            fontSize: 14.sp,
                           ),
                         ],
                       ),

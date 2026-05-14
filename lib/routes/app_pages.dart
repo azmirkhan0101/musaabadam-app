@@ -19,6 +19,17 @@ import 'package:musaab_adam/modules/profile/screens/preferences_screen.dart';
 import 'package:musaab_adam/modules/profile/screens/privacy_policy_screen.dart';
 import 'package:musaab_adam/modules/profile/screens/sales_tax_exemption.dart';
 import 'package:musaab_adam/modules/profile/screens/user_reports_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/fullfillment_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/schedule_live_show.dart';
+import 'package:musaab_adam/modules/seller/screens/seller_inventory_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/seller_order_screen.dart';
+import 'package:musaab_adam/modules/seller_verification/screens/ready_to_earn_screen.dart';
+import 'package:musaab_adam/modules/seller_verification/screens/seller_address_screen.dart';
+import 'package:musaab_adam/modules/seller_verification/screens/seller_average_earning.dart';
+import 'package:musaab_adam/modules/seller_verification/screens/seller_category_screen.dart';
+import 'package:musaab_adam/modules/seller_verification/screens/seller_faq_screen.dart';
+import 'package:musaab_adam/modules/seller_verification/screens/seller_subcategory_screen.dart';
+import 'package:musaab_adam/modules/seller_verification/screens/seller_type_screen.dart';
 
 import '../modules/activity/screens/activity_details_screen.dart';
 import '../modules/auth/screens/check_email_screen.dart';
@@ -34,6 +45,7 @@ import '../modules/profile/screens/new_address_screen.dart';
 import '../modules/home/screens/add_payment_method_screen.dart';
 import '../modules/profile/screens/addresses_screen.dart';
 import '../modules/home/screens/boost_screen.dart';
+import '../modules/seller/screens/create_quality_listing.dart';
 import '../screens/contact_us_screens/account_information_update_screen/account_information_update_screen.dart';
 import '../screens/contact_us_screens/account_issues_screen/account_issues_screen.dart';
 import '../modules/profile/screens/contact_us_screen.dart';
@@ -131,6 +143,21 @@ class AppPages {
     GetPage(name: AppRoutes.accountIssuesScreen, page: () => AccountIssuesScreen()),
     GetPage(name: AppRoutes.generalIssuesScreen, page: () => GeneralIssuesScreen()),
 
+    //===================SELLER ====================
+    GetPage(name: AppRoutes.createQualityListingScreen, page: () => CreateQualityListingScreen()),
+    GetPage(name: AppRoutes.scheduleLiveShowScreen, page: () => ScheduleLiveShowScreen()),
+    GetPage(name: AppRoutes.fulfillmentScreen, page: () => FulfillmentScreen()),
+    GetPage(name: AppRoutes.sellerPayoutScreen, page: () => FulfillmentScreen()),
+    GetPage(name: AppRoutes.sellerOrderScreen, page: () => SellerOrderScreen()),
+    GetPage(name: AppRoutes.sellerInventoryScreen, page: () => SellerInventoryScreen()),
+    //===================SELLER VERIFICATION====================
+    GetPage(name: AppRoutes.sellerFaqScreen, page: () => SellerFaqScreen()),
+    GetPage(name: AppRoutes.readyToEarnScreen, page: () => ReadyToEarnScreen()),
+    GetPage(name: AppRoutes.sellerCategoryScreen, page: () => SellerCategoryScreen()),
+    GetPage(name: AppRoutes.sellerSubCategoryScreen, page: () => SellerSubcategoryScreen()),
+    GetPage(name: AppRoutes.sellerTypeScreen, page: () => SellerTypeScreen()),
+    GetPage(name: AppRoutes.sellerAddressScreen, page: () => SellerAddressScreen()),
+    GetPage(name: AppRoutes.sellerAverageEarningScreen, page: () => SellerAverageEarning()),
     //===================MISC====================
     GetPage(name: AppRoutes.errorScreen, page: () => ErrorScreen())
   ];
