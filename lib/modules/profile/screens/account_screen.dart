@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:musaab_adam/core/services/role_service.dart';
 import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
 import 'package:musaab_adam/modules/profile/components/payment_shipping_dialog.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
@@ -14,7 +15,9 @@ import '../../../core/assets_gen/assets.gen.dart';
 import '../../../core/utils/app_constants.dart';
 
 class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
+  AccountScreen({super.key});
+
+  final RoleService roleService = Get.find<RoleService>();
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +57,14 @@ class AccountScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBoxWidget(height: 10),
-                //======================ACCOUNT SETTINGS======================//
+                //======================SELLER TOOLS======================//
+                if( roleService.getUpdatedRole() == Role.seller )...[
+                  CustomText(text: AppStrings.tools, fontWeight: FontWeight.w600, fontSize: 20),
+                  _buildTile(AppStrings.sellerTool, Icons.pan_tool_alt_outlined,
+                          () => Get.toNamed(AppRoutes.sellerToolsScreen)
+                  ),
+                ],
+                 //======================ACCOUNT SETTINGS======================//
                 CustomText(text: AppStrings.account, fontWeight: FontWeight.w600, fontSize: 20),
                 SizedBoxWidget(height: 8),
                 //==========================REFERRAL AND REWARDS============================//
@@ -125,6 +135,9 @@ class AccountScreen extends StatelessWidget {
                   buttonHeight: 40,
                   prefixIcon: Icons.output_rounded,
                   buttonWidth: double.infinity,
+                  onPressed: (){
+                    Get.offAllNamed(AppRoutes.signInScreen);
+                  },
                 )
               ],
             ),

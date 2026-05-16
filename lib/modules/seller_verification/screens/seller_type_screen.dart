@@ -79,9 +79,12 @@ class SellerTypeScreen extends StatelessWidget {
                 buttonWidth: double.infinity,
                 textColor: Colors.white,
                 backgroundColor: AppColors.orange,
-                onPressed: selectedIndex.value == -1 ? null : () {
+                onPressed: (){
                   Get.toNamed(AppRoutes.sellerAddressScreen);
                 },
+                // onPressed: selectedIndex.value == -1 ? null : () {
+                //
+                // },
               ),
             ),
           ],

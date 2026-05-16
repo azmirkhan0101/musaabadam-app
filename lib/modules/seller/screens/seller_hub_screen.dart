@@ -271,7 +271,7 @@ class SellerHubScreen extends StatelessWidget {
           CustomText(text: AppStrings.alwaysHaveAShow, fontWeight: FontWeight.w700),
           CustomText(text: AppStrings.alwaysHaveAShowDesc, fontSize: 12),
           SizedBoxWidget(height: 10.h),
-          CustomButton(label: AppStrings.getStarted, buttonWidth: 120.w),
+          IntrinsicWidth(child: CustomButton(label: AppStrings.getStarted)),
         ],
       ),
     );
@@ -289,7 +289,10 @@ class SellerHubScreen extends StatelessWidget {
           children:[
             Icon(icon, color: Colors.white),
             SizedBoxWidget(width: 8.w),
-            CustomText(text: label, fontColor: Colors.white, fontWeight: FontWeight.w600),
+            CustomText(
+                text: label, fontColor: Colors.white, fontWeight: FontWeight.w600,
+              fontSize: 12,
+            ),
           ],
         ),
       ),

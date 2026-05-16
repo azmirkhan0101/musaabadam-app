@@ -81,6 +81,7 @@ class AppRoutes {
   static final sellerPayoutScreen = "/seller-payout-screen";
   static final sellerOrderScreen = "/seller-order-screen";
   static final sellerInventoryScreen = "/seller-inventory-screen";
+  static final sellerToolsScreen = "/seller-tools-screen";
   //static final payoutScreen = "/payout-screen";
   //===================SELLER VERIFICATION====================
   static final sellerFaqScreen = "/seller-faq-screen";

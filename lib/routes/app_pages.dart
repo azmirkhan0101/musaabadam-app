@@ -23,6 +23,7 @@ import 'package:musaab_adam/modules/seller/screens/fullfillment_screen.dart';
 import 'package:musaab_adam/modules/seller/screens/schedule_live_show.dart';
 import 'package:musaab_adam/modules/seller/screens/seller_inventory_screen.dart';
 import 'package:musaab_adam/modules/seller/screens/seller_order_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/seller_tool_screen.dart';
 import 'package:musaab_adam/modules/seller_verification/screens/ready_to_earn_screen.dart';
 import 'package:musaab_adam/modules/seller_verification/screens/seller_address_screen.dart';
 import 'package:musaab_adam/modules/seller_verification/screens/seller_average_earning.dart';
@@ -150,6 +151,7 @@ class AppPages {
     GetPage(name: AppRoutes.sellerPayoutScreen, page: () => FulfillmentScreen()),
     GetPage(name: AppRoutes.sellerOrderScreen, page: () => SellerOrderScreen()),
     GetPage(name: AppRoutes.sellerInventoryScreen, page: () => SellerInventoryScreen()),
+    GetPage(name: AppRoutes.sellerToolsScreen, page: () => SellerToolScreen()),
     //===================SELLER VERIFICATION====================
     GetPage(name: AppRoutes.sellerFaqScreen, page: () => SellerFaqScreen()),
     GetPage(name: AppRoutes.readyToEarnScreen, page: () => ReadyToEarnScreen()),

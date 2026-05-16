@@ -604,5 +604,7 @@ class AppStrings {
   static const String soldFor = 'Sold for: ';
   static const String from = 'From: ';
   static const String zeroProducts = '0 Products';
+  static const String promotions = 'Promotions';
+  static const String inviteASellerEarn = 'Invite a seller, Earn \$100';
 
 }

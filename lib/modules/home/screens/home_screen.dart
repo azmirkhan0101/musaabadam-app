@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:musaab_adam/core/utils/app_constants.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
+import 'package:musaab_adam/modules/main_nav/controllers/main_nav_controller.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/widgets/livestream_grid_item/livestream_grid_item.dart';
 import '../../../core/assets_gen/assets.gen.dart';
@@ -13,7 +14,9 @@ import '../../../core/components/category_item.dart';
 import '../../../widgets/sized_box_widget/sized_box_widget.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  MainNavController controller = MainNavController.to;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,9 @@ class HomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.changeIndex(1);
+                        },
                         child: CustomText(
                           text: AppStrings.viewAll,
                           fontSize: 14,

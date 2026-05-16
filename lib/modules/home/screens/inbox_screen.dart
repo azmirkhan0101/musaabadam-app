@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:musaab_adam/core/widgets/custom_choice_chip.dart';
 import 'package:musaab_adam/modules/home/components/inbox_item.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
 import '../../../core/utils/app_constants.dart';
 
 class InboxScreen extends StatelessWidget {
@@ -28,12 +29,12 @@ class InboxScreen extends StatelessWidget {
           Expanded(child: ListView.builder(itemCount: 7, itemBuilder: (c, i) => InboxItem(imageUrl: Dummy.user1, name: "Hazrat Ali", lastMessage: "Hello", time: "Today", unreadCount: "2"))),
         ],
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: colorScheme.primary,
-        onPressed: () {},
-        label: CustomText(text: "Compose", fontColor: colorScheme.onPrimary),
-        icon: Icon(Icons.edit, color: colorScheme.onPrimary),
-      ),
+      // floatingActionButton: FloatingActionButton.extended(
+      //   backgroundColor: colorScheme.primary,
+      //   onPressed: () {},
+      //   label: CustomText(text: "Compose", fontColor: colorScheme.onPrimary),
+      //   icon: Icon(Icons.edit, color: colorScheme.onPrimary),
+      // ),
     );
   }
 
@@ -43,8 +44,14 @@ class InboxScreen extends StatelessWidget {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ListTile(title: Text("Message Requests"), onTap: () {}),
-          ListTile(title: Text("Archive"), onTap: () {}),
+          ListTile(title: Text("Message Requests"), onTap: () {
+            Get.back();
+            Get.toNamed(AppRoutes.messageRequestScreen);
+          }),
+          ListTile(title: Text("Archive"), onTap: () {
+            Get.back();
+            Get.toNamed(AppRoutes.archiveScreen);
+          }),
         ],
       ),
     ));
