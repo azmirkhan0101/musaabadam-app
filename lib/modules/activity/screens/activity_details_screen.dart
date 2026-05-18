@@ -6,7 +6,7 @@ import 'package:musaab_adam/routes/app_pages.dart';
 import '../../../core/utils/app_constants.dart';
 import '../../../core/widgets/cached_image_widget.dart';
 import '../../../core/widgets/custom_button.dart';
-import '../../../widgets/tile_button/tile_button.dart';
+import '../../../core/widgets/tile_button.dart';
 
 class ActivityDetailsScreen extends StatelessWidget {
   const ActivityDetailsScreen({super.key});

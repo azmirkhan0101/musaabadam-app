@@ -9,7 +9,7 @@ import '../../../core/assets_gen/assets.gen.dart';
 import '../../../core/utils/app_constants.dart';
 import '../../../routes/app_pages.dart';
 import '../../../core/widgets/custom_button.dart';
-import '../../../widgets/sized_box_widget/sized_box_widget.dart';
+import '../../../core/widgets/sized_box_widget.dart';
 import '../../../core/widgets/custom_text_field.dart';
 
 class UpdateProfileScreen extends StatelessWidget {

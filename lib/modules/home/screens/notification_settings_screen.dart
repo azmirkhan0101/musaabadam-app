@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../../core/components/switch_tile.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/widgets/custom_text.dart';
-import '../../../widgets/sized_box_widget/sized_box_widget.dart';
+import '../../../core/widgets/sized_box_widget.dart';
 
 class NotificationSettingsScreen extends StatelessWidget {
   NotificationSettingsScreen({super.key});

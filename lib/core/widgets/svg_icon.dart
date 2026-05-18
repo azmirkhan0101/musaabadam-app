@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class IconWidget extends StatelessWidget {
-  final double height;
-  final double width;
+class SvgIcon extends StatelessWidget {
+  final double? height;
+  final double? width;
   final String icon;
   final Color? color;
 
-  const IconWidget({
+  const SvgIcon({
     super.key,
-    required this.height,
-    required this.width,
+    this.height,
+    this.width,
     required this.icon,
     this.color,
   });
@@ -20,10 +20,10 @@ class IconWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       icon,
-      height: height.h,
-      width: width.w,
+      height: height?.h,
+      width: width?.w,
       fit: BoxFit.cover,
-      color: color,
+      colorFilter: color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
     );
   }
 }

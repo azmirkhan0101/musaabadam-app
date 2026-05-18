@@ -3,20 +3,21 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:musaab_adam/core/services/role_service.dart';
 import 'package:musaab_adam/core/utils/app_constants.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/modules/main_nav/controllers/main_nav_controller.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
-import 'package:musaab_adam/widgets/livestream_grid_item/livestream_grid_item.dart';
+import 'package:musaab_adam/core/components/livestream_grid_item.dart';
 import '../../../core/assets_gen/assets.gen.dart';
 import '../../../core/components/category_item.dart';
-import '../../../widgets/sized_box_widget/sized_box_widget.dart';
+import '../../../core/widgets/sized_box_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends GetView<MainNavController> {
   HomeScreen({super.key});
 
-  MainNavController controller = MainNavController.to;
+  final RoleService roleService = Get.find<RoleService>();
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +54,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 _categoryItems(),
+                //================PROMO CARD IF BUYER================
+                if( roleService.getUpdatedRole() == Role.buyer )
                 _buildPromoCard(theme),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15.w),

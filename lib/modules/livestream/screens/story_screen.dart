@@ -17,7 +17,6 @@ class StoryScreen extends StatelessWidget {
               child: CachedImageWidget(
                   imageUrl: Dummy.live1,
                 fit: BoxFit.cover,
-
               ),
             ),
 
@@ -27,7 +26,9 @@ class StoryScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   children: [
-                    CachedImageWidget(imageUrl: Dummy.user1, height: 45.h, width: 45.w, borderRadius: 50,),
+                    const BackButton(),
+                    const SizedBox(width: 12),
+                    CachedImageWidget(imageUrl: Dummy.user1, height: 42.h, width: 42.w, borderRadius: 50,),
                     const SizedBox(width: 12),
                     const Text(
                       'Azmir Khan',

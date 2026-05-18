@@ -6,7 +6,7 @@ import 'package:musaab_adam/routes/app_pages.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/widgets/custom_text.dart';
-import '../../../widgets/sized_box_widget/sized_box_widget.dart';
+import '../../../core/widgets/sized_box_widget.dart';
 
 AppBar appBar = AppBar(
   centerTitle: true,

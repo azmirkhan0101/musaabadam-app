@@ -33,7 +33,7 @@ class MainNavController extends GetxController{
     super.onInit();
   }
 
-  changeIndex(int newIndex){
+  void changeIndex(int newIndex){
     currentIndex.value = newIndex;
   }
 

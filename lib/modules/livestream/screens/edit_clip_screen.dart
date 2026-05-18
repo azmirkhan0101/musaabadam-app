@@ -53,35 +53,35 @@ class EditClipScreen extends StatelessWidget {
           const SizedBox(height: 30),
 
           // 2. Thumbnail Gallery
-          SizedBox(
-            height: 60,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              itemCount: imageUrls.length + 1, // +1 for the play button
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  // Play Button Item
-                  return Container(
-                    width: 60,
-                    margin: const EdgeInsets.symmetric(horizontal: 2),
-                    color: Colors.blue.withOpacity(0.2),
-                    child: const Icon(Icons.play_arrow, color: Colors.cyan, size: 40),
-                  );
-                }
-
-                // Image Thumbnails
-                return Container(
-                  width: 60,
-                  margin: const EdgeInsets.symmetric(horizontal: 2),
-                  child: Image.network(
-                    imageUrls[index - 1],
-                    fit: BoxFit.cover,
-                  ),
-                );
-              },
-            ),
-          ),
+          // SizedBox(
+          //   height: 60,
+          //   child: ListView.builder(
+          //     scrollDirection: Axis.horizontal,
+          //     padding: const EdgeInsets.symmetric(horizontal: 15),
+          //     itemCount: imageUrls.length + 1, // +1 for the play button
+          //     itemBuilder: (context, index) {
+          //       if (index == 0) {
+          //         // Play Button Item
+          //         return Container(
+          //           width: 60,
+          //           margin: const EdgeInsets.symmetric(horizontal: 2),
+          //           color: Colors.blue.withOpacity(0.2),
+          //           child: const Icon(Icons.play_arrow, color: Colors.cyan, size: 40),
+          //         );
+          //       }
+          //
+          //       // Image Thumbnails
+          //       return Container(
+          //         width: 60,
+          //         margin: const EdgeInsets.symmetric(horizontal: 2),
+          //         child: Image.network(
+          //           imageUrls[index - 1],
+          //           fit: BoxFit.cover,
+          //         ),
+          //       );
+          //     },
+          //   ),
+          // ),
 
           const SizedBox(height: 30),
 

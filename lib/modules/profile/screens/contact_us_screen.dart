@@ -5,7 +5,7 @@ import 'package:musaab_adam/modules/auth/controllers/auth_controller.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
-import 'package:musaab_adam/widgets/tile_button/tile_button.dart';
+import 'package:musaab_adam/core/widgets/tile_button.dart';
 import '../../../core/assets_gen/assets.gen.dart';
 
 class ContactUsScreen extends StatelessWidget {

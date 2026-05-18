@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:musaab_adam/widgets/image_widget/image_widget.dart';
+import 'package:musaab_adam/core/widgets/image_widget.dart';
 
 import '../../../core/assets_gen/assets.gen.dart';
 

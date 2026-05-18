@@ -35,60 +35,65 @@ class MessageScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Obx(
-              () => ListView.builder(
-                itemCount: messages.length,
-                itemBuilder: (context, index) => MessageTile(
-                  message: messages[index].message,
-                  isMe: messages[index].isMe,
-                  imageUrl: Dummy.user1,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: Obx(
+                () => ListView.builder(
+                  itemCount: messages.length,
+                  itemBuilder: (context, index) => MessageTile(
+                    message: messages[index].message,
+                    isMe: messages[index].isMe,
+                    imageUrl: Dummy.user1,
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(16.w),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 12.w),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: colorScheme.primary),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: TextField(
-                      controller: messageController,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Your message...',
+            Padding(
+              padding: EdgeInsets.all(16.w),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: colorScheme.primary),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: TextField(
+                        controller: messageController,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Your message...',
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 8.w),
-                CircleAvatar(
-                  backgroundColor: colorScheme.primary,
-                  child: Transform.rotate(
-                    angle: -pi / 4,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.send,
-                        color: colorScheme.onPrimary,
-                        size: 20,
+                  SizedBox(width: 8.w),
+                  CircleAvatar(
+                    backgroundColor: colorScheme.primary,
+                    child: Transform.rotate(
+                      angle: -pi / 4,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.send,
+                          color: colorScheme.onPrimary,
+                          size: 20,
+                        ),
+                        onPressed: () {
+                          if( messageController.text.trim().isEmpty ) return;
+                          messages.add(MessageModel(message: messageController.text.trim(), isMe: true),);
+                        },
                       ),
-                      onPressed: () {},
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-        ],
+            SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

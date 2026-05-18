@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
 import '../../../core/utils/app_constants.dart';
 import '../components/inbox_item.dart';
 
@@ -26,6 +27,9 @@ class MessageRequestScreen extends StatelessWidget {
               lastMessage: "Please send us carefully",
               time: "Today",
               unreadCount: "2",
+              onTap: (){
+                Get.toNamed(AppRoutes.messageScreen);
+              },
             )));
   }
 }

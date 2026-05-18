@@ -6,7 +6,7 @@ import 'package:musaab_adam/modules/activity/components/challenges_tab.dart';
 import 'package:musaab_adam/modules/activity/components/coupon_tab.dart';
 import 'package:musaab_adam/modules/activity/components/gem_store_tab.dart';
 import 'package:musaab_adam/modules/activity/components/referral_tab.dart';
-import '../../../widgets/text_button_widget/text_button_widget.dart';
+import '../../../core/widgets/text_button_widget.dart';
 
 class RewardsPerksScreen extends StatelessWidget {
   RewardsPerksScreen({super.key});

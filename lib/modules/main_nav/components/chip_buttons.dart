@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../core/utils/app_strings.dart';
 import '../../../core/widgets/custom_choice_chip.dart';
-import '../../../widgets/sized_box_widget/sized_box_widget.dart';
+import '../../../core/widgets/sized_box_widget.dart';
 
 Widget chipButtons = SingleChildScrollView(
   scrollDirection: Axis.horizontal,

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/widgets/custom_text.dart';
-import '../../../widgets/tile_button/tile_button.dart';
+import '../../../core/widgets/tile_button.dart';
 
 class AccountIssuesScreen extends StatelessWidget {
   const AccountIssuesScreen({super.key});

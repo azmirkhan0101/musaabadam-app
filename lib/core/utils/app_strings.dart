@@ -91,6 +91,7 @@ class AppStrings {
   static const String more = "More";
   static const String boost = "Boost";
   static const String clip = "Clip";
+  static const String snapShot = "Snapshot";
   static const String share = "Share";
   static const String wallet = "Wallet";
   static const String shop = "Shop";
@@ -606,5 +607,6 @@ class AppStrings {
   static const String zeroProducts = '0 Products';
   static const String promotions = 'Promotions';
   static const String inviteASellerEarn = 'Invite a seller, Earn \$100';
+  static const String notes = 'Notes';
 
 }

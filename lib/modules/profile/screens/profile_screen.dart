@@ -9,7 +9,7 @@ import 'package:musaab_adam/modules/profile/components/review_tab.dart';
 import 'package:musaab_adam/modules/profile/components/shop_tab.dart';
 import 'package:musaab_adam/modules/profile/components/shows_tab.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
-import 'package:musaab_adam/widgets/text_button_widget/text_button_widget.dart';
+import 'package:musaab_adam/core/widgets/text_button_widget.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/widgets/custom_text.dart';
 
@@ -88,7 +88,7 @@ class ProfileScreen extends StatelessWidget {
                       backgroundColor: Colors.orange,
                       buttonHeight: 40,
                       fontSize: 14,
-                      onPressed: () => Get.toNamed(AppRoutes.inboxScreen),
+                      onPressed: () => Get.toNamed(AppRoutes.messageScreen),
                     ),
                   ),
                   Expanded(

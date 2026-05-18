@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_button.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
-import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
-import 'package:musaab_adam/widgets/text_button_widget/text_button_widget.dart';
+import 'package:musaab_adam/core/widgets/sized_box_widget.dart';
+import 'package:musaab_adam/core/widgets/text_button_widget.dart';
 
 class PayoutsScreen extends StatelessWidget {
   PayoutsScreen({super.key});

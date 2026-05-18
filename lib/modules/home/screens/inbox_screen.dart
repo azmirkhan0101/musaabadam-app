@@ -20,13 +20,36 @@ class InboxScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: colorScheme.surface,
       appBar: AppBar(
-        title: CustomText(text: "Inbox", fontColor: colorScheme.onSurface, fontWeight: FontWeight.bold),
-        actions: [IconButton(onPressed: _showMenuDialog, icon: Icon(Icons.menu, color: colorScheme.onSurface))],
+        title: CustomText(
+          text: "Inbox",
+          fontColor: colorScheme.onSurface,
+          fontWeight: FontWeight.bold,
+        ),
+        actions: [
+          IconButton(
+            onPressed: _showMenuDialog,
+            icon: Icon(Icons.menu, color: colorScheme.onSurface),
+          ),
+        ],
       ),
       body: Column(
         children: [
           // Simplified tab/filter row
-          Expanded(child: ListView.builder(itemCount: 7, itemBuilder: (c, i) => InboxItem(imageUrl: Dummy.user1, name: "Hazrat Ali", lastMessage: "Hello", time: "Today", unreadCount: "2"))),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 7,
+              itemBuilder: (c, i) => InboxItem(
+                imageUrl: Dummy.user1,
+                name: "Hazrat Ali",
+                lastMessage: "Hello",
+                time: "Today",
+                unreadCount: "2",
+                onTap: (){
+                  Get.toNamed(AppRoutes.messageScreen);
+                },
+              ),
+            ),
+          ),
         ],
       ),
       // floatingActionButton: FloatingActionButton.extended(
@@ -39,21 +62,29 @@ class InboxScreen extends StatelessWidget {
   }
 
   void _showMenuDialog() {
-    Get.dialog(AlertDialog(
-      backgroundColor: Get.theme.colorScheme.surfaceContainer,
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ListTile(title: Text("Message Requests"), onTap: () {
-            Get.back();
-            Get.toNamed(AppRoutes.messageRequestScreen);
-          }),
-          ListTile(title: Text("Archive"), onTap: () {
-            Get.back();
-            Get.toNamed(AppRoutes.archiveScreen);
-          }),
-        ],
+    Get.dialog(
+      AlertDialog(
+        backgroundColor: Get.theme.colorScheme.surfaceContainer,
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              title: Text("Message Requests"),
+              onTap: () {
+                Get.back();
+                Get.toNamed(AppRoutes.messageRequestScreen);
+              },
+            ),
+            ListTile(
+              title: Text("Archive"),
+              onTap: () {
+                Get.back();
+                Get.toNamed(AppRoutes.archiveScreen);
+              },
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

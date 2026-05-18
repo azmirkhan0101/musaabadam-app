@@ -5,7 +5,7 @@ import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/core/widgets/custom_text_field.dart';
 import 'package:musaab_adam/core/widgets/custom_choice_chip.dart';
-import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
+import 'package:musaab_adam/core/widgets/sized_box_widget.dart';
 
 class ScheduleLiveShowScreen extends StatelessWidget {
   ScheduleLiveShowScreen({super.key});

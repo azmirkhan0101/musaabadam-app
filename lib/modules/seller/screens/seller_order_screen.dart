@@ -7,7 +7,7 @@ import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_choice_chip.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/core/widgets/custom_text_field.dart';
-import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
+import 'package:musaab_adam/core/widgets/sized_box_widget.dart';
 
 import '../../../core/utils/app_constants.dart';
 

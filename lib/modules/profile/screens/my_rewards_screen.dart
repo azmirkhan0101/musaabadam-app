@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 import '../../../core/assets_gen/assets.gen.dart';
-import '../../../widgets/image_widget/image_widget.dart';
+import '../../../core/widgets/image_widget.dart';
 
 class MyRewardsScreen extends StatelessWidget {
   const MyRewardsScreen({super.key});

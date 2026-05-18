@@ -7,10 +7,10 @@ import 'package:musaab_adam/modules/profile/components/payment_shipping_dialog.d
 import 'package:musaab_adam/routes/app_pages.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_button.dart';
-import 'package:musaab_adam/widgets/labeled_iconbutton/labeled_iconbutton.dart';
-import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
+import 'package:musaab_adam/core/widgets/labeled_iconbutton.dart';
+import 'package:musaab_adam/core/widgets/sized_box_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
-import 'package:musaab_adam/widgets/tile_button/tile_button.dart';
+import 'package:musaab_adam/core/widgets/tile_button.dart';
 import '../../../core/assets_gen/assets.gen.dart';
 import '../../../core/utils/app_constants.dart';
 

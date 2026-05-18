@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:musaab_adam/core/utils/app_colors.dart';
-import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
+import 'package:musaab_adam/core/widgets/sized_box_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 
 class LabeledIconButton extends StatelessWidget {
@@ -76,38 +76,41 @@ class LabeledIconButton extends StatelessWidget {
               ),
             ),
         )
-        : Column(
-            children: [
-              IntrinsicWidth(
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: borderColor, width: borderWidth),
-                    borderRadius: BorderRadius.circular(borderRadius),
-                    color: color,
-                  ),
-                  child: Center(
-                    child: SizedBox(
-                      height: iconHeight.r,
-                      width: iconWidth.r,
-                      child: SvgPicture.asset(
-                        iconPath,
+        : GestureDetector(
+      onTap: onClick,
+          child: Column(
+              children: [
+                IntrinsicWidth(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: borderColor, width: borderWidth),
+                      borderRadius: BorderRadius.circular(borderRadius),
+                      color: color,
+                    ),
+                    child: Center(
+                      child: SizedBox(
                         height: iconHeight.r,
                         width: iconWidth.r,
-                        fit: BoxFit.contain,
+                        child: SvgPicture.asset(
+                          iconPath,
+                          height: iconHeight.r,
+                          width: iconWidth.r,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBoxWidget(height: gap.h),
-              !text.isEmpty ? CustomText(
-                text: text,
-                fontWeight: fontWeight,
-                fontSize: fontSize.sp,
-                fontColor: fontColor ?? AppColors.black,
-              ) : SizedBox.shrink(),
-            ],
-          );
+                SizedBoxWidget(height: gap.h),
+                !text.isEmpty ? CustomText(
+                  text: text,
+                  fontWeight: fontWeight,
+                  fontSize: fontSize.sp,
+                  fontColor: fontColor ?? AppColors.black,
+                ) : SizedBox.shrink(),
+              ],
+            ),
+        );
   }
 }

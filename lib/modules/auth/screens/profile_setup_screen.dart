@@ -6,7 +6,7 @@ import 'package:musaab_adam/core/widgets/custom_button.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/core/widgets/photo_edit_widget.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
-import 'package:musaab_adam/widgets/sized_box_widget/sized_box_widget.dart';
+import 'package:musaab_adam/core/widgets/sized_box_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text_field.dart';
 import '../../../core/components/category_item.dart';
 import '../../../core/utils/app_constants.dart';

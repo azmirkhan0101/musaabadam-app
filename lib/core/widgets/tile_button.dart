@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../core/utils/app_colors.dart';
-import '../../core/widgets/custom_text.dart';
+import '../utils/app_colors.dart';
+import 'custom_text.dart';
 
 class TileButton extends StatelessWidget {
 
