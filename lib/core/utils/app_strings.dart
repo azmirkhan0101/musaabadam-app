@@ -608,5 +608,19 @@ class AppStrings {
   static const String promotions = 'Promotions';
   static const String inviteASellerEarn = 'Invite a seller, Earn \$100';
   static const String notes = 'Notes';
+  static const String inviteASellerEarn100 = 'Invite a seller,Earn \$100';
+  static const String referBuyersGainFollowers = 'Refer Buyers Gain Followers';
+  static const String performance = 'Performance';
+  static const String premierShop = 'Premier Shop';
+  static const String sellerAnalytics = 'Seller Analytics';
+  static const String settings = 'Settings';
+  static const String sellerStatus = 'Seller Status';
+  static const String inviteSellerEarn10 = 'Invite a seller, earn £10';
+  static const String shareInvite = 'Share Invite';
+  static const String learnToPromote = 'Learn how to promote your livestream';
+  static const String itemDimensions = 'Item Dimensions';
+  static const String royalMail = 'Royal Mail Collections and Dropoffs';
+  static const String switchText = 'Switch';
+  static const String veryNice = 'Very nice';
 
 }

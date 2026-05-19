@@ -77,6 +77,7 @@ class CreateQualityListingScreen extends StatelessWidget {
               backgroundColor: colorScheme.primary,
               icon: Icons.arrow_forward_ios,
               prefixIcon: Icons.grid_view_outlined,
+              textColor: Colors.white,
               buttonHeight: 50.h,
               buttonRadius: 8.r,
               onPressed: () {},
@@ -111,6 +112,7 @@ class CreateQualityListingScreen extends StatelessWidget {
               label: AppStrings.variants,
               backgroundColor: colorScheme.primary,
               icon: Icons.arrow_forward_ios,
+              textColor: Colors.white,
               buttonHeight: 50.h,
               buttonRadius: 8.r,
               onPressed: () {},
@@ -140,6 +142,7 @@ class CreateQualityListingScreen extends StatelessWidget {
               backgroundColor: colorScheme.primary,
               icon: Icons.chevron_right,
               prefixIcon: Icons.percent_outlined,
+              textColor: Colors.white,
               buttonHeight: 50.h,
               buttonRadius: 8.r,
               onPressed: () {},
@@ -151,6 +154,7 @@ class CreateQualityListingScreen extends StatelessWidget {
             SizedBoxWidget(height: 20.h),
             CustomButton(
               label: AppStrings.shippingProfile,
+              textColor: Colors.white,
               backgroundColor: colorScheme.primary,
               icon: Icons.chevron_right,
               prefixSvgIcon: null, // Add your SVG path here

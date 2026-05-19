@@ -22,8 +22,7 @@ class SellerHubScreen extends StatelessWidget {
         forceMaterialTransparency: true,
         title: CustomText(text: AppStrings.sellerHub, fontWeight: FontWeight.w700),
         centerTitle: true,
-        actions:[IconButton(onPressed: () {}, icon: Icon(Icons.menu, color: colorScheme.onSurface))],
-      ),
+        ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(

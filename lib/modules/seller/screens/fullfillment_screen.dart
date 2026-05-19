@@ -9,8 +9,12 @@ import 'package:musaab_adam/core/widgets/sized_box_widget.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../../core/widgets/custom_button.dart';
 
+enum ChipCategory { none, needLabel, readyToShip, unfulfilled }
+
 class FulfillmentScreen extends StatelessWidget {
   FulfillmentScreen({super.key});
+
+  final Rx<ChipCategory> selectedCategory = ChipCategory.none.obs;
 
   // State for chips
   final RxBool isFilterSelected = false.obs;
@@ -45,17 +49,19 @@ class FulfillmentScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children:[
-                  _buildChip(AppStrings.filter, isFilterSelected,
+                  _buildChip2(AppStrings.filter, isFilterSelected,
                   onClick: (){
                     showFilterDialog(context);
                   }
                   ),
                   SizedBoxWidget(width: 10.w),
-                  _buildChip(AppStrings.needLabel, isNeedLabelSelected),
+                  _buildChip(AppStrings.needLabel, ChipCategory.needLabel, selectedCategory),
                   SizedBoxWidget(width: 10.w),
-                  _buildChip(AppStrings.readyToShip, isReadyToShipSelected),
+
+                  _buildChip(AppStrings.readyToShip, ChipCategory.readyToShip, selectedCategory),
                   SizedBoxWidget(width: 10.w),
-                  _buildChip(AppStrings.unfulfilled, isUnfulfilledSelected),
+
+                  _buildChip(AppStrings.unfulfilled, ChipCategory.unfulfilled, selectedCategory),
                 ],
               ),
             ),
@@ -81,7 +87,7 @@ class FulfillmentScreen extends StatelessWidget {
   }
 
   // Provided function for chips
-  Widget _buildChip(String label, RxBool state, {VoidCallback? onClick}) {
+  Widget _buildChip2(String label, RxBool state, {VoidCallback? onClick}) {
     return Obx(() => CustomChoiceChip(
       label: label.tr,
       selected: state.value,
@@ -89,6 +95,23 @@ class FulfillmentScreen extends StatelessWidget {
       onSelected: (val){
         state.value = !state.value;
         if(onClick != null) onClick();
+      },
+    ));
+  }
+
+  Widget _buildChip(String label, ChipCategory categoryType, Rx<ChipCategory> groupValue) {
+    return Obx(() => CustomChoiceChip(
+      label: label.tr,
+      // It's selected if the group value matches this specific chip's type
+      selected: groupValue.value == categoryType,
+      borderRadius: 50,
+      onSelected: (val) {
+        // If tapped while already selected, deselect it (set to none). Otherwise, select it.
+        if (groupValue.value == categoryType) {
+          groupValue.value = ChipCategory.none;
+        } else {
+          groupValue.value = categoryType;
+        }
       },
     ));
   }

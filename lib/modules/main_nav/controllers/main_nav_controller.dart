@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:musaab_adam/core/services/role_service.dart';
 import 'package:musaab_adam/core/utils/app_constants.dart';
 import 'package:musaab_adam/modules/profile/screens/account_screen.dart';
-import 'package:musaab_adam/modules/main_nav/screens/activity_screen.dart';
+import 'package:musaab_adam/modules/activity/screens/activity_screen.dart';
 import 'package:musaab_adam/modules/main_nav/screens/categories_screen.dart';
 import 'package:musaab_adam/modules/seller/screens/seller_hub_screen.dart';
 import 'package:musaab_adam/modules/seller_verification/screens/become_a_seller_screen.dart';

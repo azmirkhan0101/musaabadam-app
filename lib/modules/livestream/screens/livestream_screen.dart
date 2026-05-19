@@ -15,6 +15,7 @@ import 'package:musaab_adam/modules/livestream/components/bidding_section.dart';
 import 'package:musaab_adam/modules/livestream/components/comment_item.dart';
 import 'package:musaab_adam/modules/livestream/components/livestream_dialogs.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../core/assets_gen/assets.gen.dart';
 
@@ -252,7 +253,14 @@ class LiveStreamScreen extends StatelessWidget {
               iconPath: Assets.icons.share,
               text: AppStrings.share,
               fontColor: AppColors.primaryColor,
-              onClick: () {},
+              onClick: () async{
+                await SharePlus.instance.share(
+                  ShareParams(title: "Hey! Check this out.",
+                  subject: "Watch this live.",
+                    text: "https://www.something.com/"
+                  )
+                );
+              },
             ),
             LabeledIconButton(
               iconPath: Assets.icons.wallet,

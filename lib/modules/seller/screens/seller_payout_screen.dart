@@ -7,8 +7,8 @@ import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/core/widgets/sized_box_widget.dart';
 import 'package:musaab_adam/core/widgets/text_button_widget.dart';
 
-class PayoutsScreen extends StatelessWidget {
-  PayoutsScreen({super.key});
+class SellerPayoutScreen extends StatelessWidget {
+  SellerPayoutScreen({super.key});
 
   final RxInt currentTab = 0.obs;
 
@@ -84,9 +84,9 @@ class PayoutsScreen extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 20.h),
               child: CustomButton(
                 label: AppStrings.beginSellerVerification,
-                buttonHeight: 50.h,
                 buttonWidth: double.infinity,
                 backgroundColor: colorScheme.primary,
+                textColor: Colors.white,
                 onPressed: () {},
               ),
             ),
@@ -99,7 +99,8 @@ class PayoutsScreen extends StatelessWidget {
   Widget _buildTab(String title, int index, ColorScheme colorScheme) {
     return Obx(() => TextButtonWidget(
       text: title,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
       textColor: currentTab.value == index ? colorScheme.onSurface : colorScheme.outline,
       decoration: currentTab.value == index ? TextDecoration.underline : null,
       onPressed: () => currentTab.value = index,

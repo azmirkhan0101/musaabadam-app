@@ -74,7 +74,7 @@ class AppRoutes {
   static final clipEditScreen = "/clip-edit-screen";
   static final storyScreen = "/story-screen";
 
-  //===================SELLER VERIFICATION====================
+  //===================SELLER====================
   static final createQualityListingScreen = "/create-quality-listing-screen";
   static final scheduleLiveShowScreen = "/schedule-live-show-screen";
   static final fulfillmentScreen = "/fulfillment-screen";
@@ -82,7 +82,15 @@ class AppRoutes {
   static final sellerOrderScreen = "/seller-order-screen";
   static final sellerInventoryScreen = "/seller-inventory-screen";
   static final sellerToolsScreen = "/seller-tools-screen";
-  //static final payoutScreen = "/payout-screen";
+  static final showsScreen = "/shows-screen";
+  static final offersScreen = "/offers-screen";
+  static final tipsScreen = "/tips-screen";
+  static final inviteSellerScreen = "/invite-seller-screen";
+  static final promoteToolScreen = "/promote-tool-screen";
+  static final createShippingProfileScreen = "/create-shipping-profile-screen";
+  static final shippingScreen = "/shipping-screen";
+  static final permissionsScreen = "/permissions-screen";
+  static final rehearsalScreen = "/rehearsal-screen";
   //===================SELLER VERIFICATION====================
   static final sellerFaqScreen = "/seller-faq-screen";
   static final readyToEarnScreen = "/ready-to-earn-screen";

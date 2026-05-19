@@ -3,12 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:musaab_adam/core/utils/app_strings.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
-import 'package:musaab_adam/core/widgets/custom_text_field.dart';
-import 'package:musaab_adam/core/widgets/sized_box_widget.dart';
-import 'package:musaab_adam/core/widgets/text_button_widget.dart';
+import 'package:musaab_adam/routes/app_pages.dart';
 
-class SellerInventoryScreen extends StatelessWidget {
-  SellerInventoryScreen({super.key});
+import '../../../core/assets_gen/assets.gen.dart';
+import '../../../core/widgets/sized_box_widget.dart';
+import '../../../core/widgets/text_button_widget.dart';
+
+class ShowsScreen extends StatelessWidget {
+  ShowsScreen({super.key});
 
   final RxInt selectedTabIndex = 0.obs;
 
@@ -22,7 +24,7 @@ class SellerInventoryScreen extends StatelessWidget {
         forceMaterialTransparency: true,
         leading: BackButton(color: colorScheme.onSurface),
         title: CustomText(
-          text: AppStrings.inventory,
+          text: AppStrings.shows,
           fontSize: 18,
           fontWeight: FontWeight.w700,
           fontColor: colorScheme.onSurface,
@@ -31,7 +33,7 @@ class SellerInventoryScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigate to add new item
+          Get.toNamed(AppRoutes.scheduleLiveShowScreen);
         },
         backgroundColor: colorScheme.primary,
         child: Icon(Icons.add, color: Colors.white, size: 30.sp),
@@ -39,46 +41,31 @@ class SellerInventoryScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children:[
             // 1. Tabs
             Row(
               spacing: 20.w,
               children:[
-                _buildTab(AppStrings.active, 0, colorScheme),
-                _buildTab(AppStrings.draft, 1, colorScheme),
-                _buildTab(AppStrings.inactive, 2, colorScheme),
+                _buildTab(AppStrings.shows, 0, colorScheme),
+                _buildTab(AppStrings.pastShows, 1, colorScheme),
               ],
             ),
-            SizedBoxWidget(height: 15.h),
 
-            // 2. Search & Filter
-            Row(
-              children:[
-                Expanded(
-                  child: CustomTextField(
-                    hintText: AppStrings.search,
-                    controller: TextEditingController(),
-                    label: AppStrings.search,
+            // 2. Empty State
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Image.asset(Assets.images.appLogo.keyName, width: 180.w,),
+                  SizedBoxWidget(height: 20),
+                  CustomText(
+                    text: AppStrings.nothingHere,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    fontColor: colorScheme.onSurface,
                   ),
-                ),
-                SizedBoxWidget(width: 10.w),
-                IconButton(
-                  onPressed: () {
-                    // Open Filter Dialog
-                  },
-                  icon: Icon(Icons.tune, color: colorScheme.primary),
-                ),
-              ],
-            ),
-            SizedBoxWidget(height: 20.h),
-
-            // 3. Products Count
-            CustomText(
-              text: AppStrings.zeroProducts,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              fontColor: colorScheme.onSurface,
+                ],
+              ),
             ),
           ],
         ),
@@ -91,11 +78,11 @@ class SellerInventoryScreen extends StatelessWidget {
       final isSelected = selectedTabIndex.value == index;
       return TextButtonWidget(
         text: title,
-        fontSize: 14,
         textColor: isSelected ? colorScheme.onSurface : colorScheme.outline,
         decoration: isSelected ? TextDecoration.underline : null,
         decorationColor: colorScheme.primary,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
+        fontSize: 16,
         onPressed: () => selectedTabIndex.value = index,
       );
     });

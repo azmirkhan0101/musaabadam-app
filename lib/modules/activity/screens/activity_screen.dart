@@ -5,8 +5,8 @@ import 'package:musaab_adam/core/widgets/cached_image_widget.dart';
 import 'package:musaab_adam/core/widgets/custom_text.dart';
 import 'package:musaab_adam/routes/app_pages.dart';
 import '../../../core/utils/app_constants.dart';
-import '../components/app_bar.dart';
-import '../components/chip_buttons.dart';
+import '../../main_nav/components/app_bar.dart';
+import '../../main_nav/components/chip_buttons.dart';
 
 class ActivityProductItem {
   final String imageUrl;
@@ -81,7 +81,7 @@ class ActivityScreen extends StatelessWidget {
               _buildTab(AppStrings.saved.tr, 3),
             ],
           ),
-          chipButtons,
+          ChipButtonsBar(),
           Expanded(
             child: ListView.builder(
               itemCount: products.length,

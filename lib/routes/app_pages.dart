@@ -19,11 +19,21 @@ import 'package:musaab_adam/modules/profile/screens/preferences_screen.dart';
 import 'package:musaab_adam/modules/profile/screens/privacy_policy_screen.dart';
 import 'package:musaab_adam/modules/profile/screens/sales_tax_exemption.dart';
 import 'package:musaab_adam/modules/profile/screens/user_reports_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/create_shipping_profile_screen.dart';
 import 'package:musaab_adam/modules/seller/screens/fullfillment_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/invite_seller_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/offers_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/permissions_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/promote_tools_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/rehearsal_screen.dart';
 import 'package:musaab_adam/modules/seller/screens/schedule_live_show.dart';
 import 'package:musaab_adam/modules/seller/screens/seller_inventory_screen.dart';
 import 'package:musaab_adam/modules/seller/screens/seller_order_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/seller_payout_screen.dart';
 import 'package:musaab_adam/modules/seller/screens/seller_tool_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/shipping_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/shows_screen.dart';
+import 'package:musaab_adam/modules/seller/screens/tips_screen.dart';
 import 'package:musaab_adam/modules/seller_verification/screens/ready_to_earn_screen.dart';
 import 'package:musaab_adam/modules/seller_verification/screens/seller_address_screen.dart';
 import 'package:musaab_adam/modules/seller_verification/screens/seller_average_earning.dart';
@@ -148,10 +158,19 @@ class AppPages {
     GetPage(name: AppRoutes.createQualityListingScreen, page: () => CreateQualityListingScreen()),
     GetPage(name: AppRoutes.scheduleLiveShowScreen, page: () => ScheduleLiveShowScreen()),
     GetPage(name: AppRoutes.fulfillmentScreen, page: () => FulfillmentScreen()),
-    GetPage(name: AppRoutes.sellerPayoutScreen, page: () => FulfillmentScreen()),
+    GetPage(name: AppRoutes.sellerPayoutScreen, page: () => SellerPayoutScreen()),
     GetPage(name: AppRoutes.sellerOrderScreen, page: () => SellerOrderScreen()),
     GetPage(name: AppRoutes.sellerInventoryScreen, page: () => SellerInventoryScreen()),
     GetPage(name: AppRoutes.sellerToolsScreen, page: () => SellerToolScreen()),
+    GetPage(name: AppRoutes.showsScreen, page: () => ShowsScreen()),
+    GetPage(name: AppRoutes.offersScreen, page: () => OffersScreen()),
+    GetPage(name: AppRoutes.tipsScreen, page: () => TipsScreen()),
+    GetPage(name: AppRoutes.inviteSellerScreen, page: () => InviteSellerScreen()),
+    GetPage(name: AppRoutes.promoteToolScreen, page: () => PromoteToolsScreen()),
+    GetPage(name: AppRoutes.createShippingProfileScreen, page: () => CreateShippingProfileScreen()),
+    GetPage(name: AppRoutes.shippingScreen, page: () => ShippingScreen()),
+    GetPage(name: AppRoutes.permissionsScreen, page: () => PermissionsScreen()),
+    GetPage(name: AppRoutes.rehearsalScreen, page: () => RehearsalScreen()),
     //===================SELLER VERIFICATION====================
     GetPage(name: AppRoutes.sellerFaqScreen, page: () => SellerFaqScreen()),
     GetPage(name: AppRoutes.readyToEarnScreen, page: () => ReadyToEarnScreen()),

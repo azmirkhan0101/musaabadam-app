@@ -134,8 +134,9 @@ class CustomButton extends StatelessWidget {
             CustomText(
               text: label,
               fontColor: effectiveTextColor.withValues(alpha: isEnabled ? 1.0 : 0.6),
-              fontSize: fontSize.sp,
+              fontSize: fontSize,
               fontWeight: fontWeight,
+              overflow: TextOverflow.ellipsis,
             ),
             if (icon != null) ...[
               SizedBox(width: 12.w),
